@@ -18,32 +18,66 @@
 <!-- ======================================================== -->
 <!-- SCREEN 1: LOGIN (Simple & Accessible)                    -->
 <!-- ======================================================== -->
+<!-- SCREEN 1: AUTHENTICATION & EMERGENCY ACCESS (Task 10)    -->
+<!-- ======================================================== -->
 <div id="login" class="screen on">
-  <div style="text-align: center; padding: 24px 0 14px;">
-    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, var(--red), var(--rose)); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 34px; box-shadow: var(--shadow);">
+  <div style="text-align: center; padding: 18px 0 10px;">
+    <div style="width: 72px; height: 72px; background: var(--primary-gradient); border-radius: 22px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 34px; box-shadow: var(--shadow-lg);">
       <i class="fa-solid fa-shield-heart"></i>
     </div>
-    <h1 style="margin: 14px 0 4px; font-size: 26px;">SheGuard AI</h1>
-    <div class="subtitle">
-      मदद जो आपको तुरंत समझे
+    <h1 style="margin: 12px 0 4px; font-size: 26px; color: var(--navy);">SheGuard AI</h1>
+    <div class="subtitle" style="margin-bottom: 8px;">
+      मदद जो आपको तुरंत समझे · AI Blue Fusion Safety Companion
       <span class="sub-hi">Help that understands you instantly</span>
     </div>
-    <div style="font-size: 11px; background: #e0f2fe; color: #0369a1; display: inline-block; padding: 4px 10px; border-radius: 12px; font-weight: 600;">
-      Google Gemini Hackathon 2026 · Team Civic Spark · SSIPMT
+    <div style="font-size: 11px; background: #eff6ff; color: var(--royal-700); border: 1px solid var(--ice-100); display: inline-block; padding: 4px 12px; border-radius: 12px; font-weight: 700;">
+      <i class="fa-solid fa-sparkles"></i> Google Gemini Hackathon 2026 · Team Civic Spark
     </div>
   </div>
 
+  <!-- HIGHEST PRIORITY: EMERGENCY BUZZER ON LOGIN (1-Tap Direct Trigger without login) -->
+  <div class="card" style="border: 2px solid var(--red-border); background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%); box-shadow: 0 8px 24px rgba(220, 38, 38, 0.16); margin-bottom: 16px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <span class="badge red"><i class="fa-solid fa-circle-dot fa-fade"></i> ACTIVE EMERGENCY SOS</span>
+      <span style="font-size: 11px; font-weight: bold; color: var(--red);">NO LOGIN REQUIRED</span>
+    </div>
+    <p style="font-size: 13px; color: #475569; margin: 4px 0 10px; line-height: 1.45;">
+      संकट की स्थिति में तुरंत बजर दबाएं — यह सीधे संपर्क करेगा:
+      <br><strong>1. महिला हेल्पलाइन व 112</strong> &rarr; <strong>2. माता-पिता</strong> &rarr; <strong>3. चयनित संपर्क</strong>
+    </p>
+
+    <button class="siren-btn" onclick="triggerBuzzerFromAnywhere()" style="padding: 18px 14px; min-height: 90px; margin: 4px 0 10px; border-radius: 18px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+        <i class="fa-solid fa-bullhorn" style="font-size: 32px;"></i>
+        <div style="text-align: left;">
+          <span style="font-size: 18px; font-weight: 800; display: block; line-height: 1.2;">TAP EMERGENCY BUZZER</span>
+          <span style="font-size: 12px; font-weight: normal; opacity: 0.95;">अलार्म बजाएं और तीनों स्तरों पर सूचनाएं भेजें</span>
+        </div>
+      </div>
+    </button>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+      <a href="tel:112" class="btn red small" style="margin: 0; justify-content: center; text-decoration: none;">
+        <i class="fa-solid fa-phone"></i> Direct Call 112
+      </a>
+      <a href="tel:181" class="btn light small" style="margin: 0; justify-content: center; text-decoration: none; border-color: #fca5a5; color: var(--red); font-weight: bold;">
+        <i class="fa-solid fa-phone"></i> Helpline 181
+      </a>
+    </div>
+  </div>
+
+  <!-- Sign In Card -->
   <div class="card">
     <h3 style="margin-top: 0; font-size: 18px;">लॉग इन करें / Sign In</h3>
-    <p style="font-size: 13px; color: #665; margin: 0 0 12px;">सुरक्षा कंसोल में प्रवेश करने के लिए अपना नाम और पासवर्ड दर्ज करें:</p>
+    <p style="font-size: 13px; color: var(--muted); margin: 0 0 12px;">सुरक्षा कंसोल में प्रवेश करने के लिए अपना नाम और पासवर्ड दर्ज करें:</p>
     
-    <label style="font-size: 14px; font-weight: 600;">आपका नाम / Full Name</label>
+    <label style="font-size: 13.5px; font-weight: 600; color: var(--navy);">आपका नाम / Full Name</label>
     <input type="text" id="loginName" placeholder="उदा. Roshni Bhojwani" value="Roshni Bhojwani">
 
-    <label style="font-size: 14px; font-weight: 600;">पासवर्ड / Password</label>
+    <label style="font-size: 13.5px; font-weight: 600; color: var(--navy);">पासवर्ड / Password</label>
     <input type="password" id="loginPassword" placeholder="••••••••" value="password123">
 
-    <button class="btn red" id="loginBtn" onclick="doLogin()">
+    <button class="btn" id="loginBtn" onclick="doLogin()">
       <i class="fa-solid fa-arrow-right-to-bracket"></i>
       <span>प्रवेश करें / Enter SheGuard AI</span>
     </button>
@@ -54,10 +88,10 @@
     </button>
   </div>
 
-  <div class="card" style="background: #fff8f8; border-color: #fcc;">
-    <b style="color: var(--red); font-size: 14px;"><i class="fa-solid fa-user-secret"></i> Disguised Silent Mode:</b>
-    <p style="font-size: 13px; margin: 4px 0 0; color: #554; line-height: 1.4;">
-      खतरे के समय यह ऐप कैलकुलेटर का रूप ले लेती है। कैलकुलेटर में <strong style="color: var(--red); font-family: monospace; font-size: 16px;">1234=</strong> दबाकर सीक्रेट कंसोल खोला जा सकता है।
+  <div class="card" style="background: #eff6ff; border-color: var(--ice-100);">
+    <b style="color: var(--royal-800); font-size: 14px;"><i class="fa-solid fa-user-secret"></i> Disguised Silent Mode:</b>
+    <p style="font-size: 13px; margin: 4px 0 0; color: #334155; line-height: 1.4;">
+      खतरे के समय यह ऐप कैलकुलेटर का रूप ले लेती है। कैलकुलेटर में <strong style="color: var(--royal-700); font-family: monospace; font-size: 16px;">1234=</strong> दबाकर सीक्रेट कंसोल खोला जा सकता है।
     </p>
   </div>
 </div>
@@ -215,17 +249,20 @@
 <!-- ======================================================== -->
 <div id="buzzer" class="screen">
   <button class="back-btn" onclick="stopSiren(); go('home');">
-    <i class="fa-solid fa-arrow-left"></i> Back to Home
+    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
   </button>
 
-  <h2 style="color: var(--red);">Emergency Buzzer & Live Alert</h2>
-  <div class="subtitle">तेज अलार्म बजाएं और परिजनों व रेस्पॉन्डर कंसोल को लाइव लोकेशन भेजें</div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+    <h2 style="color: var(--red); margin: 0;">Emergency Buzzer & Cascading SOS</h2>
+    <span class="badge red"><i class="fa-solid fa-circle-dot fa-fade"></i> Priority Mode</span>
+  </div>
+  <div class="subtitle">तेज अलार्म बजाएं · सीधे संपर्क करें: 1. हेल्पलाइन/112, 2. माता-पिता, 3. चयनित संपर्क</div>
 
   <!-- Local Siren Deterrent Toggle -->
   <div class="card" style="padding: 12px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <b style="font-size: 14px;"><i class="fa-solid fa-volume-high"></i> Local Sound Siren & Strobe</b>
-      <div style="font-size: 12px; color: #665;">ध्वनि सायरन और फ्लैशिंग लाइट ऑन/ऑफ करें</div>
+      <b style="font-size: 14px;"><i class="fa-solid fa-volume-high text-red"></i> Loud Siren Sound & Strobe</b>
+      <div style="font-size: 12px; color: var(--muted);">ध्वनि सायरन और फ्लैशिंग लाइट चालू रखें</div>
     </div>
     <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
       <input type="checkbox" id="sirenSoundToggle" checked style="opacity: 0; width: 0; height: 0;">
@@ -234,20 +271,20 @@
   </div>
 
   <!-- Buzzer Trigger Button -->
-  <div style="text-align: center; margin: 14px 0;">
-    <button id="buzzerTriggerBtn" class="siren-btn" onclick="toggleBuzzerAlarm()" style="min-height: 130px; border-radius: 26px;">
-      <i class="fa-solid fa-bullhorn" style="font-size: 40px; margin-bottom: 4px;"></i>
-      <span id="buzzerBtnText" style="font-size: 20px;">TAP TO SOUND ALARM & BROADCAST</span>
-      <span style="font-size: 13px; font-weight: normal; opacity: 0.9;">अलार्म व लाइव लोकेशन भेजने के लिए दबाएं</span>
+  <div style="text-align: center; margin: 10px 0;">
+    <button id="buzzerTriggerBtn" class="siren-btn" onclick="toggleBuzzerAlarm()" style="min-height: 120px; border-radius: 24px;">
+      <i class="fa-solid fa-bullhorn" style="font-size: 38px; margin-bottom: 4px;"></i>
+      <span id="buzzerBtnText" style="font-size: 19px;">TAP TO SOUND ALARM & BROADCAST</span>
+      <span style="font-size: 12px; font-weight: normal; opacity: 0.95;">अलार्म बजाएं और तीनों स्तरों पर सूचनाएं भेजें</span>
     </button>
   </div>
 
   <!-- Live Location Sharing Control -->
-  <div class="card" id="buzzerActiveCard" style="display: none; border-color: var(--red); background: #fef2f2;">
+  <div class="card" id="buzzerActiveCard" style="display: none; border-color: var(--red-border); background: #fef2f2;">
     <div style="display: flex; justify-content: space-between; align-items: start;">
       <div>
         <span class="badge red">Live GPS Streaming</span>
-        <h4 style="margin: 6px 0 2px;">Sharing with Emergency Contacts</h4>
+        <h4 style="margin: 6px 0 2px;">Sharing Coordinates with Emergency Network</h4>
         <p style="font-size: 12px; color: #554; margin: 0;" id="buzzerGpsCoords">Location: 21.2188° N, 81.3855° E</p>
       </div>
       <button class="btn light small" onclick="stopLocationSharing()" style="width: auto; margin: 0; border-color: #fca5a5; color: var(--red);">
@@ -261,42 +298,98 @@
     </div>
   </div>
 
-  <!-- Real Delivery Status Breakdown -->
+  <!-- 3-TIER CASCADING CONTACT DISPATCH SECTION -->
   <div class="card" id="buzzerDispatchCard">
-    <h3 style="font-size: 15px; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-      <i class="fa-solid fa-satellite-dish" style="color: var(--red);"></i>
-      <span>Alert Delivery Status / भेजी गई सूचनाएं:</span>
-    </h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <h3 style="font-size: 15px; margin: 0; display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-satellite-dish" style="color: var(--red);"></i>
+        <span>Emergency Contact Dispatch Cascade:</span>
+      </h3>
+      <span class="badge red small" id="cascadeLiveBadge">Priority Protocol</span>
+    </div>
+    <p style="font-size: 12px; color: var(--muted); margin: 0 0 10px;">
+      प्राथमिकता क्रम: <strong>1. महिला हेल्पलाइन व 112</strong> &rarr; <strong>2. माता-पिता</strong> &rarr; <strong>3. चयनित संपर्क</strong>
+    </p>
 
-    <div id="buzzerDeliveryList" style="font-size: 13px; line-height: 1.6; color: #332;">
-      <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
-        <span><strong>Mom (+91 98765 00001):</strong></span>
-        <span class="badge amber">Standby (Ready)</span>
+    <!-- TIER 1: Women Helplines & 112 (Immediate First Priority) -->
+    <div class="cascade-tier-card tier-1">
+      <div class="tier-header">
+        <span class="tier-number-pill"><i class="fa-solid fa-shield-halved"></i> Tier 1 · First Priority</span>
+        <span class="badge green" id="tier1StatusBadge">Connected & Dispatched</span>
       </div>
-      <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
-        <span><strong>Sakshi (+91 98765 00002):</strong></span>
-        <span class="badge amber">Standby</span>
+      <div style="font-weight: bold; font-size: 13.5px; color: var(--navy); margin-bottom: 3px;">
+        🚨 Women Helpline Numbers & 112 ERSS
       </div>
-      <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
-        <span><strong>Police Responder Console:</strong></span>
-        <span class="badge green">Connected</span>
+      <div style="font-size: 11.5px; color: #475569; margin-bottom: 8px;">
+        लाइव जीपीएस टेलीमेट्री 112 कंट्रोल रूम व महिला थाना को प्रेषित।
       </div>
-      <div style="padding: 6px 0; display: flex; justify-content: space-between; align-items: center;">
-        <div>
-          <strong>Mahila Thana Bhilai (1.2 km):</strong>
-          <div style="font-size: 11px; color: #665;">One-tap handoff + ERSS telemetry</div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+        <a href="tel:112" class="btn red small" style="margin: 0; justify-content: center; text-decoration: none; padding: 6px;">
+          <i class="fa-solid fa-phone"></i> 112
+        </a>
+        <a href="tel:181" class="btn small" style="margin: 0; justify-content: center; text-decoration: none; padding: 6px; background: #e11d48; color: #fff;">
+          <i class="fa-solid fa-phone"></i> 181
+        </a>
+        <a href="tel:1091" class="btn small" style="margin: 0; justify-content: center; text-decoration: none; padding: 6px; background: var(--royal-700); color: #fff;">
+          <i class="fa-solid fa-phone"></i> 1091
+        </a>
+      </div>
+    </div>
+
+    <!-- TIER 2: Parents (Second Priority) -->
+    <div class="cascade-tier-card tier-2">
+      <div class="tier-header">
+        <span class="tier-number-pill"><i class="fa-solid fa-house-chimney-medical"></i> Tier 2 · Second Priority</span>
+        <span class="badge green" id="tier2StatusBadge">SOS Dispatched</span>
+      </div>
+      <div style="font-weight: bold; font-size: 13.5px; color: var(--navy); margin-bottom: 3px;">
+        👨‍👩‍👧 Parents Alert (Mom / Dad)
+      </div>
+      <div id="tier2List" style="font-size: 12.5px; color: #334155; margin-bottom: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
+          <span><strong>Mom (+91 98765 00001):</strong></span>
+          <span style="font-size: 11px; color: var(--green); font-weight: bold;">SMS + WhatsApp Dispatched</span>
         </div>
-        <span class="badge green">1-Tap Ready</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+        <button class="btn light small" onclick="callParent()" style="margin: 0; justify-content: center; border-color: var(--royal-400); color: var(--royal-700); font-weight: bold;">
+          <i class="fa-solid fa-phone"></i> Call Mom
+        </button>
+        <button class="btn small" onclick="whatsappParent()" style="margin: 0; justify-content: center; background: #15803d; color: white;">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp SOS
+        </button>
+      </div>
+    </div>
+
+    <!-- TIER 3: Selected Emergency Contacts (Third Priority) -->
+    <div class="cascade-tier-card tier-3">
+      <div class="tier-header">
+        <span class="tier-number-pill"><i class="fa-solid fa-users"></i> Tier 3 · Third Priority</span>
+        <span class="badge blue" id="tier3StatusBadge">Broadcast Active</span>
+      </div>
+      <div style="font-weight: bold; font-size: 13.5px; color: var(--navy); margin-bottom: 3px;">
+        👥 Selected Trusted Contacts
+      </div>
+      <div id="tier3List" style="font-size: 12px; color: #475569; margin-bottom: 4px;">
+        <div class="contact-row">
+          <span>Sakhi (Civic Spark - Friend):</span>
+          <span class="badge green small">Delivered</span>
+        </div>
+        <div class="contact-row">
+          <span>Archita (Civic Spark - Friend):</span>
+          <span class="badge green small">Delivered</span>
+        </div>
+        <div class="contact-row">
+          <span>Campus Security Hub:</span>
+          <span class="badge green small">Delivered</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-    <a href="tel:112" style="text-decoration: none;">
-      <button class="btn red" style="margin: 0;"><i class="fa-solid fa-phone"></i> Call 112</button>
-    </a>
-    <a href="tel:1091" style="text-decoration: none;">
-      <button class="btn indigo" style="margin: 0;"><i class="fa-solid fa-phone"></i> Call 1091</button>
+  <div style="margin-top: 10px;">
+    <a href="/responder.html" target="_blank" class="btn light small" style="width: 100%; justify-content: center; text-decoration: none;">
+      <i class="fa-solid fa-desktop text-indigo"></i> Open Live Police Responder Console (Demo)
     </a>
   </div>
 </div>

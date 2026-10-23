@@ -278,6 +278,22 @@ function startSirenSound() {
   }
 }
 
+function triggerBuzzerFromAnywhere() {
+  go('buzzer');
+  if (!isSirenActive) {
+    toggleBuzzerAlarm();
+  }
+}
+
+function callParent() {
+  location.href = 'tel:+919876500001';
+}
+
+function whatsappParent() {
+  const msg = `🚨 EMERGENCY SOS! Mom, I activated the SheGuard Emergency Buzzer. Please call me or send help immediately! My location: https://maps.google.com/?q=21.2188,81.3855`;
+  window.open(`https://wa.me/919876500001?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
 function stopSiren() {
   if (sirenTimer) { clearInterval(sirenTimer); sirenTimer = null; }
   if (sirenOsc) {
@@ -327,20 +343,50 @@ async function toggleBuzzerAlarm() {
         // Show active GPS box
         $('buzzerActiveCard').style.display = 'block';
         $('buzzerGpsCoords').textContent = `Coordinates: ${loc.lat.toFixed(4)}° N, ${loc.lng.toFixed(4)}° E`;
-        $('viewLiveTrackLink').href = data.trackingUrl || `/tracking.html?id=${data.alertId}`;
+        if ($('viewLiveTrackLink')) $('viewLiveTrackLink').href = data.trackingUrl || `/tracking.html?id=${data.alertId}`;
+        if ($('viewLiveTrackLink2')) $('viewLiveTrackLink2').href = data.trackingUrl || `/tracking.html?id=${data.alertId}`;
 
-        // Render real delivery status breakdown
-        const alert = data.alert;
-        if (alert && alert.deliveryStatus) {
-          $('buzzerDeliveryList').innerHTML = alert.deliveryStatus.map(d => `
-            <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <strong>${d.name}:</strong>
-                <div style="font-size: 11px; color: #665;">${d.channel || 'Gateway'}</div>
+        // Render 3-Tier Cascading Priority Status
+        if (data.tiers) {
+          // Tier 1: Helplines & 112
+          if ($('tier1StatusBadge')) {
+            $('tier1StatusBadge').className = 'badge green';
+            $('tier1StatusBadge').innerHTML = '<i class="fa-solid fa-check"></i> Connected & Dispatched';
+          }
+
+          // Tier 2: Parents
+          if (data.tiers.tier2 && $('tier2List')) {
+            $('tier2List').innerHTML = data.tiers.tier2.map(p => `
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid rgba(226, 232, 240, 0.7);">
+                <div>
+                  <strong style="color: var(--navy);">${p.name}:</strong>
+                  <div style="font-size: 11px; color: #64748b;">${p.phone} · ${p.channel}</div>
+                </div>
+                <span class="badge green small"><i class="fa-solid fa-check"></i> Dispatched</span>
               </div>
-              <span class="badge ${d.status === 'Delivered' || d.status.includes('Dispatched') ? 'green' : 'amber'}">${d.status}</span>
-            </div>
-          `).join('');
+            `).join('');
+            if ($('tier2StatusBadge')) {
+              $('tier2StatusBadge').className = 'badge green';
+              $('tier2StatusBadge').innerHTML = '<i class="fa-solid fa-check"></i> SOS Dispatched';
+            }
+          }
+
+          // Tier 3: Selected Contacts
+          if (data.tiers.tier3 && $('tier3List')) {
+            $('tier3List').innerHTML = data.tiers.tier3.map(c => `
+              <div class="contact-row">
+                <div>
+                  <strong style="color: var(--navy);">${c.name}:</strong>
+                  <div style="font-size: 11px; color: #64748b;">${c.phone} · ${c.channel}</div>
+                </div>
+                <span class="badge green small"><i class="fa-solid fa-check"></i> Delivered</span>
+              </div>
+            `).join('');
+            if ($('tier3StatusBadge')) {
+              $('tier3StatusBadge').className = 'badge green';
+              $('tier3StatusBadge').innerHTML = '<i class="fa-solid fa-check"></i> Broadcast Active';
+            }
+          }
         }
       }
     } catch (err) {

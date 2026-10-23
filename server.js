@@ -422,6 +422,87 @@ app.post(['/api/buzzer/trigger', '/buzzer'], (req, res) => {
   const trackingUrl = `/tracking.html?id=${alertId}`;
   const mapUrl = `https://maps.google.com/?q=${userLoc.lat},${userLoc.lng}`;
 
+  const contacts = (db.contacts && db.contacts.length) ? db.contacts : (user.trustedContacts || []);
+
+  // 1. Tier 1: Women Helpline numbers & 112 (First Priority)
+  const tier1Helplines = [
+    {
+      tier: 1,
+      tierTitle: 'Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)',
+      name: 'ERSS 112 Command Desk',
+      phone: '112',
+      status: 'Connected & Dispatched',
+      channel: 'ERSS Telemetry Feed',
+      priority: 1,
+      type: 'emergency',
+      action: 'tel:112'
+    },
+    {
+      tier: 1,
+      tierTitle: 'Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)',
+      name: 'National Women Helpline (Sakhi One Stop Centre)',
+      phone: '181',
+      status: 'Priority Connected',
+      channel: 'National Women Helpline Hotline',
+      priority: 1,
+      type: 'women_helpline',
+      action: 'tel:181'
+    },
+    {
+      tier: 1,
+      tierTitle: 'Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)',
+      name: 'Women Police Station (Mahila Thana Bhilai 1.2 km)',
+      phone: '1091',
+      status: 'Dispatched to PCR Unit',
+      channel: 'Police Responder Console',
+      priority: 1,
+      type: 'police',
+      action: 'tel:1091'
+    }
+  ];
+
+  // 2. Tier 2: Parents (Second Priority)
+  const parentContacts = contacts.filter(c => {
+    const rel = (c.relation || '').toLowerCase();
+    const name = (c.name || '').toLowerCase();
+    return rel.includes('mother') || rel.includes('father') || rel.includes('parent') || name.includes('mom') || name.includes('dad') || name.includes('maa') || name.includes('papa');
+  });
+
+  const tier2Parents = (parentContacts.length ? parentContacts : [{ name: 'Mom (Primary Guardian)', phone: '+91 98765 00001', relation: 'Mother' }]).map(p => ({
+    tier: 2,
+    tierTitle: 'Tier 2: Parents (Second Priority)',
+    name: p.name,
+    phone: p.phone,
+    relation: p.relation || 'Parent',
+    status: 'SOS SMS & WhatsApp Dispatched',
+    channel: 'Priority Family Alert Gateway',
+    priority: 2,
+    type: 'parent',
+    action: `tel:${p.phone.replace(/[^0-9+]/g, '')}`,
+    message: `🚨 URGENT SOS to Parents! ${user.name} activated Emergency Buzzer near ${userLoc.address}. Live GPS: ${trackingUrl} (${mapUrl})`
+  }));
+
+  // 3. Tier 3: Selected Emergency Contacts (Third Priority)
+  const otherContacts = contacts.filter(c => !parentContacts.includes(c));
+  const tier3Selected = (otherContacts.length ? otherContacts : [
+    { name: 'Sakhi (Civic Spark)', phone: '+91 98765 00002', relation: 'Trusted Friend' },
+    { name: 'Campus Security Hub', phone: '+91 94250 99881', relation: 'Campus Guard' }
+  ]).map(c => ({
+    tier: 3,
+    tierTitle: 'Tier 3: Selected Emergency Contacts (Third Priority)',
+    name: c.name,
+    phone: c.phone,
+    relation: c.relation || 'Contact',
+    status: 'Delivered',
+    channel: 'Broadcast SMS / WhatsApp Network',
+    priority: 3,
+    type: 'contact',
+    action: `tel:${c.phone.replace(/[^0-9+]/g, '')}`,
+    message: `🚨 EMERGENCY ALERT from ${user.name}! Live GPS tracking: ${trackingUrl} (${mapUrl})`
+  }));
+
+  const allDelivery = [...tier1Helplines, ...tier2Parents, ...tier3Selected];
+
   const alertRecord = {
     id: alertId,
     timestamp: now.toISOString(),
@@ -444,16 +525,12 @@ app.post(['/api/buzzer/trigger', '/buzzer'], (req, res) => {
     }],
     trackingUrl,
     mapUrl,
-    deliveryStatus: (db.contacts || []).map(c => ({
-      name: c.name,
-      phone: c.phone,
-      status: 'Delivered',
-      channel: 'SMS / WhatsApp Gateway',
-      message: `${silent ? '🤫 SILENT SOS' : '🚨 EMERGENCY ALERT'} from ${user.name}! Live GPS tracking: ${trackingUrl} (${mapUrl})`
-    })).concat([
-      { name: 'Women Police Station (Mahila Thana Bhilai 1.2 km)', phone: '0788-2221091', status: 'Dispatched to PCR Unit', channel: 'Police Responder Console' },
-      { name: 'ERSS 112 Command Desk', phone: '112', status: 'Dispatched', channel: 'ERSS Telemetry Feed' }
-    ])
+    deliveryStatus: allDelivery,
+    tiers: {
+      tier1: tier1Helplines,
+      tier2: tier2Parents,
+      tier3: tier3Selected
+    }
   };
 
   db.alerts.unshift(alertRecord);
@@ -465,9 +542,14 @@ app.post(['/api/buzzer/trigger', '/buzzer'], (req, res) => {
     alertId,
     trackingUrl,
     mapUrl,
+    tiers: {
+      tier1: tier1Helplines,
+      tier2: tier2Parents,
+      tier3: tier3Selected
+    },
     message: silent
       ? 'Silent distress beacon transmitted to trusted contacts and Responder Console.'
-      : 'Emergency alert broadcast sent to all contacts, live tracking initiated.'
+      : 'Emergency alert cascade dispatched: 1. 112 & Women Helplines, 2. Parents, 3. Selected Contacts.'
   });
 });
 
