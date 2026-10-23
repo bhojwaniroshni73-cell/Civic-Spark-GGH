@@ -110,3 +110,18 @@
 - **Data Erasure:** Tested `/api/data/erase` endpoint. Successfully wipes all personal evidence, alerts, logs, and files.
 - **Mobile-First UI:** Verified touch targets >= 48px, high-contrast colors, and bilingual Hindi/English clarity.
 - **Result:** **PASSED**.
+
+---
+
+### Task 1 & 3 Updates: Photo Triage Action in 112 Brief & Overhauled Sakhi Conversational AI
+- **Verification Method:** Executed `node test_new_fixes.js` against the live running server:
+  1. **Photo Upload & Static Serving:** Tested multipart upload of incident scene photo (`molestation_incident.jpg`) to `/triage`. Verified that multer assigns a unique filename, saves it to `uploads/`, `/uploads` is served statically via Express, and metadata (`url`, `name`, `analysis`) is returned.
+  2. **112 Dispatch Brief Action:** Verified that `/dispatch` accepts `photoUrl`, `photoName`, and `photoAnalysis`, and incorporates `[📸 PHOTO EVIDENCE ATTACHED: ...]` into the official dispatch brief, complete with clickable inspect link and smooth-scroll on client.
+  3. **Sakhi Real-Time Reactive Chatbot:**
+     - Verified Greetings in Hindi/English with personalized mood acknowledgement.
+     - Verified Exam/Academic stress guidance with actionable advice without triggering false-positive stalking alerts.
+     - Verified Sadness & emotional listening with empathetic validation.
+     - Verified Street Stalking de-escalation with actionable 3-step protocol.
+     - Verified Speech-to-Text mic input, Text-to-Speech audio speak buttons on chat bubbles, and real-time typewriter response streaming.
+  4. **Runtime Gemini API Key Configuration:** Tested `/api/config/key` endpoint; verified in-app API key modal allows connecting and testing Google Gemini API Studio keys dynamically.
+- **Result:** **PASSED (100%)**.

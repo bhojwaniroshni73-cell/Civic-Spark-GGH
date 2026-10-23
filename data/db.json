@@ -42,6 +42,1534 @@
   ],
   "alerts": [
     {
+      "id": "ALERT-943721",
+      "timestamp": "2026-10-23T06:12:23.721Z",
+      "formattedTime": "11:42 am",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Sector 6 Market Road, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T06:12:23.721Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-943721",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943721 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943721 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943721 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943721 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943721 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-943658",
+      "timestamp": "2026-10-23T06:12:23.658Z",
+      "formattedTime": "11:42 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "Patrol Dispatched",
+      "responderNotes": "PCR-04 En Route",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.2188,
+        "lng": 81.3855,
+        "address": "Sector 6 Bhilai"
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T06:12:23.658Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-943658",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943658 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943658 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943658 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943658 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-943658 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-852890",
+      "timestamp": "2026-10-23T06:10:52.890Z",
+      "formattedTime": "11:40 am",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Sector 6 Market Road, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T06:10:52.890Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-852890",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852890 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852890 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852890 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852890 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852890 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-852824",
+      "timestamp": "2026-10-23T06:10:52.824Z",
+      "formattedTime": "11:40 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "Patrol Dispatched",
+      "responderNotes": "PCR-04 En Route",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.2188,
+        "lng": 81.3855,
+        "address": "Sector 6 Bhilai"
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T06:10:52.824Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-852824",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852824 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852824 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852824 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852824 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-852824 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-204533",
+      "timestamp": "2026-10-23T06:00:04.533Z",
+      "formattedTime": "11:30 am",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Sector 6 Market Road, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T06:00:04.533Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-204533",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204533 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204533 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204533 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204533 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204533 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-204471",
+      "timestamp": "2026-10-23T06:00:04.471Z",
+      "formattedTime": "11:30 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "Patrol Dispatched",
+      "responderNotes": "PCR-04 En Route",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.2188,
+        "lng": 81.3855,
+        "address": "Sector 6 Bhilai"
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T06:00:04.471Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-204471",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204471 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204471 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204471 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204471 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-204471 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-373159",
+      "timestamp": "2026-10-23T04:22:53.159Z",
+      "formattedTime": "09:52 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.23464268193133,
+        "lng": 81.34643500845493,
+        "accuracy": 81,
+        "address": "Sector 6 Market Road, Bhilai, CG (Live Coordinates)"
+      },
+      "history": [
+        {
+          "lat": 21.23461875078412,
+          "lng": 81.34625591327006,
+          "timestamp": "2026-10-23T04:22:53.159Z"
+        },
+        {
+          "lat": 21.234616708616695,
+          "lng": 81.34625414435922,
+          "timestamp": "2026-10-23T04:23:09.028Z"
+        },
+        {
+          "lat": 21.234616708616695,
+          "lng": 81.34625414435922,
+          "timestamp": "2026-10-23T04:23:17.308Z"
+        },
+        {
+          "lat": 21.234623837856205,
+          "lng": 81.34624597800149,
+          "timestamp": "2026-10-23T04:23:52.106Z"
+        },
+        {
+          "lat": 21.234623837856205,
+          "lng": 81.34624597800149,
+          "timestamp": "2026-10-23T04:23:52.115Z"
+        },
+        {
+          "lat": 21.234623837856205,
+          "lng": 81.34624597800149,
+          "timestamp": "2026-10-23T04:23:53.325Z"
+        },
+        {
+          "lat": 21.234623837856205,
+          "lng": 81.34624597800149,
+          "timestamp": "2026-10-23T04:24:08.836Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.208Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.218Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.225Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.233Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.239Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.246Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:12.251Z"
+        },
+        {
+          "lat": 21.234705576723435,
+          "lng": 81.34621992547986,
+          "timestamp": "2026-10-23T04:26:17.382Z"
+        },
+        {
+          "lat": 21.234639941586988,
+          "lng": 81.34626723176184,
+          "timestamp": "2026-10-23T04:26:32.987Z"
+        },
+        {
+          "lat": 21.234639941586988,
+          "lng": 81.34626723176184,
+          "timestamp": "2026-10-23T04:26:41.325Z"
+        },
+        {
+          "lat": 21.234642858117425,
+          "lng": 81.3462560344234,
+          "timestamp": "2026-10-23T04:27:42.367Z"
+        },
+        {
+          "lat": 21.234642858117425,
+          "lng": 81.3462560344234,
+          "timestamp": "2026-10-23T04:27:42.380Z"
+        },
+        {
+          "lat": 21.234642858117425,
+          "lng": 81.3462560344234,
+          "timestamp": "2026-10-23T04:27:42.386Z"
+        },
+        {
+          "lat": 21.234642858117425,
+          "lng": 81.3462560344234,
+          "timestamp": "2026-10-23T04:27:42.395Z"
+        },
+        {
+          "lat": 21.234642858117425,
+          "lng": 81.3462560344234,
+          "timestamp": "2026-10-23T04:27:42.401Z"
+        },
+        {
+          "lat": 21.234645723269246,
+          "lng": 81.3462351233197,
+          "timestamp": "2026-10-23T04:27:56.716Z"
+        },
+        {
+          "lat": 21.234645723269246,
+          "lng": 81.3462351233197,
+          "timestamp": "2026-10-23T04:28:05.318Z"
+        },
+        {
+          "lat": 21.23463243588868,
+          "lng": 81.34623285583508,
+          "timestamp": "2026-10-23T04:28:20.657Z"
+        },
+        {
+          "lat": 21.23463243588868,
+          "lng": 81.34623285583508,
+          "timestamp": "2026-10-23T04:28:29.323Z"
+        },
+        {
+          "lat": 21.23461203940679,
+          "lng": 81.3461881418155,
+          "timestamp": "2026-10-23T04:28:44.911Z"
+        },
+        {
+          "lat": 21.23461203940679,
+          "lng": 81.3461881418155,
+          "timestamp": "2026-10-23T04:28:53.332Z"
+        },
+        {
+          "lat": 21.234617437108675,
+          "lng": 81.34621296641389,
+          "timestamp": "2026-10-23T04:29:09.174Z"
+        },
+        {
+          "lat": 21.234617437108675,
+          "lng": 81.34621296641389,
+          "timestamp": "2026-10-23T04:29:17.316Z"
+        },
+        {
+          "lat": 21.23462894163397,
+          "lng": 81.34625354881048,
+          "timestamp": "2026-10-23T04:29:33.129Z"
+        },
+        {
+          "lat": 21.23462894163397,
+          "lng": 81.34625354881048,
+          "timestamp": "2026-10-23T04:29:41.336Z"
+        },
+        {
+          "lat": 21.23460266245028,
+          "lng": 81.34625989226952,
+          "timestamp": "2026-10-23T04:29:56.835Z"
+        },
+        {
+          "lat": 21.23460266245028,
+          "lng": 81.34625989226952,
+          "timestamp": "2026-10-23T04:30:05.327Z"
+        },
+        {
+          "lat": 21.234603796174593,
+          "lng": 81.3462724845494,
+          "timestamp": "2026-10-23T04:30:21.269Z"
+        },
+        {
+          "lat": 21.234603796174593,
+          "lng": 81.3462724845494,
+          "timestamp": "2026-10-23T04:30:29.331Z"
+        },
+        {
+          "lat": 21.23459837019892,
+          "lng": 81.34626525201463,
+          "timestamp": "2026-10-23T04:30:45.579Z"
+        },
+        {
+          "lat": 21.23459837019892,
+          "lng": 81.34626525201463,
+          "timestamp": "2026-10-23T04:30:53.357Z"
+        },
+        {
+          "lat": 21.23459837019892,
+          "lng": 81.34626525201463,
+          "timestamp": "2026-10-23T04:31:05.293Z"
+        },
+        {
+          "lat": 21.234597933497323,
+          "lng": 81.34624911262384,
+          "timestamp": "2026-10-23T04:31:20.776Z"
+        },
+        {
+          "lat": 21.234597933497323,
+          "lng": 81.34624911262384,
+          "timestamp": "2026-10-23T04:31:29.291Z"
+        },
+        {
+          "lat": 21.234603324339066,
+          "lng": 81.34627587825281,
+          "timestamp": "2026-10-23T04:31:45.157Z"
+        },
+        {
+          "lat": 21.234603324339066,
+          "lng": 81.34627587825281,
+          "timestamp": "2026-10-23T04:31:53.376Z"
+        },
+        {
+          "lat": 21.23460284210719,
+          "lng": 81.34626704599881,
+          "timestamp": "2026-10-23T04:32:09.162Z"
+        },
+        {
+          "lat": 21.23460284210719,
+          "lng": 81.34626704599881,
+          "timestamp": "2026-10-23T04:32:17.334Z"
+        },
+        {
+          "lat": 21.234604586734985,
+          "lng": 81.34628193798233,
+          "timestamp": "2026-10-23T04:32:32.736Z"
+        },
+        {
+          "lat": 21.234604586734985,
+          "lng": 81.34628193798233,
+          "timestamp": "2026-10-23T04:32:41.406Z"
+        },
+        {
+          "lat": 21.23461512052108,
+          "lng": 81.34630144898175,
+          "timestamp": "2026-10-23T04:32:57.466Z"
+        },
+        {
+          "lat": 21.23461512052108,
+          "lng": 81.34630144898175,
+          "timestamp": "2026-10-23T04:33:05.318Z"
+        },
+        {
+          "lat": 21.234622749735482,
+          "lng": 81.34633405591633,
+          "timestamp": "2026-10-23T04:33:21.204Z"
+        },
+        {
+          "lat": 21.234622749735482,
+          "lng": 81.34633405591633,
+          "timestamp": "2026-10-23T04:33:29.344Z"
+        },
+        {
+          "lat": 21.234636396265575,
+          "lng": 81.34635655491877,
+          "timestamp": "2026-10-23T04:33:44.994Z"
+        },
+        {
+          "lat": 21.234636396265575,
+          "lng": 81.34635655491877,
+          "timestamp": "2026-10-23T04:33:53.279Z"
+        },
+        {
+          "lat": 21.23465402667543,
+          "lng": 81.34631659411048,
+          "timestamp": "2026-10-23T04:34:09.005Z"
+        },
+        {
+          "lat": 21.23465402667543,
+          "lng": 81.34631659411048,
+          "timestamp": "2026-10-23T04:34:17.286Z"
+        },
+        {
+          "lat": 21.23465812448066,
+          "lng": 81.346339695568,
+          "timestamp": "2026-10-23T04:34:32.804Z"
+        },
+        {
+          "lat": 21.23465812448066,
+          "lng": 81.346339695568,
+          "timestamp": "2026-10-23T04:34:41.341Z"
+        },
+        {
+          "lat": 21.234654285626494,
+          "lng": 81.34632284047328,
+          "timestamp": "2026-10-23T04:34:57.245Z"
+        },
+        {
+          "lat": 21.234654285626494,
+          "lng": 81.34632284047328,
+          "timestamp": "2026-10-23T04:35:05.348Z"
+        },
+        {
+          "lat": 21.234645832164983,
+          "lng": 81.34632768740457,
+          "timestamp": "2026-10-23T04:35:21.282Z"
+        },
+        {
+          "lat": 21.234645832164983,
+          "lng": 81.34632768740457,
+          "timestamp": "2026-10-23T04:35:29.306Z"
+        },
+        {
+          "lat": 21.23463327817092,
+          "lng": 81.3463022368664,
+          "timestamp": "2026-10-23T04:35:45.094Z"
+        },
+        {
+          "lat": 21.23463327817092,
+          "lng": 81.3463022368664,
+          "timestamp": "2026-10-23T04:35:53.324Z"
+        },
+        {
+          "lat": 21.234634469445254,
+          "lng": 81.34633102411041,
+          "timestamp": "2026-10-23T04:36:09.004Z"
+        },
+        {
+          "lat": 21.234634469445254,
+          "lng": 81.34633102411041,
+          "timestamp": "2026-10-23T04:36:17.292Z"
+        },
+        {
+          "lat": 21.234629222169417,
+          "lng": 81.34618162566004,
+          "timestamp": "2026-10-23T04:36:33.095Z"
+        },
+        {
+          "lat": 21.234629222169417,
+          "lng": 81.34618162566004,
+          "timestamp": "2026-10-23T04:36:41.337Z"
+        },
+        {
+          "lat": 21.234613617419296,
+          "lng": 81.34618782309012,
+          "timestamp": "2026-10-23T04:36:57.406Z"
+        },
+        {
+          "lat": 21.234613617419296,
+          "lng": 81.34618782309012,
+          "timestamp": "2026-10-23T04:37:05.302Z"
+        },
+        {
+          "lat": 21.234620494580852,
+          "lng": 81.34616892801097,
+          "timestamp": "2026-10-23T04:37:21.395Z"
+        },
+        {
+          "lat": 21.234620494580852,
+          "lng": 81.34616892801097,
+          "timestamp": "2026-10-23T04:37:29.373Z"
+        },
+        {
+          "lat": 21.234626186710333,
+          "lng": 81.34621546045805,
+          "timestamp": "2026-10-23T04:37:45.477Z"
+        },
+        {
+          "lat": 21.234626186710333,
+          "lng": 81.34621546045805,
+          "timestamp": "2026-10-23T04:37:53.397Z"
+        },
+        {
+          "lat": 21.2344973,
+          "lng": 81.3463068,
+          "timestamp": "2026-10-23T05:48:20.290Z"
+        },
+        {
+          "lat": 21.2344973,
+          "lng": 81.3463068,
+          "timestamp": "2026-10-23T05:48:20.331Z"
+        },
+        {
+          "lat": 21.234519420265638,
+          "lng": 81.34634204551851,
+          "timestamp": "2026-10-23T05:48:33.646Z"
+        },
+        {
+          "lat": 21.234519420265638,
+          "lng": 81.34634204551851,
+          "timestamp": "2026-10-23T05:48:40.842Z"
+        },
+        {
+          "lat": 21.234555057340057,
+          "lng": 81.34636032280488,
+          "timestamp": "2026-10-23T05:48:57.572Z"
+        },
+        {
+          "lat": 21.234555057340057,
+          "lng": 81.34636032280488,
+          "timestamp": "2026-10-23T05:49:04.781Z"
+        },
+        {
+          "lat": 21.234555057340057,
+          "lng": 81.34636032280488,
+          "timestamp": "2026-10-23T05:49:33.938Z"
+        },
+        {
+          "lat": 21.234555057340057,
+          "lng": 81.34636032280488,
+          "timestamp": "2026-10-23T05:49:33.943Z"
+        },
+        {
+          "lat": 21.234555057340057,
+          "lng": 81.34636032280488,
+          "timestamp": "2026-10-23T05:49:40.867Z"
+        },
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T05:53:18.425Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:19.901Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:19.944Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:19.965Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:20.007Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:20.022Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:20.032Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:20.043Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:20.051Z"
+        },
+        {
+          "lat": 21.23464268193133,
+          "lng": 81.34643500845493,
+          "timestamp": "2026-10-23T05:53:20.059Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-373159",
+      "mapUrl": "https://maps.google.com/?q=21.23461875078412,81.34625591327006",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-373159 (https://maps.google.com/?q=21.23461875078412,81.34625591327006)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-373159 (https://maps.google.com/?q=21.23461875078412,81.34625591327006)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-373159 (https://maps.google.com/?q=21.23461875078412,81.34625591327006)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-373159 (https://maps.google.com/?q=21.23461875078412,81.34625591327006)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-373159 (https://maps.google.com/?q=21.23461875078412,81.34625591327006)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-338717",
+      "timestamp": "2026-10-23T04:22:18.717Z",
+      "formattedTime": "09:52 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.23461875078412,
+        "lng": 81.34625591327006,
+        "accuracy": 81,
+        "address": "Sector 6 Market Road, Bhilai, CG (Live Coordinates)"
+      },
+      "history": [
+        {
+          "lat": 21.234602793199315,
+          "lng": 81.34622852393393,
+          "timestamp": "2026-10-23T04:22:18.717Z"
+        },
+        {
+          "lat": 21.23461875078412,
+          "lng": 81.34625591327006,
+          "timestamp": "2026-10-23T04:22:34.626Z"
+        },
+        {
+          "lat": 21.23461875078412,
+          "lng": 81.34625591327006,
+          "timestamp": "2026-10-23T04:22:43.031Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-338717",
+      "mapUrl": "https://maps.google.com/?q=21.234602793199315,81.34622852393393",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-338717 (https://maps.google.com/?q=21.234602793199315,81.34622852393393)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-338717 (https://maps.google.com/?q=21.234602793199315,81.34622852393393)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-338717 (https://maps.google.com/?q=21.234602793199315,81.34622852393393)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-338717 (https://maps.google.com/?q=21.234602793199315,81.34622852393393)"
+        },
+        {
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-338717 (https://maps.google.com/?q=21.234602793199315,81.34622852393393)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-455410",
+      "timestamp": "2026-10-23T04:07:35.410Z",
+      "formattedTime": "09:37 am",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.23463358256994,
+        "lng": 81.3462495151332,
+        "accuracy": 81,
+        "address": "Sector 6 Market Road, Bhilai, CG (Live Coordinates)"
+      },
+      "history": [
+        {
+          "lat": 21.234640032209782,
+          "lng": 81.34629078521354,
+          "timestamp": "2026-10-23T04:07:35.410Z"
+        },
+        {
+          "lat": 21.23462151921885,
+          "lng": 81.34626418216237,
+          "timestamp": "2026-10-23T04:07:50.816Z"
+        },
+        {
+          "lat": 21.23462151921885,
+          "lng": 81.34626418216237,
+          "timestamp": "2026-10-23T04:07:59.560Z"
+        },
+        {
+          "lat": 21.234627520243045,
+          "lng": 81.3462538541967,
+          "timestamp": "2026-10-23T04:08:15.028Z"
+        },
+        {
+          "lat": 21.234627520243045,
+          "lng": 81.3462538541967,
+          "timestamp": "2026-10-23T04:08:23.509Z"
+        },
+        {
+          "lat": 21.23463797132692,
+          "lng": 81.34623211277172,
+          "timestamp": "2026-10-23T04:08:39.543Z"
+        },
+        {
+          "lat": 21.23463797132692,
+          "lng": 81.34623211277172,
+          "timestamp": "2026-10-23T04:08:47.524Z"
+        },
+        {
+          "lat": 21.23463893200258,
+          "lng": 81.34625057233694,
+          "timestamp": "2026-10-23T04:09:03.274Z"
+        },
+        {
+          "lat": 21.23463893200258,
+          "lng": 81.34625057233694,
+          "timestamp": "2026-10-23T04:09:11.563Z"
+        },
+        {
+          "lat": 21.23463893200258,
+          "lng": 81.34625057233694,
+          "timestamp": "2026-10-23T04:09:27.629Z"
+        },
+        {
+          "lat": 21.23463893200258,
+          "lng": 81.34625057233694,
+          "timestamp": "2026-10-23T04:09:35.534Z"
+        },
+        {
+          "lat": 21.234634844083722,
+          "lng": 81.34626020117895,
+          "timestamp": "2026-10-23T04:09:50.898Z"
+        },
+        {
+          "lat": 21.234634844083722,
+          "lng": 81.34626020117895,
+          "timestamp": "2026-10-23T04:09:59.622Z"
+        },
+        {
+          "lat": 21.234634844083722,
+          "lng": 81.34626020117895,
+          "timestamp": "2026-10-23T04:10:15.470Z"
+        },
+        {
+          "lat": 21.234634844083722,
+          "lng": 81.34626020117895,
+          "timestamp": "2026-10-23T04:10:23.581Z"
+        },
+        {
+          "lat": 21.234617657330922,
+          "lng": 81.3462211824567,
+          "timestamp": "2026-10-23T04:10:39.465Z"
+        },
+        {
+          "lat": 21.234617657330922,
+          "lng": 81.3462211824567,
+          "timestamp": "2026-10-23T04:10:47.575Z"
+        },
+        {
+          "lat": 21.23461646638003,
+          "lng": 81.34618236272716,
+          "timestamp": "2026-10-23T04:11:03.512Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.060Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.068Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.078Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.081Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.086Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.093Z"
+        },
+        {
+          "lat": 21.234593255582592,
+          "lng": 81.34624972508786,
+          "timestamp": "2026-10-23T04:12:24.096Z"
+        },
+        {
+          "lat": 21.23456135861932,
+          "lng": 81.34620931405557,
+          "timestamp": "2026-10-23T04:12:39.316Z"
+        },
+        {
+          "lat": 21.23456135861932,
+          "lng": 81.34620931405557,
+          "timestamp": "2026-10-23T04:12:47.518Z"
+        },
+        {
+          "lat": 21.234599761766066,
+          "lng": 81.3462492701078,
+          "timestamp": "2026-10-23T04:13:03.325Z"
+        },
+        {
+          "lat": 21.234599761766066,
+          "lng": 81.3462492701078,
+          "timestamp": "2026-10-23T04:13:11.534Z"
+        },
+        {
+          "lat": 21.234599761766066,
+          "lng": 81.3462492701078,
+          "timestamp": "2026-10-23T04:13:27.271Z"
+        },
+        {
+          "lat": 21.234599761766066,
+          "lng": 81.3462492701078,
+          "timestamp": "2026-10-23T04:13:35.532Z"
+        },
+        {
+          "lat": 21.234634005630152,
+          "lng": 81.34628436728077,
+          "timestamp": "2026-10-23T04:13:51.438Z"
+        },
+        {
+          "lat": 21.234634005630152,
+          "lng": 81.34628436728077,
+          "timestamp": "2026-10-23T04:13:59.523Z"
+        },
+        {
+          "lat": 21.234634005630152,
+          "lng": 81.34628436728077,
+          "timestamp": "2026-10-23T04:14:31.772Z"
+        },
+        {
+          "lat": 21.234634005630152,
+          "lng": 81.34628436728077,
+          "timestamp": "2026-10-23T04:14:31.783Z"
+        },
+        {
+          "lat": 21.234677068358163,
+          "lng": 81.34632715392596,
+          "timestamp": "2026-10-23T04:14:48.390Z"
+        },
+        {
+          "lat": 21.234677068358163,
+          "lng": 81.34632715392596,
+          "timestamp": "2026-10-23T04:14:48.415Z"
+        },
+        {
+          "lat": 21.23465503671124,
+          "lng": 81.34622921923382,
+          "timestamp": "2026-10-23T04:15:28.854Z"
+        },
+        {
+          "lat": 21.23465503671124,
+          "lng": 81.34622921923382,
+          "timestamp": "2026-10-23T04:15:28.862Z"
+        },
+        {
+          "lat": 21.23465503671124,
+          "lng": 81.34622921923382,
+          "timestamp": "2026-10-23T04:15:28.866Z"
+        },
+        {
+          "lat": 21.23465503671124,
+          "lng": 81.34622921923382,
+          "timestamp": "2026-10-23T04:15:35.519Z"
+        },
+        {
+          "lat": 21.2346065938705,
+          "lng": 81.34620427846947,
+          "timestamp": "2026-10-23T04:15:50.967Z"
+        },
+        {
+          "lat": 21.2346065938705,
+          "lng": 81.34620427846947,
+          "timestamp": "2026-10-23T04:15:59.597Z"
+        },
+        {
+          "lat": 21.234624138955045,
+          "lng": 81.3462075671404,
+          "timestamp": "2026-10-23T04:16:15.222Z"
+        },
+        {
+          "lat": 21.234624138955045,
+          "lng": 81.3462075671404,
+          "timestamp": "2026-10-23T04:16:23.578Z"
+        },
+        {
+          "lat": 21.23462207095024,
+          "lng": 81.34622431254219,
+          "timestamp": "2026-10-23T04:16:38.826Z"
+        },
+        {
+          "lat": 21.23462207095024,
+          "lng": 81.34622431254219,
+          "timestamp": "2026-10-23T04:16:47.574Z"
+        },
+        {
+          "lat": 21.23462207095024,
+          "lng": 81.34622431254219,
+          "timestamp": "2026-10-23T04:17:03.579Z"
+        },
+        {
+          "lat": 21.23462207095024,
+          "lng": 81.34622431254219,
+          "timestamp": "2026-10-23T04:17:11.609Z"
+        },
+        {
+          "lat": 21.234624342040593,
+          "lng": 81.34619801625477,
+          "timestamp": "2026-10-23T04:17:27.337Z"
+        },
+        {
+          "lat": 21.234624342040593,
+          "lng": 81.34619801625477,
+          "timestamp": "2026-10-23T04:17:35.567Z"
+        },
+        {
+          "lat": 21.23463799421943,
+          "lng": 81.3462225975774,
+          "timestamp": "2026-10-23T04:17:51.126Z"
+        },
+        {
+          "lat": 21.23463799421943,
+          "lng": 81.3462225975774,
+          "timestamp": "2026-10-23T04:17:59.595Z"
+        },
+        {
+          "lat": 21.234634409108853,
+          "lng": 81.34620889792903,
+          "timestamp": "2026-10-23T04:18:15.129Z"
+        },
+        {
+          "lat": 21.234634409108853,
+          "lng": 81.34620889792903,
+          "timestamp": "2026-10-23T04:18:23.528Z"
+        },
+        {
+          "lat": 21.234634409108853,
+          "lng": 81.34620889792903,
+          "timestamp": "2026-10-23T04:18:35.544Z"
+        },
+        {
+          "lat": 21.234621175888442,
+          "lng": 81.34620186494453,
+          "timestamp": "2026-10-23T04:18:51.210Z"
+        },
+        {
+          "lat": 21.234621175888442,
+          "lng": 81.34620186494453,
+          "timestamp": "2026-10-23T04:18:59.542Z"
+        },
+        {
+          "lat": 21.234609621997766,
+          "lng": 81.34622612265763,
+          "timestamp": "2026-10-23T04:19:15.013Z"
+        },
+        {
+          "lat": 21.234609621997766,
+          "lng": 81.34622612265763,
+          "timestamp": "2026-10-23T04:19:23.548Z"
+        },
+        {
+          "lat": 21.234588349395487,
+          "lng": 81.34619781770525,
+          "timestamp": "2026-10-23T04:19:35.773Z"
+        },
+        {
+          "lat": 21.23459568783495,
+          "lng": 81.34612707385907,
+          "timestamp": "2026-10-23T04:19:51.276Z"
+        },
+        {
+          "lat": 21.23459568783495,
+          "lng": 81.34612707385907,
+          "timestamp": "2026-10-23T04:19:59.519Z"
+        },
+        {
+          "lat": 21.234622999285083,
+          "lng": 81.34621006605205,
+          "timestamp": "2026-10-23T04:20:15.100Z"
+        },
+        {
+          "lat": 21.234622999285083,
+          "lng": 81.34621006605205,
+          "timestamp": "2026-10-23T04:20:23.511Z"
+        },
+        {
+          "lat": 21.234618971546105,
+          "lng": 81.3462479133584,
+          "timestamp": "2026-10-23T04:21:08.844Z"
+        },
+        {
+          "lat": 21.234618971546105,
+          "lng": 81.3462479133584,
+          "timestamp": "2026-10-23T04:21:08.850Z"
+        },
+        {
+          "lat": 21.234618971546105,
+          "lng": 81.3462479133584,
+          "timestamp": "2026-10-23T04:21:08.856Z"
+        },
+        {
+          "lat": 21.234618971546105,
+          "lng": 81.3462479133584,
+          "timestamp": "2026-10-23T04:21:11.558Z"
+        },
+        {
+          "lat": 21.234618971546105,
+          "lng": 81.3462479133584,
+          "timestamp": "2026-10-23T04:21:23.537Z"
+        },
+        {
+          "lat": 21.23462410129032,
+          "lng": 81.34625803045856,
+          "timestamp": "2026-10-23T04:21:39.029Z"
+        },
+        {
+          "lat": 21.23462410129032,
+          "lng": 81.34625803045856,
+          "timestamp": "2026-10-23T04:21:47.554Z"
+        },
+        {
+          "lat": 21.23463358256994,
+          "lng": 81.3462495151332,
+          "timestamp": "2026-10-23T04:22:02.953Z"
+        },
+        {
+          "lat": 21.23463358256994,
+          "lng": 81.3462495151332,
+          "timestamp": "2026-10-23T04:22:11.570Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-455410",
+      "mapUrl": "https://maps.google.com/?q=21.234640032209782,81.34629078521354",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455410 (https://maps.google.com/?q=21.234640032209782,81.34629078521354)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455410 (https://maps.google.com/?q=21.234640032209782,81.34629078521354)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455410 (https://maps.google.com/?q=21.234640032209782,81.34629078521354)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455410 (https://maps.google.com/?q=21.234640032209782,81.34629078521354)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
       "id": "ALERT-777361",
       "timestamp": "2026-10-23T03:56:17.361Z",
       "formattedTime": "09:26 am",
@@ -485,6 +2013,42 @@
   ],
   "evidence": [
     {
+      "id": "ev-1792735943787",
+      "title": "Dark SUV Stalking Proof",
+      "description": "Black SUV following near gate, license plate noted.",
+      "category": "Harassment / Stalking",
+      "location": "Sector 6 Market Road, Bhilai, CG",
+      "timestamp": "23/10/26, 11:42:23 am",
+      "manifestHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": [],
+      "tamperEvident": true,
+      "bsaNotice": "Electronic record hashed under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) 2023."
+    },
+    {
+      "id": "ev-1792735852985",
+      "title": "Dark SUV Stalking Proof",
+      "description": "Black SUV following near gate, license plate noted.",
+      "category": "Harassment / Stalking",
+      "location": "Sector 6 Market Road, Bhilai, CG",
+      "timestamp": "23/10/26, 11:40:52 am",
+      "manifestHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": [],
+      "tamperEvident": true,
+      "bsaNotice": "Electronic record hashed under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) 2023."
+    },
+    {
+      "id": "ev-1792735204614",
+      "title": "Dark SUV Stalking Proof",
+      "description": "Black SUV following near gate, license plate noted.",
+      "category": "Harassment / Stalking",
+      "location": "Sector 6 Market Road, Bhilai, CG",
+      "timestamp": "23/10/26, 11:30:04 am",
+      "manifestHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": [],
+      "tamperEvident": true,
+      "bsaNotice": "Electronic record hashed under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) 2023."
+    },
+    {
       "id": "ev-1792727777441",
       "title": "Dark SUV Stalking Proof",
       "description": "Black SUV following near gate, license plate noted.",
@@ -519,6 +2083,42 @@
     }
   ],
   "mentalHealthLogs": [
+    {
+      "id": "mh-1792735943726",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T06:12:23.727Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Walking past dark alley near college",
+      "aiFeedback": "घबराहट स्वाभाविक है, रोशनी। एक धीमी गहरी सांस लें। सखी हमेशा आपकी सुरक्षा में तैनात है।"
+    },
+    {
+      "id": "mh-1792735852904",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T06:10:52.905Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Walking past dark alley near college",
+      "aiFeedback": "घबराहट स्वाभाविक है, रोशनी। एक धीमी गहरी सांस लें। सखी हमेशा आपकी सुरक्षा में तैनात है।"
+    },
+    {
+      "id": "mh-1792735204550",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T06:00:04.552Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Walking past dark alley near college",
+      "aiFeedback": "घबराहट स्वाभाविक है, रोशनी। एक धीमी गहरी सांस लें। सखी हमेशा आपकी सुरक्षा में तैनात है।"
+    },
+    {
+      "id": "mh-1792728555069",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T04:09:15.070Z",
+      "mood": "Scared / Stalked",
+      "score": 7,
+      "note": "दैनिक मानसिक स्थिति दर्ज",
+      "aiFeedback": "सखी आपके साथ है। अपनी सतर्कता बनाए रखें। यदि कोई भी संदिग्ध लगे तो तुरंत 1-टैप अलार्म का उपयोग करें।"
+    },
     {
       "id": "mh-1792727777380",
       "date": "23 Oct",
@@ -649,6 +2249,14 @@
       "phone": "+91 94250 99881",
       "isPrimary": false,
       "email": "security@ssipmt.ac.in"
+    },
+    {
+      "id": "c-1792729172375",
+      "name": "Palak Bhojwani",
+      "relation": "sister",
+      "phone": "+917389619044",
+      "email": "bhojwanipalak3@gmail.com",
+      "isPrimary": false
     }
   ]
 }

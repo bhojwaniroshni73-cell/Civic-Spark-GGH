@@ -195,8 +195,39 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--r
   line-height: 1.45;
   max-width: 86%;
 }
-.chat-msg.asha { background: #fff; border: 1px solid var(--line); align-self: flex-start; }
+.chat-msg.asha {
+  background: #fff;
+  border: 1px solid var(--line);
+  align-self: flex-start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .chat-msg.user { background: var(--indigo); color: #fff; align-self: flex-end; }
+.tts-bubble-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: var(--indigo);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+.tts-bubble-btn:hover {
+  background: #e2e8f0;
+}
+#sakhiMicBtn.recording {
+  background: #fee2e2 !important;
+  color: var(--red) !important;
+  border-color: var(--red) !important;
+  animation: pulse 1s infinite;
+}
 
 /* Autocorrect Chip */
 .autocorrect-chip {

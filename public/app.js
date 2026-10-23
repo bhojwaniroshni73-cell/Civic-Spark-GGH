@@ -465,6 +465,119 @@ function quickChat(text) {
   sendChat();
 }
 
+function speakBubble(btn) {
+  if (!window.speechSynthesis) return;
+  const parentMsg = btn.closest('.chat-msg');
+  const text = parentMsg ? (parentMsg.getAttribute('data-msg') || parentMsg.querySelector('.msg-content')?.textContent || parentMsg.innerText) : '';
+  if (!text) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  const isHindi = /[\u0900-\u097F]/.test(text) || ['नमस्ते', 'रोशनी', 'सखी', 'सांस', 'घबराहट', 'सुरक्षित'].some(w => text.includes(w));
+  u.lang = isHindi ? 'hi-IN' : 'en-IN';
+  u.rate = 0.95;
+  window.speechSynthesis.speak(u);
+}
+
+let sakhiSpeechRec = null;
+let isSakhiRecording = false;
+
+function toggleSakhiSpeechInput() {
+  const micBtn = $('sakhiMicBtn');
+  if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+    alert('Voice input is not supported in this browser. Please use Chrome/Edge or type directly.');
+    return;
+  }
+
+  if (isSakhiRecording && sakhiSpeechRec) {
+    sakhiSpeechRec.stop();
+    isSakhiRecording = false;
+    if (micBtn) {
+      micBtn.classList.remove('recording');
+      micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    }
+    return;
+  }
+
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  sakhiSpeechRec = new SpeechRec();
+  sakhiSpeechRec.continuous = false;
+  sakhiSpeechRec.interimResults = false;
+  sakhiSpeechRec.lang = voiceLang.includes('hi') ? 'hi-IN' : 'en-IN';
+
+  sakhiSpeechRec.onstart = function() {
+    isSakhiRecording = true;
+    if (micBtn) {
+      micBtn.classList.add('recording');
+      micBtn.innerHTML = '<i class="fa-solid fa-microphone-lines text-red"></i>';
+    }
+    $('chatInput').placeholder = 'Listening to you... बोलिए, मैं सुन रही हूँ...';
+  };
+
+  sakhiSpeechRec.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    $('chatInput').value = transcript;
+    sendChat();
+  };
+
+  sakhiSpeechRec.onerror = function() {
+    isSakhiRecording = false;
+    if (micBtn) {
+      micBtn.classList.remove('recording');
+      micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    }
+    $('chatInput').placeholder = 'Sakhi se baat karein (Hindi/English/Hinglish)...';
+  };
+
+  sakhiSpeechRec.onend = function() {
+    isSakhiRecording = false;
+    if (micBtn) {
+      micBtn.classList.remove('recording');
+      micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    }
+    $('chatInput').placeholder = 'Sakhi se baat karein (Hindi/English/Hinglish)...';
+  };
+
+  try {
+    sakhiSpeechRec.start();
+  } catch (e) {
+    console.warn('Speech rec error:', e);
+  }
+}
+
+function resetSakhiChat() {
+  chatHistory = [];
+  const win = $('chatWindow');
+  if (win) {
+    win.innerHTML = `
+      <div class="chat-msg asha" data-msg="नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।">
+        <div class="msg-content">नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।</div>
+        <button class="tts-bubble-btn" onclick="speakBubble(this)" title="Listen in voice / आवाज़ में सुनें"><i class="fa-solid fa-volume-high"></i></button>
+      </div>
+    `;
+  }
+  renderDynamicSuggestions([
+    '👋 नमस्ते सखी, कैसे हो?',
+    '🌿 4-7-8 शांत सांस',
+    '🧘 5-4-3-2-1 ग्राउंडिंग',
+    '🚶 कोई पीछा कर रहा है',
+    '⚖️ कानूनी अधिकार',
+    '💔 उदास लग रहा है'
+  ]);
+}
+
+function renderDynamicSuggestions(arr) {
+  const box = $('sakhiDynamicSuggestions');
+  if (!box) return;
+  if (!arr || !arr.length) {
+    box.innerHTML = '';
+    return;
+  }
+  box.innerHTML = arr.map(text => {
+    const clean = text.replace(/'/g, "\\'");
+    return `<span class="scenario-tag" onclick="quickChat('${clean}')">${text}</span>`;
+  }).join('');
+}
+
 async function sendChat() {
   const text = $('chatInput').value.trim();
   if (!text) return;
@@ -495,7 +608,7 @@ async function sendChat() {
     removeTypingIndicator(typingId);
 
     const reply = data.reply || 'मैं सखी आपके साथ हूँ, रोशनी। आप पूरी तरह सुरक्षित हैं।';
-    appendChatMessage('asha', reply);
+    appendChatMessage('asha', reply, data.suggestions);
     chatHistory.push({ sender: 'model', text: reply });
 
     // Handle crisis triggers
@@ -508,13 +621,45 @@ async function sendChat() {
   }
 }
 
-function appendChatMessage(sender, htmlContent) {
+function appendChatMessage(sender, htmlContent, suggestions) {
   const win = $('chatWindow');
   const div = document.createElement('div');
   div.className = `chat-msg ${sender}`;
-  div.innerHTML = htmlContent;
-  win.appendChild(div);
-  win.scrollTop = win.scrollHeight;
+
+  if (sender === 'asha') {
+    div.setAttribute('data-msg', htmlContent);
+    div.innerHTML = `
+      <div class="msg-content"></div>
+      <button class="tts-bubble-btn" onclick="speakBubble(this)" title="Listen in voice / आवाज़ में सुनें"><i class="fa-solid fa-volume-high"></i></button>
+    `;
+    win.appendChild(div);
+    win.scrollTop = win.scrollHeight;
+
+    // Real-time typewriter streaming effect for authentic responsiveness
+    const contentElem = div.querySelector('.msg-content');
+    let i = 0;
+    const speed = htmlContent.length > 180 ? 6 : 14;
+    function typeChar() {
+      if (i < htmlContent.length) {
+        contentElem.innerHTML = htmlContent.substring(0, i + 1).replace(/\n/g, '<br>');
+        i += 2;
+        win.scrollTop = win.scrollHeight;
+        setTimeout(typeChar, speed);
+      } else {
+        contentElem.innerHTML = htmlContent.replace(/\n/g, '<br>');
+        win.scrollTop = win.scrollHeight;
+      }
+    }
+    typeChar();
+  } else {
+    div.innerHTML = htmlContent.replace(/\n/g, '<br>');
+    win.appendChild(div);
+    win.scrollTop = win.scrollHeight;
+  }
+
+  if (suggestions && suggestions.length) {
+    renderDynamicSuggestions(suggestions);
+  }
 }
 
 function appendTypingIndicator(id) {
@@ -667,9 +812,24 @@ function loadStalkingDemo() {
 }
 function showPhotoBadge(input) {
   if (input.files && input.files[0]) {
-    $('photoStatus').style.display = 'block';
-    $('photoStatus').innerHTML = `✓ Photo attached: <strong>${input.files[0].name}</strong>`;
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      if ($('photoPreviewImg')) $('photoPreviewImg').src = e.target.result;
+      if ($('photoPreviewName')) $('photoPreviewName').textContent = file.name;
+      if ($('photoPreviewSize')) $('photoPreviewSize').textContent = (file.size / 1024).toFixed(1) + ' KB';
+      if ($('photoPreviewBox')) $('photoPreviewBox').style.display = 'block';
+      if ($('photoStatus')) $('photoStatus').style.display = 'none';
+    };
+    reader.readAsDataURL(file);
   }
+}
+
+function clearSelectedPhoto() {
+  if ($('img')) $('img').value = '';
+  if ($('photoPreviewBox')) $('photoPreviewBox').style.display = 'none';
+  if ($('photoPreviewImg')) $('photoPreviewImg').src = '';
+  if ($('photoStatus')) $('photoStatus').style.display = 'none';
 }
 
 // Multimodal Triage execution
@@ -680,7 +840,7 @@ async function triage() {
     return;
   }
 
-  $('out').innerHTML = '<div class="card"><i class="fa-solid fa-spinner fa-spin"></i> Analyzing urgency with Gemini Multimodal Triage...</div>';
+  $('out').innerHTML = '<div class="card"><i class="fa-solid fa-spinner fa-spin"></i> Analyzing urgency with Gemini Multimodal Triage & Photo Evidence...</div>';
 
   const fd = new FormData();
   fd.append('text', textVal);
@@ -703,14 +863,43 @@ async function triage() {
   }
 
   const col = { high: 'var(--red)', medium: 'var(--amber)', low: 'var(--green)' }[t.urgency] || 'var(--red)';
+
+  let photoEvidenceHtml = '';
+  if (t.photo) {
+    photoEvidenceHtml = `
+      <div class="card" style="border-left: 4px solid var(--red); background: #fff5f5; padding: 12px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <img src="${t.photo.url}" alt="Incident Evidence" style="width: 75px; height: 75px; object-fit: cover; border-radius: 8px; border: 1.5px solid #fca5a5; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.12);" onclick="window.open('${t.photo.url}', '_blank')">
+          <div style="flex: 1; min-width: 0;">
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+              <span class="badge red"><i class="fa-solid fa-camera"></i> PHOTO EVIDENCE ATTACHED</span>
+              <span style="font-size: 11px; color: #64748b;">${t.photo.name} (${t.photo.size || ''})</span>
+            </div>
+            <p style="font-size: 12px; color: #1e293b; margin: 4px 0 0; line-height: 1.45;">
+              <strong>Visual Evidence Analysis:</strong> ${t.photo.analysis || 'Incident scene visual documented and logged for emergency dispatch.'}
+            </p>
+            <div style="margin-top: 4px; font-size: 11px;">
+              <a href="${t.photo.url}" target="_blank" style="color: var(--indigo); font-weight: 600; text-decoration: underline;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect Full-Resolution Image
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   $('out').innerHTML = `
+    ${photoEvidenceHtml}
     <div class="card">
       <span class="badge" style="background:${col}">${t.urgency} urgency</span>
       <b style="font-size: 16px; margin-left: 6px;"> ${t.type.toUpperCase()}</b>
       <ol class="steps">${t.steps.map(s => `<li>${s}</li>`).join('')}</ol>
       <button class="btn light" onclick="readAloudGuidance()"><i class="fa-solid fa-volume-high"></i> Read Aloud / आवाज़ में सुनें</button>
     </div>
-    <div id="brief" class="card">Writing dispatch brief for 112 & contacts...</div>
+    <div id="brief" class="card">
+      <i class="fa-solid fa-spinner fa-spin"></i> Writing auto-generated 112 dispatch brief with GPS & photo evidence...
+    </div>
   `;
 
   window._steps = t.steps.join('. ');
@@ -720,20 +909,54 @@ async function triage() {
   const d = await (await fetch('/dispatch', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ summary: t.summary, type: t.type, ...loc })
+    body: JSON.stringify({
+      summary: t.summary,
+      type: t.type,
+      photoUrl: t.photo ? t.photo.url : null,
+      photoName: t.photo ? t.photo.name : null,
+      photoAnalysis: t.photo ? t.photo.analysis : null,
+      ...loc
+    })
   })).json();
 
   window._msg = d.message;
+
+  let briefPhotoEvidenceTag = '';
+  if (d.photoUrl) {
+    briefPhotoEvidenceTag = `
+      <div style="background: #fee2e2; border: 1px solid #fca5a5; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 12px; color: #991b1b; font-weight: bold;">
+          <i class="fa-solid fa-camera"></i> Photo Evidence Transmitted to 112
+        </span>
+        <a href="${d.photoUrl}" target="_blank" class="btn light small" style="margin: 0; padding: 2px 8px; font-size: 11px; text-decoration: none;">
+          View Photo
+        </a>
+      </div>
+    `;
+  }
+
   $('brief').innerHTML = `
-    <b>Auto-Generated Dispatch Brief:</b>
-    <p style="font-family: monospace; font-size: 13px; color: #332; background: #fbf0f2; padding: 10px; border-radius: 8px; border: 1px solid #fcc;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <b style="font-size: 14px;"><i class="fa-solid fa-paper-plane text-red"></i> Auto-Generated 112 Dispatch Brief:</b>
+      <span class="badge red small">Ready to Dispatch</span>
+    </div>
+    ${briefPhotoEvidenceTag}
+    <p style="font-family: monospace; font-size: 12.5px; color: #1e293b; background: #fff5f5; padding: 12px; border-radius: 8px; border: 1px solid #fca5a5; line-height: 1.5; word-break: break-word;">
       ${d.message}
     </p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px;">
       <button class="btn red small" onclick="sendBriefViaWhatsApp()"><i class="fa-brands fa-whatsapp"></i> WhatsApp Brief</button>
       <button class="btn light small" onclick="sendBriefViaSms()"><i class="fa-solid fa-comment-sms"></i> SMS Brief</button>
     </div>
   `;
+
+  // Auto-scroll so the user immediately sees the action taken in the dispatch brief section!
+  setTimeout(() => {
+    const briefElem = $('brief');
+    if (briefElem) {
+      briefElem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, 100);
 }
 
 function readAloudGuidance() {
@@ -1233,10 +1456,97 @@ async function eraseAllMyData() {
 }
 
 // -------------------------------------------------------------
+// 12. GEMINI API KEY MANAGEMENT
+// -------------------------------------------------------------
+async function checkApiKeyStatus() {
+  try {
+    const res = await fetch('/api/config/key');
+    const data = await res.json();
+    if (data.hasKey) {
+      if ($('apiKeyPillStatus')) $('apiKeyPillStatus').innerHTML = '<span style="color:var(--green); font-weight:bold;">🟢 Gemini AI</span>';
+      if ($('sakhiEngineLabel')) $('sakhiEngineLabel').textContent = 'Google Gemini 1.5 Flash Connected';
+      if ($('apiKeyEngineState')) {
+        $('apiKeyEngineState').className = 'badge green';
+        $('apiKeyEngineState').textContent = 'Google Gemini AI (Cloud API Active)';
+      }
+      if ($('apiKeyActiveModel')) {
+        $('apiKeyActiveModel').textContent = 'Model: ' + data.model + (data.maskedKey ? ` (${data.maskedKey})` : '');
+      }
+    } else {
+      if ($('apiKeyPillStatus')) $('apiKeyPillStatus').innerHTML = '<span style="color:var(--indigo); font-weight:bold;">⚡ Offline AI</span>';
+      if ($('sakhiEngineLabel')) $('sakhiEngineLabel').textContent = 'Smart Offline Neural Engine Active';
+      if ($('apiKeyEngineState')) {
+        $('apiKeyEngineState').className = 'badge amber';
+        $('apiKeyEngineState').textContent = 'Offline Smart Neural Fallback (No Key)';
+      }
+      if ($('apiKeyActiveModel')) {
+        $('apiKeyActiveModel').textContent = 'To enable full Gemini Multimodal Vision & Chat, enter your Google AI Studio API key below.';
+      }
+    }
+  } catch (e) {
+    console.warn('API key status check error:', e);
+  }
+}
+
+function openApiKeyModal() {
+  checkApiKeyStatus();
+  if ($('apiKeyModal')) $('apiKeyModal').style.display = 'flex';
+}
+
+function closeApiKeyModal() {
+  if ($('apiKeyModal')) $('apiKeyModal').style.display = 'none';
+  if ($('apiKeyMsg')) $('apiKeyMsg').style.display = 'none';
+}
+
+async function saveGeminiApiKey() {
+  const key = $('geminiApiKeyInput').value.trim();
+  if (!key) {
+    alert('Please enter a valid Gemini API key.');
+    return;
+  }
+
+  const btn = $('saveApiKeyBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Verifying with Google AI...';
+
+  try {
+    const res = await fetch('/api/config/key', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ apiKey: key })
+    });
+    const data = await res.json();
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Connect & Save';
+
+    const msg = $('apiKeyMsg');
+    if (data.success) {
+      msg.style.display = 'block';
+      msg.style.background = '#dcfce7';
+      msg.style.color = '#15803d';
+      msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + data.message;
+      $('geminiApiKeyInput').value = '';
+      checkApiKeyStatus();
+      setTimeout(closeApiKeyModal, 1500);
+    } else {
+      msg.style.display = 'block';
+      msg.style.background = '#fee2e2';
+      msg.style.color = '#b91c1c';
+      msg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> ' + (data.error || 'Failed to verify key');
+    }
+  } catch (e) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Connect & Save';
+    alert('Network error connecting to Gemini API.');
+  }
+}
+
+// -------------------------------------------------------------
 // 13. BOOTSTRAP
 // -------------------------------------------------------------
 window.addEventListener('DOMContentLoaded', () => {
   initCalculator();
+  checkApiKeyStatus();
 
   const saved = localStorage.getItem('sheguard_user');
   if (saved) {

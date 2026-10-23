@@ -134,7 +134,10 @@
         <i class="fa-solid fa-shield-check"></i> SheGuard Protection Active
       </span>
     </div>
-    <div style="display: flex; gap: 6px;">
+    <div style="display: flex; gap: 6px; align-items: center;">
+      <button class="btn light small" onclick="openApiKeyModal()" id="apiKeyHeaderBtn" title="Gemini AI Configuration">
+        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--indigo);"></i> <span id="apiKeyPillStatus" style="font-size: 11px;">AI Engine</span>
+      </button>
       <button class="btn light small" onclick="go('calc')" title="Hide app as calculator">
         <i class="fa-solid fa-calculator"></i> Hide
       </button>
@@ -365,14 +368,24 @@
 
   <!-- Chat with Sakhi -->
   <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <b style="font-size: 15px;"><i class="fa-solid fa-comments text-indigo"></i> Talk with Sakhi / सखी से बातचीत</b>
-      <span style="font-size: 11px; color: var(--green);"><i class="fa-solid fa-circle"></i> Online</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+      <div>
+        <b style="font-size: 15px;"><i class="fa-solid fa-comments text-indigo"></i> Talk with Sakhi / सखी से बातचीत</b>
+        <div id="sakhiStatusSubtext" style="font-size: 11px; color: var(--green); margin-top: 2px;">
+          <i class="fa-solid fa-circle" style="font-size: 8px;"></i> <span id="sakhiEngineLabel">AI Active & Listening</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 6px; align-items: center;">
+        <button class="btn light small" onclick="resetSakhiChat()" title="Start fresh conversation" style="margin: 0; padding: 3px 8px; font-size: 11px;">
+          <i class="fa-solid fa-arrows-rotate"></i> Reset
+        </button>
+      </div>
     </div>
 
     <div class="chat-window" id="chatWindow">
-      <div class="chat-msg asha">
-        नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।
+      <div class="chat-msg asha" data-msg="नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।">
+        <div class="msg-content">नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।</div>
+        <button class="tts-bubble-btn" onclick="speakBubble(this)" title="Listen in voice / आवाज़ में सुनें"><i class="fa-solid fa-volume-high"></i></button>
       </div>
     </div>
 
@@ -403,17 +416,22 @@
       </div>
     </div>
 
-    <!-- Quick Help Chips -->
-    <div style="margin: 6px 0;">
+    <!-- Dynamic Quick Response & Follow-up Chips -->
+    <div id="sakhiDynamicSuggestions" style="margin: 6px 0; display: flex; flex-wrap: wrap; gap: 4px;">
+      <span class="scenario-tag" onclick="quickChat('नमस्ते सखी, कैसे हो?')">👋 नमस्ते सखी</span>
       <span class="scenario-tag" onclick="quickChat('मुझे चलने में घबराहट हो रही है')">🌿 4-7-8 शांत सांस</span>
       <span class="scenario-tag" onclick="quickChat('5-4-3-2-1 ग्राउंडिंग तकनीक सिखाएं')">🧘 5-4-3-2-1 ग्राउंडिंग</span>
       <span class="scenario-tag" onclick="quickChat('कोई मेरा पीछा कर रहा है क्या करूं?')">🚶 कोई पीछा कर रहा है</span>
       <span class="scenario-tag" onclick="quickChat('मेरे कानूनी अधिकार क्या हैं?')">⚖️ कानूनी अधिकार</span>
+      <span class="scenario-tag" onclick="quickChat('मुझे बहुत उदासी लग रही है')">💔 उदास लग रहा है</span>
     </div>
 
-    <div style="display: flex; gap: 8px;">
-      <input type="text" id="chatInput" placeholder="Sakhi se baat karein (Hindi/English/Hinglish)..." style="margin: 0;" oninput="handleChatTyping()">
-      <button class="btn indigo small" onclick="sendChat()" style="margin: 0; min-width: 50px;">
+    <div style="display: flex; gap: 6px; align-items: center;">
+      <button class="btn light small" id="sakhiMicBtn" onclick="toggleSakhiSpeechInput()" title="Voice input / बोलकर लिखें" style="margin: 0; width: 44px; height: 42px; padding: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <i class="fa-solid fa-microphone"></i>
+      </button>
+      <input type="text" id="chatInput" placeholder="Sakhi se baat karein (Hindi/English/Hinglish)..." style="margin: 0; flex: 1;" oninput="handleChatTyping()" onkeydown="if(event.key === 'Enter') sendChat()">
+      <button class="btn indigo small" onclick="sendChat()" style="margin: 0; width: 48px; height: 42px; padding: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
         <i class="fa-solid fa-paper-plane"></i>
       </button>
     </div>
@@ -560,6 +578,23 @@
         <input type="file" id="img" accept="image/*" capture="environment" style="display: none;" onchange="showPhotoBadge(this)">
       </label>
     </div>
+
+    <!-- Live Photo Thumbnail Preview Container -->
+    <div id="photoPreviewBox" style="display: none; margin-top: 10px; padding: 10px; border: 1.5px dashed var(--indigo); border-radius: 12px; background: #f8fafc;">
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <img id="photoPreviewImg" src="" alt="Selected Preview" style="width: 55px; height: 55px; object-fit: cover; border-radius: 8px; border: 1.5px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.06);">
+        <div style="flex: 1; min-width: 0;">
+          <div id="photoPreviewName" style="font-size: 13px; font-weight: bold; color: #1e293b; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></div>
+          <div id="photoPreviewSize" style="font-size: 11px; color: #64748b;"></div>
+          <div style="margin-top: 3px;">
+            <span class="badge green small"><i class="fa-solid fa-check"></i> Ready for Multimodal Triage & 112 Brief</span>
+          </div>
+        </div>
+        <button type="button" class="btn light small" onclick="clearSelectedPhoto()" style="margin: 0; width: auto; color: var(--red); border-color: #fca5a5;" title="Remove Photo">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
     <div id="photoStatus" style="font-size: 12px; color: var(--green); margin-top: 4px; display: none;"></div>
   </div>
 
@@ -699,6 +734,49 @@
     <button class="btn light" onclick="closePrivacyModal()" style="margin-top: 8px;">
       Close
     </button>
+  </div>
+</div>
+
+<!-- ======================================================== -->
+<!-- GEMINI API KEY CONFIGURATION MODAL                       -->
+<!-- ======================================================== -->
+<div id="apiKeyModal" class="modal-backdrop" style="display: none;">
+  <div class="modal-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <h3 style="margin: 0; font-size: 18px;"><i class="fa-solid fa-wand-magic-sparkles text-indigo"></i> Gemini AI Configuration</h3>
+      <button onclick="closeApiKeyModal()" style="background: none; border: 0; font-size: 20px; cursor: pointer;">&times;</button>
+    </div>
+
+    <p style="font-size: 13px; color: #554; line-height: 1.5; margin-bottom: 10px;">
+      SheGuard AI supports both Google Gemini 1.5 Cloud Multimodal AI and an integrated Smart Offline Engine.
+    </p>
+
+    <div id="apiKeyStatusBox" style="background: #f1f5f9; border-radius: 10px; padding: 10px; font-size: 12px; margin-bottom: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span><strong>Current Engine:</strong></span>
+        <span id="apiKeyEngineState" class="badge green">Checking...</span>
+      </div>
+      <div id="apiKeyActiveModel" style="font-size: 11px; color: #64748b; margin-top: 4px;"></div>
+    </div>
+
+    <label style="font-size: 13px; font-weight: bold; color: #333; display: block; margin-bottom: 4px;">
+      Enter Google Gemini API Key:
+    </label>
+    <input type="password" id="geminiApiKeyInput" placeholder="AIzaSy..." style="margin-bottom: 6px;">
+    <div style="font-size: 11px; color: #64748b; margin-bottom: 12px;">
+      Get a free key from <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--indigo); font-weight: bold; text-decoration: underline;">Google AI Studio</a>. Key is securely verified and stored in your backend.
+    </div>
+
+    <div id="apiKeyMsg" style="display: none; font-size: 12px; padding: 8px; border-radius: 8px; margin-bottom: 10px;"></div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+      <button class="btn indigo" onclick="saveGeminiApiKey()" id="saveApiKeyBtn" style="margin: 0;">
+        <i class="fa-solid fa-check"></i> Connect & Save
+      </button>
+      <button class="btn light" onclick="closeApiKeyModal()" style="margin: 0;">
+        Cancel
+      </button>
+    </div>
   </div>
 </div>
 
