@@ -34,10 +34,297 @@
           "phone": "+91 94250 99881",
           "notifySms": true
         }
-      ]
+      ],
+      "passwordHash": "ed271c5715477cab62b01eb3e09ad55355bea249b297e0d9507a3e07423eb34f",
+      "stealthPinHash": "728f69650ddc8ce915e01da33b97442db97be8c34b43c3b33f0caf949a094474",
+      "isDemo": true
     }
   ],
   "alerts": [
+    {
+      "id": "ALERT-777361",
+      "timestamp": "2026-10-23T03:56:17.361Z",
+      "formattedTime": "09:26 am",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Sector 6 Market Road, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T03:56:17.361Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-777361",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777361 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777361 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777361 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777361 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-777300",
+      "timestamp": "2026-10-23T03:56:17.300Z",
+      "formattedTime": "09:26 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "Patrol Dispatched",
+      "responderNotes": "PCR-04 En Route",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.2188,
+        "lng": 81.3855,
+        "address": "Sector 6 Bhilai"
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T03:56:17.300Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-777300",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777300 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777300 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777300 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-777300 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-708969",
+      "timestamp": "2026-10-23T03:55:08.969Z",
+      "formattedTime": "09:25 am",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Sector 6 Market Road, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T03:55:08.969Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-708969",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708969 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708969 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708969 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🤫 SILENT SOS from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708969 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-708921",
+      "timestamp": "2026-10-23T03:55:08.921Z",
+      "formattedTime": "09:25 am",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "Patrol Dispatched",
+      "responderNotes": "PCR-04 En Route",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.2188,
+        "lng": 81.3855,
+        "address": "Sector 6 Bhilai"
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T03:55:08.921Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-708921",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708921 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708921 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708921 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "Delivered",
+          "channel": "SMS / WhatsApp Gateway",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-708921 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "0788-2221091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console"
+        },
+        {
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Dispatched",
+          "channel": "ERSS Telemetry Feed"
+        }
+      ]
+    },
     {
       "id": "PANIC-038340",
       "timestamp": "2026-10-23T02:20:38.340Z",
@@ -198,6 +485,30 @@
   ],
   "evidence": [
     {
+      "id": "ev-1792727777441",
+      "title": "Dark SUV Stalking Proof",
+      "description": "Black SUV following near gate, license plate noted.",
+      "category": "Harassment / Stalking",
+      "location": "Sector 6 Market Road, Bhilai, CG",
+      "timestamp": "23/10/26, 9:26:17 am",
+      "manifestHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": [],
+      "tamperEvident": true,
+      "bsaNotice": "Electronic record hashed under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) 2023."
+    },
+    {
+      "id": "ev-1792727709045",
+      "title": "Dark SUV Stalking Proof",
+      "description": "Black SUV following near gate, license plate noted.",
+      "category": "Harassment / Stalking",
+      "location": "Sector 6 Market Road, Bhilai, CG",
+      "timestamp": "23/10/26, 9:25:09 am",
+      "manifestHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": [],
+      "tamperEvident": true,
+      "bsaNotice": "Electronic record hashed under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) 2023."
+    },
+    {
       "id": "ev-seed-1",
       "timestamp": "2026-10-23T06:45:10.000Z",
       "type": "Harassment Incident",
@@ -208,6 +519,24 @@
     }
   ],
   "mentalHealthLogs": [
+    {
+      "id": "mh-1792727777380",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T03:56:17.380Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Walking past dark alley near college",
+      "aiFeedback": "घबराहट स्वाभाविक है, रोशनी। एक धीमी गहरी सांस लें। सखी हमेशा आपकी सुरक्षा में तैनात है।"
+    },
+    {
+      "id": "mh-1792727708974",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T03:55:08.974Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Walking past dark alley near college",
+      "aiFeedback": "घबराहट स्वाभाविक है, रोशनी। एक धीमी गहरी सांस लें। सखी हमेशा आपकी सुरक्षा में तैनात है।"
+    },
     {
       "id": "mh-1792719405630",
       "date": "2026-10-23",
@@ -268,8 +597,8 @@
       "eta": "Instant Connect"
     },
     {
-      "name": "Sakhi One Stop Centre (OSC)",
-      "type": "Shelter & Legal Aid",
+      "name": "Sakhi One Stop Centre (Government Assistance Centre)",
+      "type": "Shelter, Medical & Legal Aid (Govt. of India)",
       "distance": "3.1 km",
       "phone": "0788-2210181",
       "address": "District Hospital Campus, Durg",
@@ -286,6 +615,40 @@
       "lat": 21.205,
       "lng": 81.392,
       "eta": "7 mins"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "c-1",
+      "name": "Mom",
+      "relation": "Mother",
+      "phone": "+91 98765 00001",
+      "isPrimary": true,
+      "email": "mom@example.com"
+    },
+    {
+      "id": "c-2",
+      "name": "Sakshi (Civic Spark)",
+      "relation": "Friend",
+      "phone": "+91 98765 00002",
+      "isPrimary": false,
+      "email": ""
+    },
+    {
+      "id": "c-3",
+      "name": "Archita (Civic Spark)",
+      "relation": "Friend",
+      "phone": "+91 98765 00003",
+      "isPrimary": false,
+      "email": ""
+    },
+    {
+      "id": "c-4",
+      "name": "Campus Security Hub",
+      "relation": "Campus Guard",
+      "phone": "+91 94250 99881",
+      "isPrimary": false,
+      "email": "security@ssipmt.ac.in"
     }
   ]
 }

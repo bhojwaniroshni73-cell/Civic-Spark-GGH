@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SheGuard AI | Demo Responder Console</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --line: #334155;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --green: #10b981;
+  --blue: #3b82f6;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 18px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+.demo-banner {
+  background: #451a03;
+  color: #fde68a;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #78350f;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+.alert-card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  transition: all 0.2s;
+}
+.alert-card.status-New { border-color: var(--red); box-shadow: 0 0 15px rgba(239, 68, 68, 0.25); }
+.alert-card.status-Acknowledged { border-color: var(--amber); }
+.alert-card.status-PatrolDispatched { border-color: var(--green); }
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.badge.red { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+.badge.amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+.badge.green { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+.btn.blue { background: var(--blue); color: white; }
+.btn.green { background: var(--green); color: white; }
+.btn.outline { background: transparent; border: 1px solid var(--line); color: var(--text); }
+.btn.outline:hover { background: #334155; }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <i class="fa-solid fa-triangle-exclamation"></i>
+  <strong>DEMO RESPONDER SYSTEM:</strong> Simulated Police PCR Dispatch & Women's One-Stop Crisis Center Command Console for Ruverse Techfest 2026.
+</div>
+
+<div class="header">
+  <div>
+    <h1 style="margin: 0; font-size: 22px;">
+      <i class="fa-solid fa-shield-halved" style="color: var(--red);"></i> Mahila Thana / 112 Responder Console
+    </h1>
+    <p style="margin: 4px 0 0; color: var(--muted); font-size: 13px;">
+      Live Incident Telemetry Feed · District Durg / Bhilai
+    </p>
+  </div>
+  <div style="display: flex; gap: 8px; align-items: center;">
+    <span style="font-size: 12px; color: var(--green);" id="livePulse">
+      <i class="fa-solid fa-circle fa-beat-fade"></i> Connected
+    </span>
+    <button class="btn outline" onclick="fetchAlerts()">
+      <i class="fa-solid fa-rotate"></i> Refresh
+    </button>
+    <a href="/" class="btn outline" style="text-decoration: none;">
+      <i class="fa-solid fa-mobile-screen"></i> SheGuard App
+    </a>
+  </div>
+</div>
+
+<div class="grid" id="alertsGrid">
+  <div style="color: var(--muted); padding: 40px; text-align: center; grid-column: 1/-1;">
+    <i class="fa-solid fa-satellite-dish fa-spin" style="font-size: 32px; margin-bottom: 12px;"></i>
+    <div>Listening for active SheGuard emergency signals...</div>
+  </div>
+</div>
+
+<script>
+async function fetchAlerts() {
+  try {
+    const res = await fetch('/api/responder/alerts');
+    const data = await res.json();
+    const alerts = data.alerts || [];
+
+    const grid = document.getElementById('alertsGrid');
+    if (alerts.length === 0) {
+      grid.innerHTML = '<div style="color: var(--muted); padding: 40px; text-align: center; grid-column: 1/-1;">No active distress alerts logged. Ready on standby.</div>';
+      return;
+    }
+
+    grid.innerHTML = alerts.map(a => {
+      const isSilent = a.silent;
+      const statusClass = (a.status || 'New').replace(/\s+/g, '');
+      const badgeCol = a.status === 'Patrol Dispatched' ? 'green' : (a.status === 'Acknowledged' ? 'amber' : 'red');
+
+      return `
+        <div class="alert-card status-${statusClass}">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+            <div>
+              <span class="badge ${badgeCol}">${a.status || 'New'}</span>
+              <span style="font-size: 12px; color: var(--muted); margin-left: 6px;">${a.formattedTime || 'Just now'}</span>
+            </div>
+            <span style="font-size: 12px; font-family: monospace; color: #cbd5e1;">${a.id}</span>
+          </div>
+
+          <h3 style="margin: 0 0 6px; font-size: 18px; color: white;">
+            ${isSilent ? '🤫 SILENT SOS BEACON' : '🚨 EMERGENCY BUZZER DISTRESS'}
+          </h3>
+
+          <div style="font-size: 13px; line-height: 1.6; color: #cbd5e1; margin-bottom: 12px;">
+            <div><strong>Victim:</strong> ${a.user?.name || 'Roshni Bhojwani'} (${a.user?.phone || '+91 98765 43210'})</div>
+            <div><strong>Campus:</strong> ${a.user?.college || 'SSIPMT Raipur/Bhilai'}</div>
+            <div><strong>Location:</strong> ${a.location?.address || 'Sector 6 Bhilai, CG'}</div>
+            <div style="font-family: monospace; font-size: 11px; color: #94a3b8;">
+              Coordinates: ${a.location?.lat ? a.location.lat.toFixed(4) : '21.2188'}° N, ${a.location?.lng ? a.location.lng.toFixed(4) : '81.3855'}° E
+            </div>
+            ${a.responderNotes ? `<div style="background: rgba(16,185,129,0.15); border: 1px solid #10b981; padding: 6px 10px; border-radius: 6px; margin-top: 6px; font-size: 12px; color: #6ee7b7;"><strong>Patrol Assigned:</strong> ${a.responderNotes}</div>` : ''}
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--line); padding-top: 12px;">
+            <a href="${a.mapUrl || ('https://maps.google.com/?q=' + (a.location?.lat||21.2188) + ',' + (a.location?.lng||81.3855))}" target="_blank" class="btn outline" style="text-decoration: none;">
+              <i class="fa-solid fa-map-location-dot"></i> View Route
+            </a>
+            <button class="btn blue" onclick="updateAlertStatus('${a.id}', 'Acknowledged', 'Desk Operator Officer Sharma logged call')">
+              <i class="fa-solid fa-check"></i> Acknowledge
+            </button>
+            <button class="btn green" onclick="updateAlertStatus('${a.id}', 'Patrol Dispatched', 'PCR Vanguard-04 deployed from Bhilai Sector 6 Thana (ETA 4m)')">
+              <i class="fa-solid fa-car-on"></i> Dispatch Patrol
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (e) {
+    console.error('Error fetching responder alerts', e);
+  }
+}
+
+async function updateAlertStatus(alertId, status, notes) {
+  try {
+    await fetch('/api/responder/status', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ alertId, status, notes })
+    });
+    fetchAlerts();
+  } catch (e) {
+    alert('Failed to update responder status');
+  }
+}
+
+fetchAlerts();
+setInterval(fetchAlerts, 5000);
+</script>
+
+</body>
+</html>

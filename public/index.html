@@ -2,254 +2,42 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SheGuard AI | Women Safety Companion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>SheGuard AI | Women Safety & Justice Companion</title>
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-:root {
-  --ink: #1a1717;
-  --bg: #fbf8f6;
-  --card: #ffffff;
-  --line: #e6dfdb;
-  --red: #c8102e;
-  --red-hover: #a80c25;
-  --rose: #e11d48;
-  --green: #15803d;
-  --amber: #b45309;
-  --indigo: #4338ca;
-  --shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Georgia, serif;
-  background: var(--bg);
-  color: var(--ink);
-  max-width: 520px;
-  margin: auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-button { font: inherit; cursor: pointer; transition: all 0.15s ease; }
-.screen { display: none; padding: 18px; min-height: 100vh; }
-.screen.on { display: block; }
-
-/* Headers & Typography */
-h1, h2, h3 { margin: 6px 0 10px; font-weight: 700; }
-.subtitle { font-size: 14px; color: #665; margin-bottom: 14px; line-height: 1.4; }
-.sub-hi { font-size: 13px; color: #887; display: block; margin-top: 2px; }
-
-/* Large Touch-Friendly Buttons for Ease of Use */
-.btn {
-  width: 100%;
-  padding: 16px 18px;
-  border: 0;
-  border-radius: 14px;
-  background: var(--ink);
-  color: #fff;
-  font-size: 17px;
-  font-weight: 600;
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: var(--shadow);
-}
-.btn:active { transform: scale(0.98); }
-.btn.red { background: var(--red); color: #fff; }
-.btn.red:hover { background: var(--red-hover); }
-.btn.indigo { background: var(--indigo); color: #fff; }
-.btn.light { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
-.btn.light:hover { background: #f5f0ec; }
-.btn.green { background: var(--green); color: #fff; }
-.btn.small { padding: 10px 14px; font-size: 14px; border-radius: 10px; width: auto; display: inline-flex; }
-
-/* Forms & Inputs */
-input, textarea, select {
-  width: 100%;
-  padding: 14px;
-  font: inherit;
-  font-size: 16px;
-  border: 1.5px solid var(--line);
-  border-radius: 12px;
-  margin: 6px 0;
-  background: #fff;
-  color: var(--ink);
-}
-input:focus, textarea:focus { outline: none; border-color: var(--rose); }
-
-/* Cards & Badges */
-.card {
-  background: var(--card);
-  border: 1.5px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
-  margin: 12px 0;
-  box-shadow: var(--shadow);
-}
-.badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.badge.red { background: var(--red); }
-.badge.amber { background: var(--amber); }
-.badge.green { background: var(--green); }
-.badge.indigo { background: var(--indigo); }
-
-.back-btn {
-  background: none;
-  border: 0;
-  color: var(--red);
-  font-size: 16px;
-  font-weight: 600;
-  padding: 6px 0;
-  margin-bottom: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Strobe flashing */
-#strobeOverlay {
-  position: fixed; inset: 0; pointer-events: none; z-index: 9999;
-  background: rgba(200, 16, 46, 0.4); opacity: 0; transition: opacity 0.15s;
-}
-.strobe-flashing {
-  animation: strobe-anim 0.15s infinite alternate;
-}
-@keyframes strobe-anim {
-  from { opacity: 0.8; }
-  to { opacity: 0; }
-}
-
-/* Siren Pulse Button */
-.siren-btn {
-  width: 100%;
-  padding: 22px;
-  border: 0;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #c8102e, #e11d48);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 800;
-  margin: 12px 0;
-  box-shadow: 0 8px 24px rgba(200, 16, 46, 0.4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-.siren-pulse {
-  animation: siren-pulse-anim 0.8s infinite;
-}
-@keyframes siren-pulse-anim {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7); }
-  70% { transform: scale(1.03); box-shadow: 0 0 0 18px rgba(200, 16, 46, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200, 16, 46, 0); }
-}
-
-/* Calculator Disguise */
-#calc { background: #1c1c1e; color: #fff; min-height: 100vh; padding: 12px; }
-#disp { height: 130px; display: flex; align-items: flex-end; justify-content: flex-end; font: 52px system-ui; padding: 16px; word-break: break-all; }
-.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 10px 0; }
-.keys button { height: 68px; border-radius: 34px; border: 0; font: 25px system-ui; background: #333; color: #fff; }
-.keys .op { background: #ff9f0a; color: #fff; }
-.keys .fn { background: #a5a5a5; color: #000; }
-
-/* Mood Grid */
-.mood-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 10px 0; }
-.mood-btn {
-  background: #fff;
-  border: 2px solid var(--line);
-  border-radius: 14px;
-  padding: 14px 10px;
-  text-align: center;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-.mood-btn.selected { border-color: var(--indigo); background: #eef2ff; }
-.mood-btn .emoji { font-size: 28px; }
-.mood-btn .m-title { font-size: 14px; font-weight: bold; }
-.mood-btn .m-hi { font-size: 11px; color: #666; }
-
-/* Chat Window */
-.chat-window {
-  max-height: 280px;
-  overflow-y: auto;
-  padding: 10px;
-  background: #f5f0ec;
-  border-radius: 12px;
-  margin: 10px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.chat-msg {
-  padding: 12px 14px;
-  border-radius: 14px;
-  font-size: 14px;
-  line-height: 1.4;
-  max-width: 85%;
-}
-.chat-msg.asha { background: #fff; border: 1px solid var(--line); align-self: flex-start; }
-.chat-msg.user { background: var(--indigo); color: #fff; align-self: flex-end; }
-
-/* Quick scenario buttons */
-.scenario-tag {
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin: 4px 4px 4px 0;
-}
-.scenario-tag:hover { background: #f5f0ec; border-color: var(--rose); }
-
-.note { font-size: 13px; color: #776; margin-top: 16px; line-height: 1.4; }
-.steps li { font-size: 17px; line-height: 1.5; margin: 10px 0; }
-</style>
+<!-- html2pdf.js for Client-Side Unicode PDF Generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Strobe Light Effect Overlay -->
+<!-- Strobe Light Deterrent Overlay -->
 <div id="strobeOverlay"></div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 1: LOGIN (Simple Name & Password)                  -->
+<!-- SCREEN 1: LOGIN (Simple & Accessible)                    -->
 <!-- ======================================================== -->
 <div id="login" class="screen on">
   <div style="text-align: center; padding: 24px 0 14px;">
-    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--red), var(--rose)); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: var(--shadow);">
-      <i class="fa-solid fa-shield-halved"></i>
+    <div style="width: 72px; height: 72px; background: linear-gradient(135deg, var(--red), var(--rose)); border-radius: 20px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 34px; box-shadow: var(--shadow);">
+      <i class="fa-solid fa-shield-heart"></i>
     </div>
     <h1 style="margin: 14px 0 4px; font-size: 26px;">SheGuard AI</h1>
     <div class="subtitle">
       मदद जो आपको तुरंत समझे
       <span class="sub-hi">Help that understands you instantly</span>
     </div>
+    <div style="font-size: 11px; background: #e0f2fe; color: #0369a1; display: inline-block; padding: 4px 10px; border-radius: 12px; font-weight: 600;">
+      Google Gemini Hackathon 2026 · Team Civic Spark · SSIPMT
+    </div>
   </div>
 
   <div class="card">
-    <h3 style="margin-top: 0; font-size: 18px;">लॉग इन करें / Please Sign In</h3>
-    <p style="font-size: 13px; color: #665; margin: 0 0 12px;">अपना नाम और पासवर्ड दर्ज करें:</p>
+    <h3 style="margin-top: 0; font-size: 18px;">लॉग इन करें / Sign In</h3>
+    <p style="font-size: 13px; color: #665; margin: 0 0 12px;">सुरक्षा कंसोल में प्रवेश करने के लिए अपना नाम और पासवर्ड दर्ज करें:</p>
     
-    <label style="font-size: 14px; font-weight: 600;">आपका नाम / Your Name</label>
+    <label style="font-size: 14px; font-weight: 600;">आपका नाम / Full Name</label>
     <input type="text" id="loginName" placeholder="उदा. Roshni Bhojwani" value="Roshni Bhojwani">
 
     <label style="font-size: 14px; font-weight: 600;">पासवर्ड / Password</label>
@@ -257,19 +45,19 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
 
     <button class="btn red" id="loginBtn" onclick="doLogin()">
       <i class="fa-solid fa-arrow-right-to-bracket"></i>
-      <span>लॉग इन करें / Enter SheGuard</span>
+      <span>प्रवेश करें / Enter SheGuard AI</span>
     </button>
 
     <button class="btn light" onclick="quickFillDemo()" style="margin-top: 10px;">
-      <i class="fa-solid fa-wand-magic-sparkles text-amber"></i>
+      <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--amber);"></i>
       <span>Demo Account Auto-Fill (Civic Spark)</span>
     </button>
   </div>
 
   <div class="card" style="background: #fff8f8; border-color: #fcc;">
-    <b style="color: var(--red); font-size: 14px;"><i class="fa-solid fa-user-secret"></i> Silent Disguise Hint:</b>
-    <p style="font-size: 13px; margin: 4px 0 0; color: #554;">
-      Under danger, SheGuard disguises as a normal calculator. Type <strong style="color: var(--red); font-family: monospace; font-size: 15px;">1234=</strong> inside the calculator to enter.
+    <b style="color: var(--red); font-size: 14px;"><i class="fa-solid fa-user-secret"></i> Disguised Silent Mode:</b>
+    <p style="font-size: 13px; margin: 4px 0 0; color: #554; line-height: 1.4;">
+      खतरे के समय यह ऐप कैलकुलेटर का रूप ले लेती है। कैलकुलेटर में <strong style="color: var(--red); font-family: monospace; font-size: 16px;">1234=</strong> दबाकर सीक्रेट कंसोल खोला जा सकता है।
     </p>
   </div>
 </div>
@@ -280,17 +68,63 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
 <div id="calc" class="screen">
   <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 4px; font-size: 13px; color: #888;">
     <span>Calculator</span>
-    <span onclick="go('home')" style="cursor: pointer; color: #aaa; text-decoration: underline;">[Open Home]</span>
+    <span onclick="go('home')" style="cursor: pointer; color: #aaa; text-decoration: underline;">[Open SheGuard]</span>
   </div>
   <div id="disp">0</div>
+  <div id="calcDotNotice" style="height: 18px; text-align: right; padding-right: 12px; font-size: 12px; color: #10b981; display: none;">
+    <i class="fa-solid fa-circle"></i> Silent beacon active
+  </div>
   <div class="keys" id="keys"></div>
-  <p style="font-size: 11px; color: #555; text-align: center; margin-top: 8px;">
-    Secret: Enter <strong>1234=</strong> or tap <strong>=</strong> 3 times for silent panic.
+  <p style="font-size: 11px; color: #666; text-align: center; margin-top: 8px;">
+    Secret: Enter <strong style="color: #aaa;">1234=</strong> to unlock Stealth Console. Tap <strong style="color: #aaa;">=</strong> 3 times for Silent SOS.
   </p>
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 3: HOME DASHBOARD (Clear & Sorted)                 -->
+<!-- SCREEN 3: STEALTH CONSOLE (Mode 2 Silent Mode)            -->
+<!-- ======================================================== -->
+<div id="stealth" class="screen">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+    <h2 style="margin: 0; color: var(--red); font-size: 20px;">
+      <i class="fa-solid fa-user-secret"></i> Stealth Safety Console
+    </h2>
+    <button class="btn light small" onclick="go('calc')">
+      <i class="fa-solid fa-eye-slash"></i> Panic Lock (ESC)
+    </button>
+  </div>
+
+  <div class="card" style="background: #fef2f2; border-color: #fca5a5;">
+    <b style="color: var(--red); font-size: 15px;">🤫 One-Tap Silent Panic SOS:</b>
+    <p style="font-size: 13px; color: #554; margin: 6px 0 14px; line-height: 1.4;">
+      बिना किसी आवाज़, कंपन या स्क्रीन लाइट के तुरंत आपके परिजनों और रेस्पॉन्डर कंसोल को लाइव जीपीएस लोकेशन भेजता है।
+    </p>
+
+    <button class="btn red" onclick="triggerSilentPanic()" style="padding: 20px; font-size: 18px;">
+      <i class="fa-solid fa-paper-plane"></i>
+      <span>TRANSMIT SILENT SOS BEACON</span>
+    </button>
+    <div id="silentSosToast" style="display: none; font-size: 12px; color: var(--green); margin-top: 8px; text-align: center; font-weight: bold;">
+      ✓ Silent distress beacon sent. Location sharing active.
+    </div>
+  </div>
+
+  <div class="card">
+    <b style="font-size: 15px;"><i class="fa-solid fa-person-walking-luggage" style="color: var(--indigo);"></i> Private Safety Escape Plan</b>
+    <p style="font-size: 13px; color: #665; margin: 4px 0 10px;">घरेलू हिंसा या सक्रिय स्टॉकिंग से सुरक्षित निकलने की चेकलिस्ट:</p>
+    <ul id="stealthPlanList" style="padding-left: 20px; font-size: 13px; line-height: 1.6; color: #443; margin: 0;"></ul>
+  </div>
+
+  <div class="card">
+    <b style="font-size: 14px;"><i class="fa-solid fa-shield-halved"></i> Quick Stealth Access:</b>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+      <button class="btn light small" onclick="go('vault')"><i class="fa-solid fa-folder-closed"></i> Evidence Vault</button>
+      <button class="btn light small" onclick="go('home')"><i class="fa-solid fa-house"></i> Full SheGuard Home</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================== -->
+<!-- SCREEN 4: HOME DASHBOARD (Clear, Sorted & Accessible)     -->
 <!-- ======================================================== -->
 <div id="home" class="screen">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -300,9 +134,14 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
         <i class="fa-solid fa-shield-check"></i> SheGuard Protection Active
       </span>
     </div>
-    <button class="btn light small" onclick="go('calc')">
-      <i class="fa-solid fa-calculator"></i> Hide App
-    </button>
+    <div style="display: flex; gap: 6px;">
+      <button class="btn light small" onclick="go('calc')" title="Hide app as calculator">
+        <i class="fa-solid fa-calculator"></i> Hide
+      </button>
+      <button class="btn light small" onclick="openPrivacyModal()" title="Privacy & Data Control">
+        <i class="fa-solid fa-lock"></i>
+      </button>
+    </div>
   </div>
 
   <!-- Big Emergency Buzzer Tile -->
@@ -312,100 +151,139 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
       <span>EMERGENCY BUZZER</span>
     </div>
     <span style="font-size: 13px; font-weight: normal; opacity: 0.95;">
-      आपातकालीन सायरन · पुलिस व हेल्पलाइन को तुरंत सूचना
+      आपातकालीन सायरन · पुलिस व परिजनों को लाइव लोकेशन
     </span>
   </button>
 
   <!-- Mode 1: Help Now -->
   <button class="btn red" onclick="go('emergency')">
     <i class="fa-solid fa-truck-medical"></i>
-    <span>I need help now / मुझे मदद चाहिए</span>
+    <span>I need help now / मुझे अभी मदद चाहिए</span>
   </button>
 
-  <!-- Feature 1: Daily AI Companion -->
+  <!-- Feature 1: Sakhi AI Companion -->
   <button class="btn indigo" onclick="go('companion')">
-    <i class="fa-solid fa-heart-pulse"></i>
-    <span>Daily AI Companion & Mental Status / रोज़ाना साथी</span>
+    <i class="fa-solid fa-hand-holding-heart"></i>
+    <span>Sakhi, your AI companion / सखी से बात करें</span>
+  </button>
+
+  <!-- Feature 4: Emergency Contacts -->
+  <button class="btn light" onclick="go('contacts')">
+    <i class="fa-solid fa-users"></i>
+    <span>Emergency Contacts / आपातकालीन संपर्क</span>
+  </button>
+
+  <!-- Feature 9: Online Trolling & Harassment Help -->
+  <button class="btn light" onclick="go('trolling')">
+    <i class="fa-solid fa-shield-virus" style="color: #0284c7;"></i>
+    <span>Online Trolling & Cyber Harassment / साइबर सुरक्षा</span>
   </button>
 
   <!-- Mode 3: Evidence Vault -->
   <button class="btn light" onclick="go('vault')">
     <i class="fa-solid fa-folder-closed"></i>
-    <span>Evidence Vault / सुरक्षित सबूत</span>
+    <span>Tamper-Evident Evidence Vault / कानूनी सबूत</span>
   </button>
 
   <!-- Mode 3: Draft Complaint -->
   <button class="btn light" onclick="go('complaint'); makeComplaint();">
     <i class="fa-solid fa-file-signature"></i>
-    <span>Draft My Police Complaint / FIR</span>
-  </button>
-
-  <!-- One-tap Silent Alert -->
-  <button class="btn light" onclick="panic(false)">
-    <i class="fa-solid fa-paper-plane"></i>
-    <span>Silent Alert to Trusted Contact (बिना आवाज)</span>
+    <span>Draft Police Complaint / FIR (BNS 2023)</span>
   </button>
 
   <!-- Nearby Help -->
   <button class="btn light" onclick="go('services')">
     <i class="fa-solid fa-building-shield"></i>
-    <span>Nearby Police & Helplines / नजदीकी पुलिस थाना</span>
+    <span>Nearby Police & Helplines / नजदीकी सहायता केंद्र</span>
   </button>
 
-  <!-- Safety Plan Card -->
-  <div class="card">
-    <b style="font-size: 15px;"><i class="fa-solid fa-list-check" style="color: var(--indigo);"></i> Safety Plan / सुरक्षा योजना</b>
-    <ul id="plan" style="padding-left: 20px; margin: 8px 0; font-size: 14px; line-height: 1.5; color: #443;"></ul>
+  <!-- External Responder Console Link -->
+  <div style="text-align: center; margin: 10px 0;">
+    <a href="/responder.html" target="_blank" style="font-size: 12px; color: var(--indigo); text-decoration: underline;">
+      <i class="fa-solid fa-desktop"></i> Open Live Police / Help Centre Responder Console (Demo)
+    </a>
   </div>
 
-  <p class="note">SheGuard AI does not replace emergency services. In immediate danger, call 112 directly.</p>
+  <p class="note">SheGuard AI does not replace emergency services. In acute danger, call 112 directly.</p>
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 4: EMERGENCY BUZZER (Feature 2)                    -->
+<!-- SCREEN 5: EMERGENCY BUZZER (Task 5)                       -->
 <!-- ======================================================== -->
 <div id="buzzer" class="screen">
   <button class="back-btn" onclick="stopSiren(); go('home');">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
 
-  <h2 style="color: var(--red);">Emergency Buzzer</h2>
-  <div class="subtitle">तेज अलार्म बजाएं और नजदीकी पुलिस स्टेशन व हेल्पलाइन को अलर्ट भेजें</div>
+  <h2 style="color: var(--red);">Emergency Buzzer & Live Alert</h2>
+  <div class="subtitle">तेज अलार्म बजाएं और परिजनों व रेस्पॉन्डर कंसोल को लाइव लोकेशन भेजें</div>
 
-  <div style="text-align: center; margin: 20px 0;">
+  <!-- Local Siren Deterrent Toggle -->
+  <div class="card" style="padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <b style="font-size: 14px;"><i class="fa-solid fa-volume-high"></i> Local Sound Siren & Strobe</b>
+      <div style="font-size: 12px; color: #665;">ध्वनि सायरन और फ्लैशिंग लाइट ऑन/ऑफ करें</div>
+    </div>
+    <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
+      <input type="checkbox" id="sirenSoundToggle" checked style="opacity: 0; width: 0; height: 0;">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <!-- Buzzer Trigger Button -->
+  <div style="text-align: center; margin: 14px 0;">
     <button id="buzzerTriggerBtn" class="siren-btn" onclick="toggleBuzzerAlarm()" style="min-height: 130px; border-radius: 26px;">
       <i class="fa-solid fa-bullhorn" style="font-size: 40px; margin-bottom: 4px;"></i>
-      <span id="buzzerBtnText" style="font-size: 22px;">TAP TO SOUND LOUD SIREN</span>
-      <span style="font-size: 13px; font-weight: normal; opacity: 0.9;">अलार्म चालू करने के लिए दबाएं</span>
+      <span id="buzzerBtnText" style="font-size: 20px;">TAP TO SOUND ALARM & BROADCAST</span>
+      <span style="font-size: 13px; font-weight: normal; opacity: 0.9;">अलार्म व लाइव लोकेशन भेजने के लिए दबाएं</span>
     </button>
   </div>
 
-  <!-- Notification Dispatch Status Card -->
+  <!-- Live Location Sharing Control -->
+  <div class="card" id="buzzerActiveCard" style="display: none; border-color: var(--red); background: #fef2f2;">
+    <div style="display: flex; justify-content: space-between; align-items: start;">
+      <div>
+        <span class="badge red">Live GPS Streaming</span>
+        <h4 style="margin: 6px 0 2px;">Sharing with Emergency Contacts</h4>
+        <p style="font-size: 12px; color: #554; margin: 0;" id="buzzerGpsCoords">Location: 21.2188° N, 81.3855° E</p>
+      </div>
+      <button class="btn light small" onclick="stopLocationSharing()" style="width: auto; margin: 0; border-color: #fca5a5; color: var(--red);">
+        Stop Sharing
+      </button>
+    </div>
+    <div style="margin-top: 10px;">
+      <a href="#" id="viewLiveTrackLink" target="_blank" class="btn light small" style="width: 100%; justify-content: center; text-decoration: none;">
+        <i class="fa-solid fa-location-crosshairs"></i> Open Standalone Public Tracking Page
+      </a>
+    </div>
+  </div>
+
+  <!-- Real Delivery Status Breakdown -->
   <div class="card" id="buzzerDispatchCard">
-    <h3 style="font-size: 16px; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+    <h3 style="font-size: 15px; margin-top: 0; display: flex; align-items: center; gap: 8px;">
       <i class="fa-solid fa-satellite-dish" style="color: var(--red);"></i>
-      <span>Alert Status / भेजी गई सूचनाएं:</span>
+      <span>Alert Delivery Status / भेजी गई सूचनाएं:</span>
     </h3>
 
-    <div style="font-size: 14px; line-height: 1.6; color: #332;">
-      <div style="padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
-        <span><strong>112 National Emergency:</strong></span>
-        <span class="badge red">Ready to Dispatch</span>
+    <div id="buzzerDeliveryList" style="font-size: 13px; line-height: 1.6; color: #332;">
+      <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
+        <span><strong>Mom (+91 98765 00001):</strong></span>
+        <span class="badge amber">Standby (Ready)</span>
       </div>
-      <div style="padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
-        <span><strong>Women Helpline 1091:</strong></span>
-        <span class="badge amber">24x7 Connected</span>
-      </div>
-      <div style="padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
-        <span><strong>Women in Distress 181:</strong></span>
+      <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
+        <span><strong>Sakshi (+91 98765 00002):</strong></span>
         <span class="badge amber">Standby</span>
       </div>
-      <div style="padding: 8px 0; display: flex; justify-content: space-between; align-items: center;">
+      <div style="padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;">
+        <span><strong>Police Responder Console:</strong></span>
+        <span class="badge green">Connected</span>
+      </div>
+      <div style="padding: 6px 0; display: flex; justify-content: space-between; align-items: center;">
         <div>
           <strong>Mahila Thana Bhilai (1.2 km):</strong>
-          <div style="font-size: 12px; color: #665;">Patrol Car: ETA 4 mins</div>
+          <div style="font-size: 11px; color: #665;">One-tap handoff + ERSS telemetry</div>
         </div>
-        <span class="badge green">In Range</span>
+        <span class="badge green">1-Tap Ready</span>
       </div>
     </div>
   </div>
@@ -421,7 +299,7 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 5: DAILY AI COMPANION (Feature 1)                  -->
+<!-- SCREEN 6: SAKHI AI COMPANION (Task 1 & 2)                 -->
 <!-- ======================================================== -->
 <div id="companion" class="screen">
   <button class="back-btn" onclick="go('home')">
@@ -429,18 +307,23 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
   </button>
 
   <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-    <div style="width: 44px; height: 44px; background: #eef2ff; color: var(--indigo); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+    <div style="width: 48px; height: 48px; background: #eef2ff; color: var(--indigo); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
       <i class="fa-solid fa-hand-holding-heart"></i>
     </div>
     <div>
-      <h2 style="margin: 0; font-size: 20px;">Asha · AI Companion</h2>
-      <div style="font-size: 13px; color: #665;">आपकी रोज़ाना मानसिक साथी व सुरक्षा मार्गदर्शक</div>
+      <h2 style="margin: 0; font-size: 20px;">Sakhi, your AI companion</h2>
+      <div style="font-size: 13px; color: #665;">आपकी भावनात्मक साथी व सुरक्षा मार्गदर्शक</div>
     </div>
   </div>
 
-  <!-- Daily Mood Check-In -->
+  <!-- Disclaimer Notice -->
+  <div style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 10px; padding: 8px 12px; font-size: 12px; color: #475569; margin-bottom: 12px;">
+    <i class="fa-solid fa-circle-info"></i> <strong>Disclaimer:</strong> Sakhi offers supportive companionship and safety grounding, not medical, psychiatric, or professional care.
+  </div>
+
+  <!-- Emotional Check-in & Trends -->
   <div class="card">
-    <b style="font-size: 15px;">आज आप कैसा महसूस कर रही हैं? / How are you feeling today?</b>
+    <b style="font-size: 15px;">Emotional Check-in & Trends / आज आप कैसा महसूस कर रही हैं?</b>
     <div class="mood-grid">
       <div class="mood-btn selected" onclick="selectMood('Safe & Calm', this)">
         <span class="emoji">🌸</span>
@@ -449,13 +332,13 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
       </div>
       <div class="mood-btn" onclick="selectMood('Anxious / On Edge', this)">
         <span class="emoji">⚡</span>
-        <span class="m-title">Anxious</span>
+        <span class="m-title">Anxious / On Edge</span>
         <span class="m-hi">घबराहट / चिंता</span>
       </div>
       <div class="mood-btn" onclick="selectMood('Scared / Stalked', this)">
         <span class="emoji">⚠️</span>
-        <span class="m-title">Scared</span>
-        <span class="m-hi">डरी हुई / पीछा</span>
+        <span class="m-title">Scared / Stalked</span>
+        <span class="m-hi">डरी हुई / कोई पीछा</span>
       </div>
       <div class="mood-btn" onclick="selectMood('Empowered', this)">
         <span class="emoji">💪</span>
@@ -464,41 +347,72 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
       </div>
     </div>
 
-    <!-- Mental Score Slider -->
+    <!-- Peace of mind slider -->
     <div style="margin: 12px 0 6px;">
       <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600;">
-        <span>Peace of Mind Score (मानसिक शांति):</span>
+        <span>Peace of Mind Score (शांति स्कोर):</span>
         <span id="scoreDisplay" style="color: var(--indigo); font-weight: bold;">7 / 10</span>
       </div>
       <input type="range" id="moodSlider" min="1" max="10" value="7" oninput="$('scoreDisplay').textContent = this.value + ' / 10'">
     </div>
 
-    <input type="text" id="moodNote" placeholder="कोई बात जो आप लिखना चाहें (उदा. रास्ते में डर लगा)...">
+    <input type="text" id="moodNote" placeholder="कोई बात जो आप लिखना चाहें (उदा. रास्ते में बेचैनी लगी)...">
     <button class="btn indigo" onclick="saveMoodCheckin()" style="margin-top: 6px;">
       <i class="fa-solid fa-check"></i>
-      <span>Save Today's Mood / स्थिति दर्ज करें</span>
+      <span>Save Check-in / स्थिति दर्ज करें</span>
     </button>
   </div>
 
-  <!-- Chat with Asha -->
+  <!-- Chat with Sakhi -->
   <div class="card">
-    <b style="font-size: 15px;"><i class="fa-solid fa-comments text-indigo"></i> Talk with Asha / आशा से बात करें</b>
-    
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <b style="font-size: 15px;"><i class="fa-solid fa-comments text-indigo"></i> Talk with Sakhi / सखी से बातचीत</b>
+      <span style="font-size: 11px; color: var(--green);"><i class="fa-solid fa-circle"></i> Online</span>
+    </div>
+
     <div class="chat-window" id="chatWindow">
       <div class="chat-msg asha">
-        नमस्ते रोशनी! मैं आपकी साथी आशा हूँ। आज आपका दिन कैसा रहा? आप मुझसे किसी भी समय अपने मन की बात कह सकती हैं।
+        नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।
+      </div>
+    </div>
+
+    <!-- Crisis Helpline Card (Visible when needed) -->
+    <div id="crisisHelplineBox" style="display: none; background: #fef2f2; border: 1.5px solid var(--red); border-radius: 12px; padding: 12px; margin: 8px 0;">
+      <div style="display: flex; gap: 8px; align-items: center; color: var(--red); font-weight: bold; font-size: 14px;">
+        <i class="fa-solid fa-heart-pulse"></i> 24x7 Verified Mental Health & Emergency Helplines
+      </div>
+      <p style="font-size: 12px; color: #554; margin: 4px 0 8px;">
+        आप अकेली नहीं हैं। भारत सरकार की निशुल्क मानसिक स्वास्थ्य हेल्पलाइन पर तुरंत बात करें:
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+        <a href="tel:14416" class="btn red small" style="margin: 0; justify-content: center; text-decoration: none;">
+          <i class="fa-solid fa-phone"></i> Tele-MANAS (14416)
+        </a>
+        <a href="tel:112" class="btn light small" style="margin: 0; justify-content: center; text-decoration: none;">
+          <i class="fa-solid fa-phone"></i> Emergency (112)
+        </a>
+      </div>
+    </div>
+
+    <!-- Autocorrect Suggestion Chip (Task 2) -->
+    <div id="autocorrectBox" style="display: none; margin-bottom: 6px;">
+      <div class="autocorrect-chip" onclick="applyAutocorrect()">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Did you mean: <strong id="autocorrectText"></strong>?</span>
+        <span onclick="dismissAutocorrect(event)" style="margin-left: 6px; color: #888;">&times;</span>
       </div>
     </div>
 
     <!-- Quick Help Chips -->
     <div style="margin: 6px 0;">
-      <span class="scenario-tag" onclick="quickChat('मुझे चलने में घबराहट हो रही है')">🌿 शांत सांस की कसरत</span>
+      <span class="scenario-tag" onclick="quickChat('मुझे चलने में घबराहट हो रही है')">🌿 4-7-8 शांत सांस</span>
+      <span class="scenario-tag" onclick="quickChat('5-4-3-2-1 ग्राउंडिंग तकनीक सिखाएं')">🧘 5-4-3-2-1 ग्राउंडिंग</span>
       <span class="scenario-tag" onclick="quickChat('कोई मेरा पीछा कर रहा है क्या करूं?')">🚶 कोई पीछा कर रहा है</span>
-      <span class="scenario-tag" onclick="quickChat('मेरे कानूनी अधिकार क्या हैं?')">⚖️ मेरे अधिकार</span>
+      <span class="scenario-tag" onclick="quickChat('मेरे कानूनी अधिकार क्या हैं?')">⚖️ कानूनी अधिकार</span>
     </div>
 
     <div style="display: flex; gap: 8px;">
-      <input type="text" id="chatInput" placeholder="Type or speak to Asha..." style="margin: 0;">
+      <input type="text" id="chatInput" placeholder="Sakhi se baat karein (Hindi/English/Hinglish)..." style="margin: 0;" oninput="handleChatTyping()">
       <button class="btn indigo small" onclick="sendChat()" style="margin: 0; min-width: 50px;">
         <i class="fa-solid fa-paper-plane"></i>
       </button>
@@ -507,7 +421,93 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 6: EMERGENCY MODE (Mode 1 Multimodal Triage)       -->
+<!-- SCREEN 7: EMERGENCY CONTACTS (Task 4)                     -->
+<!-- ======================================================== -->
+<div id="contacts" class="screen">
+  <button class="back-btn" onclick="go('home')">
+    <i class="fa-solid fa-arrow-left"></i> Back to Home
+  </button>
+
+  <h2>Emergency Contacts</h2>
+  <div class="subtitle">संकट के समय एक-टैप में कॉल, व्हाट्सएप व एसएमएस सूचनाएं भेजें</div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <b style="font-size: 15px;">Your Trusted Network:</b>
+      <button class="btn light small" onclick="toggleAddContactForm()">
+        <i class="fa-solid fa-plus"></i> Add Contact
+      </button>
+    </div>
+
+    <!-- Add Contact Form -->
+    <div id="addContactFormBox" style="display: none; background: #f8fafc; border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 12px;">
+      <h4 style="margin: 0 0 8px; font-size: 14px;">Add New Trusted Contact</h4>
+      <input type="text" id="newContactName" placeholder="Full Name (उदा. Sister Sneha)">
+      <input type="text" id="newContactRelation" placeholder="Relationship (उदा. Sister / Friend)">
+      <input type="tel" id="newContactPhone" placeholder="Mobile Number (उदा. +91 98765 11111)">
+      <input type="email" id="newContactEmail" placeholder="Email / Telegram (Optional)">
+      <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; margin: 6px 0;">
+        <input type="checkbox" id="newContactPrimary"> Set as Primary Emergency Contact
+      </label>
+      <div style="display: flex; gap: 6px; margin-top: 8px;">
+        <button class="btn green small" onclick="saveNewContact()"><i class="fa-solid fa-check"></i> Save Contact</button>
+        <button class="btn light small" onclick="toggleAddContactForm()">Cancel</button>
+      </div>
+      <div id="contactFormError" style="color: var(--red); font-size: 12px; margin-top: 4px; display: none;"></div>
+    </div>
+
+    <!-- Contacts Render List -->
+    <div id="contactsListContainer"></div>
+  </div>
+</div>
+
+<!-- ======================================================== -->
+<!-- SCREEN 8: ONLINE TROLLING & HARASSMENT (Task 9 - NEW)     -->
+<!-- ======================================================== -->
+<div id="trolling" class="screen">
+  <button class="back-btn" onclick="go('home')">
+    <i class="fa-solid fa-arrow-left"></i> Back to Home
+  </button>
+
+  <h2>Online Harassment & Cyber Trolling</h2>
+  <div class="subtitle">सोशल मीडिया पर ब्लैकमेल, डीपफेक, ट्रोलिंग या फोटो लीक के विरुद्ध त्वरित सहायता</div>
+
+  <div class="card">
+    <b style="font-size: 15px;">What happened? / घटना क्या है?</b>
+    <p style="font-size: 13px; color: #665; margin: 4px 0 10px;">
+      प्लेटफॉर्म चुनें और स्थिति का विवरण लिखें (या स्क्रीनशॉट अपलोड करें):
+    </p>
+
+    <label style="font-size: 13px; font-weight: bold;">Platform / मंच:</label>
+    <select id="trollingPlatform" style="margin-bottom: 10px;">
+      <option value="Instagram">Instagram</option>
+      <option value="WhatsApp">WhatsApp</option>
+      <option value="X / Twitter">X / Twitter</option>
+      <option value="Facebook">Facebook</option>
+      <option value="Telegram">Telegram</option>
+      <option value="Dating App / Other">Other Platform</option>
+    </select>
+
+    <textarea id="trollingDesc" rows="3" placeholder="Describe the threat (e.g. Someone made a fake account with my photos and is blackmailing me)..."></textarea>
+
+    <label class="btn light" style="margin: 6px 0; cursor: pointer;">
+      <i class="fa-solid fa-camera"></i>
+      <span>Upload Screenshot / स्क्रीनशॉट जोड़ें</span>
+      <input type="file" id="trollingScreenshot" accept="image/*" style="display: none;" onchange="showTrollingScreenshotName(this)">
+    </label>
+    <div id="trollingFileBadge" style="font-size: 12px; color: var(--green); display: none; margin-bottom: 6px;"></div>
+
+    <button class="btn indigo" onclick="analyzeTrollingIncident()">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Generate Action Plan & Cyber Help</span>
+    </button>
+  </div>
+
+  <div id="trollingResultBox"></div>
+</div>
+
+<!-- ======================================================== -->
+<!-- SCREEN 9: EMERGENCY MODE & VOICE TRIAGE (Task 3 & Mode 1) -->
 <!-- ======================================================== -->
 <div id="emergency" class="screen">
   <button class="back-btn" onclick="go('home')">
@@ -515,7 +515,7 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
   </button>
 
   <h2>What is happening?</h2>
-  <div class="subtitle">बोलें, टाइप करें या फोटो लें (हिंदी या किसी भी भाषा में)</div>
+  <div class="subtitle">बोलें, टाइप करें या फोटो लें (हिंदी, इंग्लिश या हिंग्लिश में)</div>
 
   <a href="tel:112" style="text-decoration: none;">
     <button class="btn red"><i class="fa-solid fa-phone"></i> Call 112 Immediately</button>
@@ -534,80 +534,131 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
     </span>
   </div>
 
-  <textarea id="txt" rows="3" placeholder="Type or speak (e.g. सड़क पर एक्सीडेंट हुआ है, बहुत खून बह रहा है)"></textarea>
+  <!-- Voice Note Transcription Card (Task 3) -->
+  <div class="card" style="padding: 12px; background: #fff;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <span style="font-size: 13px; font-weight: bold;">Voice Recording & Transcription:</span>
+      <div style="display: flex; gap: 4px; font-size: 12px;">
+        <button id="langHiBtn" class="lang-pill active" onclick="setVoiceLang('hi-IN')">हिंदी (hi-IN)</button>
+        <button id="langEnBtn" class="lang-pill" onclick="setVoiceLang('en-IN')">English</button>
+      </div>
+    </div>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-    <button class="btn light" id="recBtn" onclick="rec()" style="margin: 0;">
-      <i class="fa-solid fa-microphone"></i>
-      <span>Record Voice</span>
-    </button>
-    <label class="btn light" style="margin: 0; cursor: pointer;">
-      <i class="fa-solid fa-camera"></i>
-      <span>Add Photo</span>
-      <input type="file" id="img" accept="image/*" capture="environment" style="display: none;" onchange="showPhotoBadge(this)">
-    </label>
+    <!-- Voice Recording Status -->
+    <div id="voiceStatusBadge" class="voice-badge idle">
+      <i class="fa-solid fa-microphone"></i> <span>Ready to record</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+      <button class="btn light" id="recBtn" onclick="toggleVoiceRecording()" style="margin: 0;">
+        <i class="fa-solid fa-microphone"></i>
+        <span id="recBtnLabel">Record Voice</span>
+      </button>
+      <label class="btn light" style="margin: 0; cursor: pointer;">
+        <i class="fa-solid fa-camera"></i>
+        <span>Add Photo</span>
+        <input type="file" id="img" accept="image/*" capture="environment" style="display: none;" onchange="showPhotoBadge(this)">
+      </label>
+    </div>
+    <div id="photoStatus" style="font-size: 12px; color: var(--green); margin-top: 4px; display: none;"></div>
   </div>
-  <div id="photoStatus" style="font-size: 12px; color: var(--green); margin-top: 4px; display: none;"></div>
 
-  <button class="btn" onclick="triage()" style="margin-top: 10px;">
+  <textarea id="txt" rows="3" placeholder="Voice transcription will appear here, or type directly (editable)..."></textarea>
+
+  <button class="btn" onclick="triage()" style="margin-top: 6px;">
     <i class="fa-solid fa-brain"></i>
-    <span>Get Instant Guidance & Brief</span>
+    <span>Get Instant Guidance & Dispatch Brief</span>
   </button>
 
   <div id="out"></div>
-  <p class="note">SheGuard AI provides step-by-step guidance while help is on the way. Call 112 directly.</p>
+  <p class="note">SheGuard AI provides step-by-step guidance while help is on the way. Always call 112 directly in life-threatening danger.</p>
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 7: EVIDENCE VAULT (Mode 3)                         -->
+<!-- SCREEN 10: EVIDENCE VAULT (Task 7 Multi-File & BSA 2023)  -->
 <!-- ======================================================== -->
 <div id="vault" class="screen">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
 
-  <h2>Evidence Vault</h2>
-  <div class="subtitle">समय, तारीख और स्थान के साथ सुरक्षित सबूत (SHA-256 Tamper-Proof)</div>
+  <h2>Tamper-Evident Evidence Vault</h2>
+  <div class="subtitle">समय, स्थान और SHA-256 क्रिप्टोग्राफिक हैश के साथ कोर्ट-मान्य सबूत</div>
 
+  <!-- BSA 2023 Legal Notice -->
+  <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 10px; font-size: 12px; color: #1e3a8a; margin-bottom: 12px; line-height: 1.4;">
+    <i class="fa-solid fa-scale-balanced"></i> <strong>Bharatiya Sakshya Adhiniyam (BSA) 2023 Notice:</strong><br>
+    A cryptographic hash proves an electronic file has not been altered since hashing. Court admissibility requires an electronic record certificate under Section 63 of the BSA 2023.
+  </div>
+
+  <!-- Multi-File Drag & Drop Upload Card -->
   <div class="card">
-    <textarea id="vnote" rows="3" placeholder="घटना का विवरण लिखें (गाड़ी का नंबर, समय, स्थान खुद सुरक्षित हो जाएगा)..."></textarea>
-    <button class="btn" onclick="addVault()">
+    <h3 style="margin: 0 0 8px; font-size: 16px;">Preserve Incident Evidence (Multi-File)</h3>
+    <input type="text" id="vTitle" placeholder="Incident Title (उदा. Dark SUV Stalking near Gate)">
+    <textarea id="vnote" rows="2" placeholder="Facts and description (vehicle number, words, time)..."></textarea>
+
+    <!-- Dropzone Area -->
+    <div class="dropzone" id="vaultDropzone" onclick="$('vaultMultiFiles').click()">
+      <i class="fa-solid fa-cloud-arrow-up" style="font-size: 32px; color: var(--indigo); margin-bottom: 6px;"></i>
+      <div style="font-weight: bold; font-size: 14px;">Select or Drag & Drop Multiple Files</div>
+      <div style="font-size: 12px; color: #665;">Photos, Screenshots, Audio Recordings, Video, or Documents</div>
+      <input type="file" id="vaultMultiFiles" multiple accept="image/*,audio/*,video/*,.pdf" style="display: none;" onchange="handleVaultFilesSelected(this.files)">
+    </div>
+
+    <!-- Selected Files List with SHA-256 Progress -->
+    <div id="vaultFilesStagingList" style="margin: 10px 0;"></div>
+
+    <button class="btn" id="saveVaultBtn" onclick="saveMultiEvidenceVault()">
       <i class="fa-solid fa-fingerprint"></i>
-      <span>Save to Vault (SHA-256 Hash)</span>
+      <span>Secure in Vault (Generate Manifest SHA-256)</span>
     </button>
   </div>
 
+  <!-- Evidence Records List -->
   <div id="vlist"></div>
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 8: DRAFTED COMPLAINT / FIR (Mode 3)               -->
+<!-- SCREEN 11: DRAFTED COMPLAINT / FIR (Task 8 - BNS 2023)    -->
 <!-- ======================================================== -->
 <div id="complaint" class="screen">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
 
-  <h2>Your Police Complaint / FIR</h2>
-  <div class="subtitle">भारतीय न्याय संहिता (BNS) 2023 के तहत तैयार कानूनी शिकायत</div>
+  <h2>Police Complaint / FIR Draft</h2>
+  <div class="subtitle">भारतीय न्याय संहिता (BNS) 2023 के सत्यापित कानूनी प्रावधानों के तहत तैयार ड्राफ्ट</div>
+
+  <!-- Disclaimer Banner -->
+  <div class="legal-banner">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <span><strong>AI-assisted draft.</strong> Review with the police or a legal aid lawyer before filing.</span>
+  </div>
 
   <div id="ctitle" style="font-size: 15px; font-weight: bold; margin: 8px 0; color: var(--ink);">
-    Writing your complaint...
+    Writing your formal complaint under BNS 2023...
   </div>
-  <textarea id="cbody" rows="15" style="font-family: monospace; font-size: 13px; line-height: 1.5;"></textarea>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+  <!-- Complaint Document Box -->
+  <div id="complaintPrintContainer">
+    <textarea id="cbody" rows="18" style="font-family: monospace; font-size: 12.5px; line-height: 1.55; width: 100%;"></textarea>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
     <button class="btn" onclick="copyComplaint()">
-      <i class="fa-regular fa-copy"></i> Copy Text
+      <i class="fa-regular fa-copy"></i> <span id="copyBtnText">Copy to Clipboard</span>
     </button>
-    <button class="btn light" onclick="printComplaint()">
-      <i class="fa-solid fa-print"></i> Print / PDF
+    <button class="btn light" onclick="downloadComplaintPdf()">
+      <i class="fa-solid fa-file-pdf" style="color: var(--red);"></i> Download PDF
     </button>
   </div>
+  <button class="btn light" onclick="printComplaint()" style="margin-top: 6px;">
+    <i class="fa-solid fa-print"></i> Clean Print (No UI Chrome)
+  </button>
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 9: NEARBY SERVICES DIRECTORY                       -->
+<!-- SCREEN 12: NEARBY POLICE & HELPLINES DIRECTORY            -->
 <!-- ======================================================== -->
 <div id="services" class="screen">
   <button class="back-btn" onclick="go('home')">
@@ -615,12 +666,43 @@ input:focus, textarea:focus { outline: none; border-color: var(--rose); }
   </button>
 
   <h2>Nearby Police & Helplines</h2>
-  <div class="subtitle">नजदीकी पुलिस स्टेशन, हेल्पलाइन व अस्पताल (भिलाई / दुर्ग)</div>
+  <div class="subtitle">नजदीकी पुलिस स्टेशन, सरकारी सहायता केंद्र व अस्पताल (भिलाई / दुर्ग)</div>
 
   <div id="servicesList"></div>
 </div>
 
-<!-- Web Audio & App Scripts -->
+<!-- ======================================================== -->
+<!-- PRIVACY & DATA SETTINGS MODAL (Task 10)                   -->
+<!-- ======================================================== -->
+<div id="privacyModal" class="modal-backdrop" style="display: none;">
+  <div class="modal-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <h3 style="margin: 0; font-size: 18px;"><i class="fa-solid fa-lock" style="color: var(--indigo);"></i> Privacy & Data Control</h3>
+      <button onclick="closePrivacyModal()" style="background: none; border: 0; font-size: 20px; cursor: pointer;">&times;</button>
+    </div>
+
+    <p style="font-size: 13px; color: #554; line-height: 1.5;">
+      SheGuard AI is designed with privacy-first principles. Your evidence, journal notes, and contacts are stored securely and encrypted in your local session.
+    </p>
+
+    <div style="background: #f8fafc; border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: 12px; color: #475569; margin-bottom: 14px;">
+      <div>• <strong>Location Sharing:</strong> Active only during SOS or Buzzer triggers.</div>
+      <div>• <strong>Credentials:</strong> Passwords and stealth PINs are SHA-256 hashed.</div>
+      <div>• <strong>Data Sovereignty:</strong> You have full control to wipe all data permanently.</div>
+    </div>
+
+    <button class="btn red" onclick="eraseAllMyData()">
+      <i class="fa-solid fa-trash-can"></i>
+      <span>Erase All My Data Permanently (एक-टैप में सब मिटाएं)</span>
+    </button>
+
+    <button class="btn light" onclick="closePrivacyModal()" style="margin-top: 8px;">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- Scripts -->
 <script src="app.js"></script>
 </body>
 </html>
