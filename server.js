@@ -609,8 +609,72 @@ app.post('/api/responder/status', (req, res) => {
 });
 
 // -------------------------------------------------------------
-// 4. SAKHI: REBRANDED CONVERSATIONAL AI (Task 1)
 // -------------------------------------------------------------
+// 4. SAKHI: SAFETY & TRAUMA COUNSELLOR (Task 1)
+// STRICT SCOPE: Only responds to Harassment, Uneasiness, Abuse Talking, Torture, and Stalking
+// -------------------------------------------------------------
+
+function classifyCounsellorDomain(message) {
+  const m = (message || '').toLowerCase().trim();
+  if (!m) return 'EMPTY';
+
+  // 1. Explicit Out-of-Scope Detectors (Tech, Coding, Trivia, Math, Cooking, Weather, Entertainment)
+  const isOffTopic = 
+    /\b(python|javascript|java|c\+\+|html|css|php|sql|coding|code|function|algorithm|binary search|programming|bug|git|repo|syntax)\b/i.test(m) ||
+    /\b(\d+\s*[\+\-\*/]\s*\d+|calculate|solve|equation|integral|math|algebra|geometry|physics|chemistry)\b/i.test(m) ||
+    /\b(capital of|who is the president|who won|prime minister|cricket|ipl|football|fifa|world cup|virat|dhoni|messi|ronaldo)\b/i.test(m) ||
+    /\b(recipe|how to cook|ingredients|biryani|paneer|pizza|pasta|cake|baking|noodles|chai kaise|khana kaise)\b/i.test(m) ||
+    /\b(weather|temperature|forecast|rain today|monsoon forecast|mausam kaisa)\b/i.test(m) ||
+    /\b(joke|funny joke|movie review|recommend a movie|song lyrics|sing a song|filmon|cinema)\b/i.test(m);
+
+  if (isOffTopic) {
+    return 'OUT_OF_SCOPE';
+  }
+
+  // 2. STALKING (Physical Following, Shadowing, Surveillance, Unwanted Pursuit)
+  if (['stalk', 'stalking', 'stalker', 'picha', 'pichha', 'peeche', 'follow', 'following', 'chase', 'chasing', 'shadow', 'shadowing', 'watching me', 'tracking', 'spy', 'creepy guy', 'ladke peeche', 'car peeche', 'unwanted surveillance'].some(k => m.includes(k))) {
+    return 'STALKING';
+  }
+
+  // 3. TORTURE (Physical Violence, Domestic Battery, Cruelty, Confinement, Assault)
+  if (['torture', 'marpit', 'maar peet', 'hit', 'hitting', 'beat', 'beating', 'violence', 'domestic violence', 'assault', 'cruelty', 'locked', 'bandh kar', 'injury', 'bleed', 'khoon', 'hospital', 'pain', 'dahej', 'dowry', 'physical abuse', 'chot', 'hath uthaya', 'pitai', 'thappad', 'slap', 'forced', 'assaulted', 'broken bones'].some(k => m.includes(k))) {
+    return 'TORTURE';
+  }
+
+  // 4. ABUSE TALKING (Verbal Abuse, Bad Words, Foul Language, Slurs, Shouting, Humiliation, Threats)
+  if (['abuse', 'abusive', 'gaali', 'gali', 'bad words', 'slur', 'slurs', 'insult', 'insults', 'bad language', 'shout', 'shouting', 'chilla', 'verbal', 'verbally', 'humiliat', 'cursing', 'threat', 'threats', 'dhamki', 'badtameez', 'disrespect', 'talk down', 'gandi bhasha', 'foul language', 'abusing', 'gandagi bol'].some(k => m.includes(k))) {
+    return 'ABUSE_TALKING';
+  }
+
+  // 5. HARASSMENT (Street Harassment, Eve-Teasing, Cyberbullying, Blackmail, Lewd Remarks, Inappropriate Touch)
+  if (['harass', 'harassment', 'harassing', 'chedkhani', 'ched', 'chhed', 'chhedkhani', 'eve teas', 'teas', 'catcall', 'catcalling', 'touch', 'bad touch', 'ganda touch', 'lewd', 'vulgar', 'troll', 'trolling', 'cyber', 'photo leak', 'leak photo', 'blackmail', 'blackmailing', 'nude', 'modesty', 'gandi baat', 'obscene', 'inappropriate', 'molest', 'molestation', 'ncii'].some(k => m.includes(k))) {
+    return 'HARASSMENT';
+  }
+
+  // 6. UNEASINESS (Fear, Anxiety, Panic, Unsafe Feelings, Palpitations, Grounding, Darkness, Distress)
+  if (['uneasy', 'uneasiness', 'darr', 'dar lag', 'scared', 'fear', 'fearful', 'anxious', 'anxiety', 'nervous', 'panic', 'ghabrahat', 'ghabra', 'palpitation', 'heartbeat', 'dhadkan', 'breath', 'breathing', 'saans', 'grounding', '4-7-8', '5-4-3-2-1', 'calm down', 'relax', 'shant', 'akeli', 'alone', 'dark', 'andhera', 'sunsaan', 'trembl', 'crying', 'rona', 'sad', 'udaas', 'heavy heart', 'depressed', 'pain', 'dil toot', 'dukhi', 'lonely', 'worried', 'tension', 'stress', 'low confidence', 'himmat', 'hopeless', 'uncomfortable', 'asurakshit'].some(k => m.includes(k))) {
+    return 'UNEASINESS';
+  }
+
+  // 7. COUNSELLOR GREETINGS & ROLE INTRODUCTIONS
+  if (['hi', 'hello', 'hey', 'namaste', 'namaskar', 'pranam', 'kasi ho', 'kaise ho', 'who are you', 'kon ho', 'tum kon ho', 'counsellor', 'counsel', 'help', 'madad', 'sahayata', 'kya kar sakti', 'guidance', 'kaun ho'].some(k => m.includes(k))) {
+    return 'GREETINGS';
+  }
+
+  // 8. LEGAL RIGHTS & POLICE IN CONTEXT OF SAFETY
+  if (['bns', 'fir', 'police', 'kanoon', 'rights', 'law', 'dhara', 'section', 'mahila thana', 'zero fir', 'complaint'].some(k => m.includes(k))) {
+    return 'LEGAL_PROTECTION';
+  }
+
+  // 9. GRATITUDE
+  if (['thank', 'shukriya', 'dhanyawad', 'thanks', 'accha laga', 'helpful'].some(k => m.includes(k))) {
+    return 'GRATITUDE';
+  }
+
+  // Default: Reject unrelated queries to strictly maintain Counsellor mandate
+  return 'OUT_OF_SCOPE';
+}
+
 app.post('/api/companion/chat', async (req, res) => {
   const { message, history = [], currentMood, peaceScore, recentJournal, language = 'en' } = req.body;
   const msgLower = (message || '').toLowerCase();
@@ -621,8 +685,8 @@ app.post('/api/companion/chat', async (req, res) => {
 
   if (isCrisis) {
     const crisisReply = language === 'hi'
-      ? `रोशनी, मैं आपके साथ हूँ और आपकी जान बेहद अनमोल है। आप इस मुश्किल वक्त में अकेली नहीं हैं। कृपया अभी किसी अपने से बात करें या तुरंत भारत सरकार की टेली-मानस मानसिक स्वास्थ्य हेल्पलाइन पर कॉल करें।\n\n📞 Tele-MANAS (फ्री 24x7): 14416 या 1800-891-4416\n🚨 इमरजेंसी: 112\n\nमैं यहीं आपके साथ हूँ, क्या आप किसी अपने को कॉल करना चाहेंगी?`
-      : `Roshni, please hold on. You are not alone, and your life is precious. What you are feeling is heavy, but help is right here right now. Please connect immediately with the National Tele-MANAS Mental Health Helpline:\n\n📞 Tele-MANAS (Toll-Free 24x7): 14416 / 1800-891-4416\n🚨 Immediate Emergency: 112\n\nI care about your safety. Let's reach out to someone you trust together right now.`;
+      ? `रोशनी, मैं आपकी सुरक्षा व मानसिक काउंसलर हूँ। आपकी जान बेहद अनमोल है और आप अकेली नहीं हैं। कृपया तुरंत भारत सरकार की टेली-मानस मानसिक स्वास्थ्य हेल्पलाइन या 112 पर कॉल करें:\n\n📞 Tele-MANAS (निशुल्क 24x7): 14416 या 1800-891-4416\n🚨 राष्ट्रीय आपातकाल: 112\n\nमैं आपके साथ हूँ। कृपया अपने किसी विश्वस्त व्यक्ति से तुरंत बात करें।`
+      : `Roshni, I am Sakhi, your Trauma & Safety Counsellor. Your life is precious, and you are not alone in this pain. Please reach out immediately to the National Tele-MANAS Mental Health Helpline:\n\n📞 Tele-MANAS (Toll-Free 24x7): 14416 / 1800-891-4416\n🚨 Immediate Emergency: 112\n\nI care about your safety. Let's connect with someone you trust right now.`;
 
     return res.json({
       reply: crisisReply,
@@ -642,18 +706,39 @@ app.post('/api/companion/chat', async (req, res) => {
 - Peace of Mind Score: ${peaceScore || 7}/10
 - Recent Journal Reflection: "${recentJournal || 'No notes today'}"`;
 
+  const domain = classifyCounsellorDomain(message);
+  const isHindi = /[\u0900-\u097F]/.test(message) ||
+    ['kya', 'hai', 'kaise', 'mujhe', 'darr', 'bachao', 'madad', 'nahi', 'aap', 'sakhi', 'chahiye', 'batao', 'hoon', 'karo', 'karein', 'rona', 'udaas', 'saans', 'picha', 'shanti', 'dhanyawad', 'namaste'].some(w => msgLower.includes(w)) ||
+    language === 'hi';
+
   let reply = '';
 
-  // Try real Gemini open-ended generation
+  // Try real Gemini open-ended generation with strict Counsellor mandate
   if (geminiClient && message) {
     try {
-      const systemInstruction = `You are Sakhi, a compassionate, warm, and non-judgmental AI companion for Indian women's safety and well-being.
-Important Identity Distinction: You are an AI companion. You are NOT the government Sakhi One Stop Centre.
-You are NOT a doctor or licensed therapist. You offer supportive companionship, active listening, 5-4-3-2-1 grounding exercises, 4-7-8 breathing techniques, safety planning, and emotional reassurance.
-Match the user's language naturally (English, Hindi, or conversational Hinglish).
-Be warm, validating, concise (2-4 sentences max), and practical.
+      const systemInstruction = `You are Sakhi, a certified Trauma-Informed Safety and Crisis Counsellor for Indian women's safety, mental well-being, and protection.
 
-User Context:
+MANDATORY COUNSELLOR ROLE & SCOPE RESTRICTION:
+- You are exclusively a Trauma & Safety Counsellor. You are NOT a general AI assistant.
+- You MUST ONLY respond to issues within these specific distress and safety domains:
+  1. HARASSMENT: Workplace harassment, street eve-teasing, catcalling, cyber harassment, online trolling, blackmail, lewd messages.
+  2. UNEASINESS: Fear, panic, anxiety, trembling, darkness, feeling unsafe, heart palpitations, nervous breathing, emotional distress, grounding.
+  3. ABUSE TALKING: Verbal abuse, bad/foul language, derogatory slurs, shouting, threats, toxic verbal intimidation.
+  4. TORTURE: Physical cruelty, assault, domestic battery, severe violence, captivity, forced coercion.
+  5. STALKING: Physical pursuit, shadowing, watching, uninvited monitoring, cyberstalking.
+  6. CRISIS SAFETY: Active listening, psychological first-aid, 4-7-8 breathing, 5-4-3-2-1 sensory grounding, emergency de-escalation, helplines (112, 181, 1091, 14416).
+
+CRITICAL BOUNDARY ENFORCEMENT:
+- If the user asks about ANYTHING ELSE outside of harassment, uneasiness, abuse talking, torture, or stalking (such as coding, programming, mathematics, general trivia, weather, cooking recipes, sports, entertainment, or homework):
+  YOU MUST POLITELY AND FIRMLY DECLINE TO ANSWER.
+  State that you are strictly a specialized Safety & Trauma Counsellor for women facing distress, and that you do not answer general or off-topic queries. Remind them that if they ever feel unsafe, uneasy, or face abuse or harassment, you are always here to counsel and protect them.
+
+TONE & STYLE:
+- Compassionate, trauma-informed, validating, protective, calm, and professional.
+- Reply in the user's language (Hindi, English, or conversational Hinglish).
+- Concise (2-4 sentences max per turn).
+
+User Profile:
 ${contextNotes}`;
 
       const contents = history.map(h => ({
@@ -672,95 +757,71 @@ ${contextNotes}`;
         reply = resp.text.trim();
       }
     } catch (err) {
-      console.warn('Gemini chat error, using resilient Sakhi engine:', err.message);
+      console.warn('Gemini chat error, using resilient Sakhi Counsellor engine:', err.message);
     }
   }
 
-  // Resilient multi-intent conversational AI engine
+  // Resilient multi-intent Safety & Trauma Counsellor engine
   if (!reply) {
-    const isHindi = /[\u0900-\u097F]/.test(message) ||
-      ['kya', 'hai', 'kaise', 'mujhe', 'darr', 'bachao', 'madad', 'nahi', 'aap', 'sakhi', 'chahiye', 'batao', 'hoon', 'karo', 'karein', 'rona', 'udaas', 'saans', 'picha', 'shanti', 'dhanyawad', 'namaste'].some(w => msgLower.includes(w)) ||
-      language === 'hi';
-
-    // 1. Greetings & Introductions
-    if (['hi', 'hello', 'hey', 'namaste', 'namaskar', 'pranam', 'kasi ho', 'kaise ho', 'kya haal', 'good morning', 'good evening', 'who are you', 'kon ho', 'tum kon ho', 'kya kar sakti'].some(k => msgLower.includes(k))) {
+    // 1. OUT OF SCOPE ENFORCEMENT (Strict Non-Response to other topics)
+    if (domain === 'OUT_OF_SCOPE') {
       reply = isHindi
-        ? `नमस्ते रोशनी! मैं आपकी सखी हूँ — आपकी व्यक्तिगत सुरक्षा और भावनात्मक साथी। आज आपका मन कैसा महसूस कर रहा है? चाहे कोई उलझन हो, मन की बात हो या सुरक्षा से जुड़ी कोई ज़रूरत, मैं आपको सुनने के लिए हमेशा यहाँ हूँ।`
-        : `Hello Roshni! I'm Sakhi, your AI companion. I'm right here with you. How is your day going? Whether you need to talk through something heavy, practice a calming exercise, or check safety protocols, I'm listening.`;
+        ? `नमस्ते रोशनी। मैं सखी हूँ — संकटग्रस्त महिलाओं के लिए समर्पित सुरक्षा एवं ट्रॉमा काउंसलर (Safety & Trauma Counsellor)।\n\nमेरा दायरा केवल इन 5 गंभीर संकटों में काउंसिलिंग और सुरक्षा सहायता प्रदान करने के लिए निर्धारित है:\n1. ⚠️ उत्पीड़न (Harassment)\n2. ⚡ बेचैनी, डर या घबराहट (Uneasiness)\n3. 🛑 गाली-गलौज व दुर्व्यवहार (Abuse Talking)\n4. 🛡️ यातना व शारीरिक हिंसा (Torture)\n5. 🚶 पीछा करना (Stalking)\n\nमैं सामान्य या असंबंधित विषयों पर उत्तर नहीं देती। यदि आप किसी असुरक्षा, भय, या दुर्व्यवहार का सामना कर रही हैं, तो कृपया साझा करें — मैं आपकी काउंसिलिंग और सुरक्षा के लिए सदैव उपस्थित हूँ।`
+        : `Hello Roshni. I am Sakhi, your dedicated Trauma & Safety Counsellor.\n\nMy role is strictly dedicated to providing psychological support and safety guidance for:\n• ⚠️ Harassment (street, workplace, cyber)\n• ⚡ Uneasiness, anxiety & fear\n• 🛑 Abusive talking, verbal insults & threats\n• 🛡️ Torture, domestic cruelty & physical violence\n• 🚶 Stalking & unwanted surveillance\n\nI do not respond to general or unrelated topics outside of this safety scope. If you or someone you know is experiencing fear, discomfort, harassment, or abuse, please tell me—I am right here to counsel and protect you.`;
     }
-    // 2. Academic, Exams, Study & Career Stress
-    else if (['exam', 'marks', 'college', 'study', 'padhai', 'future', 'interview', 'job', 'career', 'fail', 'paper', 'syllabus', 'score', 'tension'].some(k => msgLower.includes(k))) {
+    // 2. STALKING (Tactical Safety Counseling & BNS 78 Protection)
+    else if (domain === 'STALKING') {
       reply = isHindi
-        ? `परीक्षा और करियर की चिंता बहुत भारी लग सकती है रोशनी। लेकिन याद रखें कि कोई भी एक परीक्षा आपकी क्षमता या आपके जीवन की कीमत तय नहीं करती। पूरे सिलेबस का दबाव लेने के बजाय, आज सिर्फ एक छोटा सा टॉपिक चुनें और 20 मिनट पढ़ें। एक समय में एक कदम! मैं आपके साथ हूँ।`
-        : `Academic and career pressure can feel overwhelming, Roshni. Remember: an exam or interview does not define your worth or your potential. Instead of trying to tackle everything at once, focus on just one small step for the next 20 minutes. You have handled tough days before, and you will navigate this too.`;
+        ? `घबराइए मत रोशनी, शांत और सतर्क रहें! पीछा करना (stalking) BNS 2023 की धारा 78 के तहत गैर-जमानती गंभीर अपराध है। तुरंत ये 3 कदम उठाएं:\n1. अपनी दिशा किसी खुली दुकान, पेट्रोल पंप या सुरक्षा गार्ड बूथ की ओर मोड़ें।\n2. फोन कान पर लगाकर जोर से बात करने का अभिनय करें कि कोई बाहर आपका इंतजार कर रहा है।\n3. स्क्रीन के शीर्ष पर मौजूद 'Emergency Buzzer' या 'Silent SOS' को तैयार रखें। क्या मैं आपकी लाइव लोकेशन आपके संपर्कों को भेज दूं?`
+        : `Stay steady and alert, Roshni. Stalking is a serious non-bailable offense under BNS Section 78. Divert your walking path immediately toward a lit storefront, open clinic, or security post. Pretend to speak firmly on the phone, and keep SheGuard's Emergency Buzzer or Silent SOS ready on your screen. I am standing guard with you.`;
     }
-    // 3. Breathing & Sensory Grounding
-    else if (['breath', 'saans', 'grounding', '4-7-8', '5-4-3-2-1', 'calm down', 'relax', 'shant', 'ghabrahat', 'panic', 'heartbeat', 'palpitation', 'dhadkan'].some(k => msgLower.includes(k))) {
+    // 3. TORTURE (Physical Violence, Domestic Cruelty, Severe Battery)
+    else if (domain === 'TORTURE') {
+      reply = isHindi
+        ? `रोशनी, शारीरिक यातना, मारपीट या क्रूरता किसी भी रिश्ते या परिस्थिति में असहनीय और गैर-कानूनी अपराध है। आपकी जान और शारीरिक सुरक्षा सर्वोच्च प्राथमिकता है। यदि आप पर कोई हाथ उठा रहा है या आपको कैद कर रहा है, तो तुरंत सुरक्षित स्थान पर निकलें और महिला हेल्पलाइन 181 (सखी वन स्टॉप सेंटर) या 112 (राष्ट्रीय आपातकाल) डायल करें। हम तुरंत आपकी लाइव लोकेशन सुरक्षित रूप से भेज सकते हैं।`
+        : `Any form of torture, physical cruelty, or battery is a severe criminal offense under the law, Roshni. Your physical safety and well-being are the absolute priority. If you are experiencing violence or torture, please seek immediate shelter in a secure place and contact Emergency 112 or Sakhi One Stop Centre 181. You can trigger SheGuard's Emergency Buzzer right now to broadcast your GPS coordinates.`;
+    }
+    // 4. ABUSE TALKING (Verbal Abuse, Bad Words, Slurs, Shouting, Humiliation)
+    else if (domain === 'ABUSE_TALKING') {
+      reply = isHindi
+        ? `गाली-गलौज, अपमानजनक शब्द और चीखना-चिल्लाना मानसिक और भावनात्मक यातना का रूप होते हैं रोशनी। कोई भी व्यक्ति आपके स्वाभिमान को ठेस पहुंचाने का हकदार नहीं है। खुद को यह याद दिलाएं कि दूसरों की अपमानजनक भाषा उनकी विकृति है, आपकी कमजोरी नहीं। यदि कोई आपको धमका रहा है, तो सुरक्षित दूरी बनाएं, बातचीत को रिकॉर्ड करें, और याद रखें कि आपराधिक धमकी (BNS धारा 351) के खिलाफ कानून आपके साथ है।`
+        : `Verbal abuse, foul language, and shouting cause deep emotional trauma, Roshni. Please know with complete certainty: you do not deserve to be spoken to in an abusive manner. Step away from the hostile environment if possible. Do not absorb their toxicity as your worth. Criminal intimidation via abusive language is punishable under BNS Section 351—you have full legal protection.`;
+    }
+    // 5. HARASSMENT (Eve-Teasing, Cyberbullying, Blackmail, Inappropriate Touching)
+    else if (domain === 'HARASSMENT') {
+      reply = isHindi
+        ? `उत्पीड़न (harassment) किसी भी रूप में स्वीकार्य नहीं है रोशनी, और यह कभी भी आपकी गलती नहीं है। चाहे वह सड़क पर छींटाकशी हो, कार्यस्थल पर हो या ऑनलाइन—आपको पूरी गरिमा और सुरक्षा का अधिकार है। शीगार्ड के 'Evidence Vault' में स्क्रीनशॉट या फोटो का SHA-256 हैश सुरक्षित करें और बेझिझक महिला हेल्पलाइन 1091 या 181 पर शिकायत दर्ज कराएं। BNS धारा 74/75 के तहत आरोपी पर सख्त कानूनी कार्रवाई होती है।`
+        : `Experiencing harassment is deeply unsettling, Roshni, but remember: this is never your fault. Whether it is verbal harassment, catcalling, or cyber intimidation, your dignity is legally protected. Preserve evidence with SHA-256 integrity in SheGuard's Evidence Vault, and we can immediately notify the Women Helpline 1091 or 181. You are not alone.`;
+    }
+    // 6. UNEASINESS (Fear, Panic, Nervousness, Grounding)
+    else if (domain === 'UNEASINESS') {
       if (msgLower.includes('5-4-3-2-1') || msgLower.includes('grounding')) {
         reply = isHindi
-          ? `आइए रोशनी, मेरे साथ 5-4-3-2-1 ग्राउंडिंग करें:\n👀 5 चीजें जो आप आसपास देख सकती हैं\n✋ 4 चीजें जिन्हें आप छू सकती हैं\n👂 3 आवाजें जो आप सुन रही हैं\n👃 2 गंध जो आप महसूस कर सकती हैं\n👅 1 स्वाद जो आपकी जुबान पर है।\nआप अभी सुरक्षित जगह पर हैं, खुद को वर्तमान में महसूस करें।`
+          ? `आइए रोशनी, मेरे साथ 5-4-3-2-1 ग्राउंडिंग करें:\n👀 5 चीजें जो आप आसपास देख सकती हैं\n✋ 4 चीजें जिन्हें आप छू सकती हैं\n👂 3 आवाजें जो आप सुन रही हैं\n👃 2 गंध जो आप महसूस कर सकती हैं\n👅 1 स्वाद जो आपकी जुबान पर है।\nआप अभी सुरक्षित जगह पर हैं, खुद को वर्तमान में महसूस करें। सखी आपके साथ है।`
           : `Let's practice the 5-4-3-2-1 grounding technique together, Roshni:\n👀 Notice 5 things you can see around you\n✋ Touch 4 things near you\n👂 Listen for 3 distinct sounds\n👃 Notice 2 scents in the air\n👅 Acknowledge 1 taste.\nYou are anchored in the present moment, and you are safe.`;
       } else {
         reply = isHindi
-          ? `आइए रोशनी, मेरे साथ 4-7-8 शांत सांस लें:\n1. 4 सेकंड तक नाक से धीरे-धीरे सांस अंदर लें...\n2. 7 सेकंड तक सांस को रोककर रखें...\n3. 8 सेकंड तक मुंह से धीरे-धीरे सांस बाहर छोड़ें...\nअपने कंधों को ढीला छोड़ें। मैं आपके साथ हूँ।`
-          : `Let's take a deep 4-7-8 breath together, Roshni:\n1. Inhale gently through your nose for 4 seconds...\n2. Hold that breath gently for 7 seconds...\n3. Exhale completely through your mouth for 8 seconds...\nDrop your shoulders and feel the ground supporting you. You are doing great.`;
+          ? `रोशनी, जब मन में बेचैनी, घबराहट या अनजाना डर पैदा हो, तो सबसे पहले अपने शरीर को शांत करना जरूरी है। मेरे साथ 4-7-8 शांत सांस लें:\n1. 4 सेकंड नाक से धीरे-धीरे सांस अंदर लें...\n2. 7 सेकंड सांस को रोककर रखें...\n3. 8 सेकंड मुंह से धीरे-धीरे सांस बाहर छोड़ें...\nअपने कंधों को ढीला छोड़ें। आप सुरक्षित हैं, सखी आपकी ढाल बनकर आपके साथ खड़ी है।`
+          : `Roshni, your feelings are completely valid, and it is okay to feel heavy right now. When panic, uneasiness, or fear rises, let's take a deep 4-7-8 calming breath together:\n1. Inhale gently through your nose for 4 seconds...\n2. Hold that breath gently for 7 seconds...\n3. Exhale completely through your mouth for 8 seconds...\nDrop your shoulders and feel the ground supporting you. You are doing great, and I am watching over you.`;
       }
     }
-    // 4. Stalking, Street Danger, Hostile Pursuit & Suspicion
-    else if (['picha', 'stalk', 'follow', 'chase', 'ladke', 'cab', 'rickshaw', 'dark', 'sunsaan', 'road', 'gali', 'suspicious'].some(k => msgLower.includes(k)) ||
-             (['scared', 'fear', 'darr', 'akeli'].some(k => msgLower.includes(k)) && ['street', 'road', 'gali', 'bahar', 'men', 'night', 'car', 'auto', 'picha', 'man'].some(w => msgLower.includes(w)))) {
+    // 7. COUNSELLOR GREETINGS & INTRODUCTIONS
+    else if (domain === 'GREETINGS') {
       reply = isHindi
-        ? `घबराइए मत रोशनी, शांत और सतर्क रहें! तुरंत ये 3 कदम उठाएं:\n1. अपनी दिशा किसी खुली दुकान, पेट्रोल पंप, या गार्ड बूथ की ओर मोड़ें।\n2. फोन कान पर लगाकर जोर से बात करने का अभिनय करें कि कोई बाहर आपका इंतजार कर रहा है।\n3. स्क्रीन के शीर्ष पर मौजूद 'Emergency Buzzer' या 'Silent SOS' को तैयार रखें। क्या मैं आपकी लाइव लोकेशन संपर्कों को भेज दूं?`
-        : `Stay steady and alert, Roshni. Do not panic. Take these immediate steps:\n1. Divert your walking path toward any lit storefront, open clinic, or security post.\n2. Put your phone to your ear and pretend you're speaking loudly with someone meeting you outside.\n3. Keep SheGuard's Emergency Buzzer or Silent SOS ready on your screen. I am watching over you.`;
+        ? `नमस्ते रोशनी! मैं सखी हूँ — आपकी समर्पित सुरक्षा एवं मानसिक काउंसलर (Safety & Trauma Counsellor)।\n\nमैं विशेष रूप से उत्पीड़न (Harassment), डर/बेचैनी (Uneasiness), गाली-गलौज (Abusive Talking), यातना (Torture) और पीछा करने (Stalking) जैसी स्थितियों में काउंसिलिंग और सुरक्षा मार्गदर्शन देती हूँ। आज आपका मन कैसा महसूस कर रहा है? यदि कोई संकट या डर है, तो बेझिझक साझा करें।`
+        : `Hello Roshni! I am Sakhi, your dedicated Safety & Trauma Counsellor. I specialize in providing trauma-informed psychological first-aid and safety guidance for situations involving harassment, uneasiness, abusive talking, torture, and stalking. How are you feeling today? If you are facing any fear or distress, I am right here to counsel and support you.`;
     }
-    // 5. Sadness, Loneliness, Crying & Emotional Pain
-    else if (['sad', 'udaas', 'cry', 'rona', 'depressed', 'lonely', 'broken', 'pain', 'hurt', 'dukhi', 'dil toot', 'tears', 'crying', 'rone'].some(k => msgLower.includes(k))) {
+    // 8. LEGAL RIGHTS & BNS 2023
+    else if (domain === 'LEGAL_PROTECTION') {
       reply = isHindi
-        ? `रोशनी, जो आप महसूस कर रही हैं वह पूरी तरह समझ आता है। रोना कमजोरी नहीं है, यह मन के बोझ को बाहर निकालने का कुदरती तरीका है। आप इस पल में अकेली नहीं हैं। क्या आप बताना चाहेंगी कि किस बात से आपका दिल भारी हुआ है? मैं पूरी तरह आपको सुन रही हूँ।`
-        : `Roshni, your feelings are completely valid, and it's okay to feel heavy right now. Tears are not weakness—they're your body's way of releasing pressure. You are not alone. Would you like to share what caused this pain? I am here to listen without judgment.`;
+        ? `भारतीय कानून में आपके मजबूत कानूनी अधिकार हैं:\n⚖️ BNS 2023 धारा 78: किसी महिला का पीछा करना (stalking) गैर-जमानती संज्ञेय अपराध है।\n⚖️ BNS 2023 धारा 74: महिला के सम्मान को ठेस पहुंचाने पर कड़ी सजा का प्रावधान है।\n⚖️ BNS 2023 धारा 351: आपराधिक धमकी और गाली-गलौज के खिलाफ सख्त दंड।\n⚖️ Zero FIR: आप भारत के किसी भी थाने में बिना अधिकार क्षेत्र की बाधा के FIR दर्ज करा सकती हैं। शीगार्ड का FIR ड्राफ्ट तैयार है।`
+        : `Under the Bharatiya Nyaya Sanhita (BNS) 2023 and Indian Law, your rights are fully protected:\n⚖️ BNS Section 78: Stalking, whether physical or digital, is a cognizable offence.\n⚖️ BNS Section 74: Criminal force or assault with intent to outrage modesty.\n⚖️ BNS Section 351: Criminal intimidation and abusive threats.\n⚖️ Zero FIR: Any police station must register your complaint regardless of jurisdiction.`;
     }
-    // 6. Family Conflict, Marital Issues & Domestic Distress
-    else if (['husband', 'pati', 'family', 'ghar', 'parents', 'sasural', 'in-laws', 'marpit', 'fight', 'jhagda', 'shadi', 'violence', 'abuse', 'dahej', 'domestic'].some(k => msgLower.includes(k))) {
+    // 9. GRATITUDE
+    else if (domain === 'GRATITUDE') {
       reply = isHindi
-        ? `रोशनी, घरेलू तनाव या किसी अपने के साथ विवाद बहुत दुखदायी होता है। यदि आप पर कोई हाथ उठाता है या आपको डराता है, तो याद रखें कि घरेलू हिंसा अधिनियम (PWDVA 2005) आपकी सुरक्षा के लिए है। आपकी सुरक्षा हमेशा पहली प्राथमिकता है। आपात स्थिति में तुरंत महिला हेल्पलाइन 181 या 112 डायल करें।`
-        : `Domestic conflict and family distress are deeply draining, Roshni. Please know that your physical safety and peace of mind come first. Under the Protection of Women from Domestic Violence Act (PWDVA 2005), you have rights to protection and residence. In any imminent risk, connect with the Women Helpline 181 or Emergency 112 immediately.`;
-    }
-    // 7. Legal Rights, Police & BNS 2023
-    else if (['bns', 'fir', 'police', 'kanoon', 'rights', 'law', 'dhara', 'section', 'mahila thana', 'zero fir', 'complaint'].some(k => msgLower.includes(k))) {
-      reply = isHindi
-        ? `भारतीय कानून में आपके मजबूत अधिकार हैं:\n⚖️ BNS 2023 धारा 78: किसी महिला का पीछा या मॉनिटरिंग करना गैर-जमानती संज्ञेय अपराध है।\n⚖️ BNS 2023 धारा 74: महिला के सम्मान को ठेस पहुंचाने पर कड़ी सजा का प्रावधान है।\n⚖️ Zero FIR: आप भारत के किसी भी थाने में बिना अधिकार क्षेत्र की बाधा के FIR दर्ज करा सकती हैं। शीगार्ड का FIR ड्राफ्ट तैयार है।`
-        : `Under the Bharatiya Nyaya Sanhita (BNS) 2023 and Indian Law, your rights are fully protected:\n⚖️ BNS Section 78: Stalking, whether physical or digital, is a cognizable offence.\n⚖️ BNS Section 74: Criminal force or assault with intent to outrage modesty.\n⚖️ Zero FIR: Any police station must register your complaint regardless of jurisdiction.\nSheGuard provides a tamper-evident Evidence Vault and ready FIR Complaint generator for you.`;
-    }
-    // 8. Cyber Harassment, NCII & Online Threats
-    else if (['troll', 'instagram', 'photo', 'leak', 'fake', 'cyber', 'threat', 'blackmail', 'nude', 'dhamki', 'whatsapp', 'social media'].some(k => msgLower.includes(k))) {
-      reply = isHindi
-        ? `ऑनलाइन उत्पीड़न या ब्लैकमेल से बिल्कुल न डरें रोशनी! ये कदम अभी उठाएं:\n1. सभी चैट, प्रोफाइल URL और स्क्रीनशॉट का शीगार्ड एविडेंस वॉल्ट में SHA-256 हैश सुरक्षित रखें।\n2. यदि कोई निजी फोटो का डर दिखा रहा है, तो सीधे StopNCII.org पर रजिस्टर करें।\n3. राष्ट्रीय साइबर हेल्पलाइन 1930 पर कॉल करें या cybercrime.gov.in पर रिपोर्ट दर्ज करें। IT Act 66E और 67A के तहत दोषी को 3 से 5 साल की जेल होती है।`
-        : `Online trolling, blackmail, or NCII threats are serious crimes under IT Act Sec 66E/67A and BNS 2023. Do not delete evidence—save screenshots in SheGuard's Evidence Vault with SHA-256 hashing. If intimate imagery is threatened, register hash tokens on StopNCII.org to prevent uploads across major platforms. Call 1930 immediately for cyber crime assistance.`;
-    }
-    // 9. Motivation, Courage & Confidence
-    else if (['low confidence', 'hopeless', 'inspire', 'motivat', 'himmat', 'kamzor', 'haar gayi', 'worthless', 'confused'].some(k => msgLower.includes(k))) {
-      reply = isHindi
-        ? `रोशनी, अपने भीतर की ताकत को कम मत आंकिए। आप हर उस मुश्किल से कहीं ज्यादा मजबूत हैं जिसका आपने आज तक सामना किया है। खुद पर दया रखें, एक गहरी सांस लें, और याद रखें कि आपका अस्तित्व अनमोल है। सखी हमेशा आपकी ढाल बनकर आपके साथ खड़ी है।`
-        : `Roshni, you are so much stronger and more resilient than you realize right now. It takes immense bravery to get through difficult days. Be gentle with yourself, hold your head high, and know that you deserve safety, respect, and peace. I am honored to stand beside you.`;
-    }
-    // 10. Gratitude & Closing
-    else if (['thank', 'shukriya', 'dhanyawad', 'thanks', 'accha laga', 'love you', 'helpful'].some(k => msgLower.includes(k))) {
-      reply = isHindi
-        ? `यह सुनकर मेरा दिल खुश हुआ रोशनी! मुझे खुशी है कि मैं आपके काम आ सकी। जब भी कभी मन उदास हो, डर लगे, या बस किसी अपने से बात करने का मन हो, आपकी सखी हमेशा सिर्फ एक टैप की दूरी पर है। अपना ख्याल रखें! 🌸`
-        : `I am truly glad I could support you, Roshni! Remember, whenever you feel overwhelmed, uncertain, or just need a listening ear, Sakhi is always right here, 24/7. Take great care of yourself! 🌸`;
-    }
-    // 11. Night Rest & Parting
-    else if (['bye', 'good night', 'alvida', 'so rahi', 'chalti hu', 'take care'].some(k => msgLower.includes(k))) {
-      reply = isHindi
-        ? `शुभ रात्रि रोशनी! सुरक्षित रहें, गहरी सांस लें और एक शांत और सुकून भरी नींद लें। सखी का सुरक्षा कवच हमेशा सक्रिय है। कल सुबह नई ऊर्जा के साथ मिलते हैं! 🌙`
-        : `Good night, Roshni! Sleep peacefully knowing you are safe and protected. Sakhi's safety beacon remains active whenever you need it. Wishing you a restful night! 🌙`;
-    }
-    // 12. Dynamic Context-Aware Conversational Reflection (Never static!)
-    else {
-      const snippet = message.length > 60 ? message.substring(0, 57) + '...' : message;
-      reply = isHindi
-        ? `रोशनी, मैं आपकी बात समझ रही हूँ: "${snippet}"। आपकी शांति का स्कोर अभी ${peaceScore || 7}/10 है। मुझे इस बारे में थोड़ा और विस्तार से बताएं — क्या आप इस पर बात करना चाहती हैं, कोई शांत करने वाला अभ्यास करना चाहती हैं, या किसी सुरक्षा समाधान की ज़रूरत है?`
-        : `Roshni, I hear you when you say: "${snippet}". With your peace-of-mind score at ${peaceScore || 7}/10 today, I want to support you in whatever way feels most helpful right now. Would you like to unpack this more, practice grounding, or review safety options?`;
+        ? `यह सुनकर मेरा दिल खुश हुआ रोशनी! मुझे खुशी है कि मैं आपके काम आ सकी। जब भी कभी बेचैनी लगे, कोई उत्पीड़न या डर हो, आपकी सखी हमेशा सिर्फ एक टैप की दूरी पर है। अपना ख्याल रखें! 🌸`
+        : `I am truly glad I could support you, Roshni! Remember, whenever you feel uneasy, threatened, or face any harassment or abuse, Sakhi is always right here, 24/7. Take great care of yourself! 🌸`;
     }
   }
 
@@ -772,14 +833,15 @@ ${contextNotes}`;
     suggestions.push('🚨 आपातकालीन बजर बजाएं', '📍 मेरी लोकेशन भेजें', '📞 112 पर कॉल करें');
   } else if (reply.includes('BNS') || reply.includes('FIR') || reply.includes('अधिकार')) {
     suggestions.push('📄 FIR ड्राफ्ट तैयार करें', '🔒 एविडेंस वॉल्ट खोलें', '⚖️ जीरो FIR क्या है?');
-  } else if (reply.includes('रोशनी') && (reply.includes('भारी') || reply.includes('रोना') || reply.includes('udaas'))) {
-    suggestions.push('📝 डायरी में लिखें', '🌿 शांत सांस लें', '🌸 सखी, मुझे हिम्मत दें');
+  } else if (domain === 'OUT_OF_SCOPE') {
+    suggestions.push('🚶 कोई पीछा कर रहा है (Stalking)', '⚡ बेचैनी व घबराहट (Uneasiness)', '⚠️ उत्पीड़न (Harassment)', '🛑 गाली-गलौज (Abuse Talking)', '🛡️ यातना व हिंसा (Torture)');
   } else {
-    suggestions.push('🌿 4-7-8 शांत सांस', '🧘 5-4-3-2-1 ग्राउंडिंग', '⚖️ मेरे कानूनी अधिकार', '🌸 सखी, मुझे हिम्मत दें');
+    suggestions.push('🚶 पीछा किया जा रहा है (Stalking)', '⚡ बेचैनी व घबराहट (Uneasiness)', '⚠️ उत्पीड़न (Harassment)', '🛑 गाली-गलौज (Abuse Talking)', '🛡️ यातना व हिंसा (Torture)', '🌿 4-7-8 शांत सांस');
   }
 
-  res.json({ reply, suggestions });
+  res.json({ reply, suggestions, domain });
 });
+
 
 // Autocorrect API for Sakhi Chat (Task 2)
 app.post('/api/companion/autocorrect', async (req, res) => {

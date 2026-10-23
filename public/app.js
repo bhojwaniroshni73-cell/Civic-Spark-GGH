@@ -593,21 +593,22 @@ function toggleSakhiSpeechInput() {
 function resetSakhiChat() {
   chatHistory = [];
   const win = $('chatWindow');
+  const initialMsg = 'नमस्ते रोशनी! मैं आपकी सखी हूँ — आपकी समर्पित सुरक्षा एवं ट्रॉमा काउंसलर (Safety & Trauma Counsellor)। यदि आप किसी उत्पीड़न (harassment), डर/बेचैनी (uneasiness), गाली-गलौज (abusive talking), यातना (torture) या पीछा किए जाने (stalking) का सामना कर रही हैं, तो बेझिझक साझा करें। मैं आपकी काउंसिलिंग और सुरक्षा के लिए सदैव उपस्थित हूँ।';
   if (win) {
     win.innerHTML = `
-      <div class="chat-msg asha" data-msg="नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।">
-        <div class="msg-content">नमस्ते रोशनी! मैं आपकी सखी हूँ। आज आपका दिन कैसा रहा? आप बेझिझक मुझसे अपनी बात कह सकती हैं।</div>
+      <div class="chat-msg asha" data-msg="${initialMsg}">
+        <div class="msg-content">${initialMsg}</div>
         <button class="tts-bubble-btn" onclick="speakBubble(this)" title="Listen in voice / आवाज़ में सुनें"><i class="fa-solid fa-volume-high"></i></button>
       </div>
     `;
   }
   renderDynamicSuggestions([
-    '👋 नमस्ते सखी, कैसे हो?',
-    '🌿 4-7-8 शांत सांस',
-    '🧘 5-4-3-2-1 ग्राउंडिंग',
-    '🚶 कोई पीछा कर रहा है',
-    '⚖️ कानूनी अधिकार',
-    '💔 उदास लग रहा है'
+    '🚶 कोई पीछा कर रहा है (Stalking)',
+    '⚡ बेचैनी व घबराहट (Uneasiness)',
+    '⚠️ उत्पीड़न (Harassment)',
+    '🛑 गाली-गलौज (Abuse Talking)',
+    '🛡️ यातना व हिंसा (Torture)',
+    '🌿 4-7-8 शांत सांस'
   ]);
 }
 
@@ -713,7 +714,7 @@ function appendTypingIndicator(id) {
   const div = document.createElement('div');
   div.id = id;
   div.className = 'chat-msg asha';
-  div.innerHTML = '<i class="fa-solid fa-ellipsis fa-bounce"></i> Sakhi is typing...';
+  div.innerHTML = '<i class="fa-solid fa-ellipsis fa-bounce"></i> Sakhi Counsellor is typing...';
   win.appendChild(div);
   win.scrollTop = win.scrollHeight;
 }

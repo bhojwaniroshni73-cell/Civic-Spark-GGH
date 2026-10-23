@@ -149,13 +149,13 @@ async function runTests() {
     process.exit(1);
   }
 
-  // 4. Test Exam stress
-  const r2 = await postJson('/api/companion/chat', { message: 'I have a big exam tomorrow and I am super stressed and scared of failing' });
-  console.log('Exam Stress Reply:', r2.data.reply);
-  if ((r2.data.reply.includes('exam') || r2.data.reply.includes('Academic') || r2.data.reply.includes('worth')) && r2.data.reply !== r1.data.reply) {
-    console.log('✅ [PASS] Contextual Academic & Exam empathy');
+  // 4. Test Uneasiness / Panic Distress (Counsellor Mandate)
+  const r2 = await postJson('/api/companion/chat', { message: 'I feel sudden panic, extreme uneasiness and fear walking alone in the dark' });
+  console.log('Uneasiness Reply:', r2.data.reply);
+  if ((r2.data.reply.includes('uneasiness') || r2.data.reply.includes('calming') || r2.data.reply.includes('4-7-8') || r2.data.reply.includes('safe')) && r2.data.reply !== r1.data.reply) {
+    console.log('✅ [PASS] Contextual Uneasiness & Panic trauma guidance');
   } else {
-    console.error('❌ [FAIL] Did not respond to exam context:', r2.data);
+    console.error('❌ [FAIL] Did not respond to uneasiness context:', r2.data);
     process.exit(1);
   }
 
