@@ -42,6 +42,977 @@
   ],
   "alerts": [
     {
+      "id": "ALERT-455418",
+      "timestamp": "2026-10-23T09:24:15.418Z",
+      "formattedTime": "02:54 pm",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Near Sector 6 Market, Bhilai",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T09:24:15.418Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-455418",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Connected & Dispatched",
+          "channel": "ERSS Telemetry Feed",
+          "priority": 1,
+          "type": "emergency",
+          "action": "tel:112"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "National Women Helpline (Sakhi One Stop Centre)",
+          "phone": "181",
+          "status": "Priority Connected",
+          "channel": "National Women Helpline Hotline",
+          "priority": 1,
+          "type": "women_helpline",
+          "action": "tel:181"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "1091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console",
+          "priority": 1,
+          "type": "police",
+          "action": "tel:1091"
+        },
+        {
+          "tier": 2,
+          "tierTitle": "Tier 2: Parents (Second Priority)",
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "relation": "Mother",
+          "status": "SOS SMS & WhatsApp Dispatched",
+          "channel": "Priority Family Alert Gateway",
+          "priority": 2,
+          "type": "parent",
+          "action": "tel:+919876500001",
+          "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Near Sector 6 Market, Bhilai. Live GPS: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500002",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500003",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "relation": "Campus Guard",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919425099881",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "relation": "sister",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+917389619044",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+        }
+      ],
+      "tiers": {
+        "tier1": [
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "ERSS 112 Command Desk",
+            "phone": "112",
+            "status": "Connected & Dispatched",
+            "channel": "ERSS Telemetry Feed",
+            "priority": 1,
+            "type": "emergency",
+            "action": "tel:112"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "National Women Helpline (Sakhi One Stop Centre)",
+            "phone": "181",
+            "status": "Priority Connected",
+            "channel": "National Women Helpline Hotline",
+            "priority": 1,
+            "type": "women_helpline",
+            "action": "tel:181"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+            "phone": "1091",
+            "status": "Dispatched to PCR Unit",
+            "channel": "Police Responder Console",
+            "priority": 1,
+            "type": "police",
+            "action": "tel:1091"
+          }
+        ],
+        "tier2": [
+          {
+            "tier": 2,
+            "tierTitle": "Tier 2: Parents (Second Priority)",
+            "name": "Mom",
+            "phone": "+91 98765 00001",
+            "relation": "Mother",
+            "status": "SOS SMS & WhatsApp Dispatched",
+            "channel": "Priority Family Alert Gateway",
+            "priority": 2,
+            "type": "parent",
+            "action": "tel:+919876500001",
+            "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Near Sector 6 Market, Bhilai. Live GPS: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+          }
+        ],
+        "tier3": [
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Sakshi (Civic Spark)",
+            "phone": "+91 98765 00002",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500002",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Archita (Civic Spark)",
+            "phone": "+91 98765 00003",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500003",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Campus Security Hub",
+            "phone": "+91 94250 99881",
+            "relation": "Campus Guard",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919425099881",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Palak Bhojwani",
+            "phone": "+917389619044",
+            "relation": "sister",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+917389619044",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-455418 (https://maps.google.com/?q=21.2188,81.3855)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ALERT-429482",
+      "timestamp": "2026-10-23T09:23:49.482Z",
+      "formattedTime": "02:53 pm",
+      "type": "SILENT_PANIC_SOS",
+      "silent": true,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "address": "Sector 6 Market Road, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T09:23:49.482Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-429482",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Connected & Dispatched",
+          "channel": "ERSS Telemetry Feed",
+          "priority": 1,
+          "type": "emergency",
+          "action": "tel:112"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "National Women Helpline (Sakhi One Stop Centre)",
+          "phone": "181",
+          "status": "Priority Connected",
+          "channel": "National Women Helpline Hotline",
+          "priority": 1,
+          "type": "women_helpline",
+          "action": "tel:181"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "1091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console",
+          "priority": 1,
+          "type": "police",
+          "action": "tel:1091"
+        },
+        {
+          "tier": 2,
+          "tierTitle": "Tier 2: Parents (Second Priority)",
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "relation": "Mother",
+          "status": "SOS SMS & WhatsApp Dispatched",
+          "channel": "Priority Family Alert Gateway",
+          "priority": 2,
+          "type": "parent",
+          "action": "tel:+919876500001",
+          "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Sector 6 Market Road, Bhilai, Chhattisgarh. Live GPS: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500002",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500003",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "relation": "Campus Guard",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919425099881",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "relation": "sister",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+917389619044",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+        }
+      ],
+      "tiers": {
+        "tier1": [
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "ERSS 112 Command Desk",
+            "phone": "112",
+            "status": "Connected & Dispatched",
+            "channel": "ERSS Telemetry Feed",
+            "priority": 1,
+            "type": "emergency",
+            "action": "tel:112"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "National Women Helpline (Sakhi One Stop Centre)",
+            "phone": "181",
+            "status": "Priority Connected",
+            "channel": "National Women Helpline Hotline",
+            "priority": 1,
+            "type": "women_helpline",
+            "action": "tel:181"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+            "phone": "1091",
+            "status": "Dispatched to PCR Unit",
+            "channel": "Police Responder Console",
+            "priority": 1,
+            "type": "police",
+            "action": "tel:1091"
+          }
+        ],
+        "tier2": [
+          {
+            "tier": 2,
+            "tierTitle": "Tier 2: Parents (Second Priority)",
+            "name": "Mom",
+            "phone": "+91 98765 00001",
+            "relation": "Mother",
+            "status": "SOS SMS & WhatsApp Dispatched",
+            "channel": "Priority Family Alert Gateway",
+            "priority": 2,
+            "type": "parent",
+            "action": "tel:+919876500001",
+            "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Sector 6 Market Road, Bhilai, Chhattisgarh. Live GPS: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+          }
+        ],
+        "tier3": [
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Sakshi (Civic Spark)",
+            "phone": "+91 98765 00002",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500002",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Archita (Civic Spark)",
+            "phone": "+91 98765 00003",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500003",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Campus Security Hub",
+            "phone": "+91 94250 99881",
+            "relation": "Campus Guard",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919425099881",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Palak Bhojwani",
+            "phone": "+917389619044",
+            "relation": "sister",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+917389619044",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429482 (https://maps.google.com/?q=21.2188,81.3855)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ALERT-429435",
+      "timestamp": "2026-10-23T09:23:49.435Z",
+      "formattedTime": "02:53 pm",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "Patrol Dispatched",
+      "responderNotes": "PCR-04 En Route",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.2188,
+        "lng": 81.3855,
+        "address": "Sector 6 Bhilai"
+      },
+      "history": [
+        {
+          "lat": 21.2188,
+          "lng": 81.3855,
+          "timestamp": "2026-10-23T09:23:49.435Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-429435",
+      "mapUrl": "https://maps.google.com/?q=21.2188,81.3855",
+      "deliveryStatus": [
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Connected & Dispatched",
+          "channel": "ERSS Telemetry Feed",
+          "priority": 1,
+          "type": "emergency",
+          "action": "tel:112"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "National Women Helpline (Sakhi One Stop Centre)",
+          "phone": "181",
+          "status": "Priority Connected",
+          "channel": "National Women Helpline Hotline",
+          "priority": 1,
+          "type": "women_helpline",
+          "action": "tel:181"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "1091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console",
+          "priority": 1,
+          "type": "police",
+          "action": "tel:1091"
+        },
+        {
+          "tier": 2,
+          "tierTitle": "Tier 2: Parents (Second Priority)",
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "relation": "Mother",
+          "status": "SOS SMS & WhatsApp Dispatched",
+          "channel": "Priority Family Alert Gateway",
+          "priority": 2,
+          "type": "parent",
+          "action": "tel:+919876500001",
+          "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Sector 6 Bhilai. Live GPS: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500002",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500003",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "relation": "Campus Guard",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919425099881",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "relation": "sister",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+917389619044",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+        }
+      ],
+      "tiers": {
+        "tier1": [
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "ERSS 112 Command Desk",
+            "phone": "112",
+            "status": "Connected & Dispatched",
+            "channel": "ERSS Telemetry Feed",
+            "priority": 1,
+            "type": "emergency",
+            "action": "tel:112"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "National Women Helpline (Sakhi One Stop Centre)",
+            "phone": "181",
+            "status": "Priority Connected",
+            "channel": "National Women Helpline Hotline",
+            "priority": 1,
+            "type": "women_helpline",
+            "action": "tel:181"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+            "phone": "1091",
+            "status": "Dispatched to PCR Unit",
+            "channel": "Police Responder Console",
+            "priority": 1,
+            "type": "police",
+            "action": "tel:1091"
+          }
+        ],
+        "tier2": [
+          {
+            "tier": 2,
+            "tierTitle": "Tier 2: Parents (Second Priority)",
+            "name": "Mom",
+            "phone": "+91 98765 00001",
+            "relation": "Mother",
+            "status": "SOS SMS & WhatsApp Dispatched",
+            "channel": "Priority Family Alert Gateway",
+            "priority": 2,
+            "type": "parent",
+            "action": "tel:+919876500001",
+            "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Sector 6 Bhilai. Live GPS: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+          }
+        ],
+        "tier3": [
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Sakshi (Civic Spark)",
+            "phone": "+91 98765 00002",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500002",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Archita (Civic Spark)",
+            "phone": "+91 98765 00003",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500003",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Campus Security Hub",
+            "phone": "+91 94250 99881",
+            "relation": "Campus Guard",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919425099881",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Palak Bhojwani",
+            "phone": "+917389619044",
+            "relation": "sister",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+917389619044",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-429435 (https://maps.google.com/?q=21.2188,81.3855)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ALERT-133724",
+      "timestamp": "2026-10-23T09:18:53.724Z",
+      "formattedTime": "02:48 pm",
+      "type": "EMERGENCY_BUZZER",
+      "silent": false,
+      "status": "New",
+      "responderNotes": "",
+      "sharingActive": true,
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "college": "Shri Shankaracharya Institute of Professional Management and Technology"
+      },
+      "location": {
+        "lat": 21.234643728538455,
+        "lng": 81.34627850554617,
+        "accuracy": 106,
+        "address": "Sector 6 Market Road, Bhilai, CG (Live Coordinates)"
+      },
+      "history": [
+        {
+          "lat": 21.234767538427267,
+          "lng": 81.3465650964927,
+          "timestamp": "2026-10-23T09:18:53.724Z"
+        },
+        {
+          "lat": 21.234682248548516,
+          "lng": 81.34638418514959,
+          "timestamp": "2026-10-23T09:19:10.792Z"
+        },
+        {
+          "lat": 21.234682248548516,
+          "lng": 81.34638418514959,
+          "timestamp": "2026-10-23T09:19:17.842Z"
+        },
+        {
+          "lat": 21.234657330922634,
+          "lng": 81.34632630552805,
+          "timestamp": "2026-10-23T09:19:34.557Z"
+        },
+        {
+          "lat": 21.234657330922634,
+          "lng": 81.34632630552805,
+          "timestamp": "2026-10-23T09:19:41.843Z"
+        },
+        {
+          "lat": 21.234657330922634,
+          "lng": 81.34632630552805,
+          "timestamp": "2026-10-23T09:19:53.832Z"
+        },
+        {
+          "lat": 21.234643728538455,
+          "lng": 81.34627850554617,
+          "timestamp": "2026-10-23T09:20:09.629Z"
+        }
+      ],
+      "trackingUrl": "/tracking.html?id=ALERT-133724",
+      "mapUrl": "https://maps.google.com/?q=21.234767538427267,81.3465650964927",
+      "deliveryStatus": [
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "ERSS 112 Command Desk",
+          "phone": "112",
+          "status": "Connected & Dispatched",
+          "channel": "ERSS Telemetry Feed",
+          "priority": 1,
+          "type": "emergency",
+          "action": "tel:112"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "National Women Helpline (Sakhi One Stop Centre)",
+          "phone": "181",
+          "status": "Priority Connected",
+          "channel": "National Women Helpline Hotline",
+          "priority": 1,
+          "type": "women_helpline",
+          "action": "tel:181"
+        },
+        {
+          "tier": 1,
+          "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+          "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+          "phone": "1091",
+          "status": "Dispatched to PCR Unit",
+          "channel": "Police Responder Console",
+          "priority": 1,
+          "type": "police",
+          "action": "tel:1091"
+        },
+        {
+          "tier": 2,
+          "tierTitle": "Tier 2: Parents (Second Priority)",
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "relation": "Mother",
+          "status": "SOS SMS & WhatsApp Dispatched",
+          "channel": "Priority Family Alert Gateway",
+          "priority": 2,
+          "type": "parent",
+          "action": "tel:+919876500001",
+          "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Sector 6 Market Road, Bhilai, CG (Live Coordinates). Live GPS: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500002",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "relation": "Friend",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919876500003",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "relation": "Campus Guard",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+919425099881",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+        },
+        {
+          "tier": 3,
+          "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+          "name": "Palak Bhojwani",
+          "phone": "+917389619044",
+          "relation": "sister",
+          "status": "Delivered",
+          "channel": "Broadcast SMS / WhatsApp Network",
+          "priority": 3,
+          "type": "contact",
+          "action": "tel:+917389619044",
+          "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+        }
+      ],
+      "tiers": {
+        "tier1": [
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "ERSS 112 Command Desk",
+            "phone": "112",
+            "status": "Connected & Dispatched",
+            "channel": "ERSS Telemetry Feed",
+            "priority": 1,
+            "type": "emergency",
+            "action": "tel:112"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "National Women Helpline (Sakhi One Stop Centre)",
+            "phone": "181",
+            "status": "Priority Connected",
+            "channel": "National Women Helpline Hotline",
+            "priority": 1,
+            "type": "women_helpline",
+            "action": "tel:181"
+          },
+          {
+            "tier": 1,
+            "tierTitle": "Tier 1: Women Helpline Numbers & 112 (Immediate First Priority)",
+            "name": "Women Police Station (Mahila Thana Bhilai 1.2 km)",
+            "phone": "1091",
+            "status": "Dispatched to PCR Unit",
+            "channel": "Police Responder Console",
+            "priority": 1,
+            "type": "police",
+            "action": "tel:1091"
+          }
+        ],
+        "tier2": [
+          {
+            "tier": 2,
+            "tierTitle": "Tier 2: Parents (Second Priority)",
+            "name": "Mom",
+            "phone": "+91 98765 00001",
+            "relation": "Mother",
+            "status": "SOS SMS & WhatsApp Dispatched",
+            "channel": "Priority Family Alert Gateway",
+            "priority": 2,
+            "type": "parent",
+            "action": "tel:+919876500001",
+            "message": "🚨 URGENT SOS to Parents! Roshni Bhojwani activated Emergency Buzzer near Sector 6 Market Road, Bhilai, CG (Live Coordinates). Live GPS: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+          }
+        ],
+        "tier3": [
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Sakshi (Civic Spark)",
+            "phone": "+91 98765 00002",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500002",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Archita (Civic Spark)",
+            "phone": "+91 98765 00003",
+            "relation": "Friend",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919876500003",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Campus Security Hub",
+            "phone": "+91 94250 99881",
+            "relation": "Campus Guard",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+919425099881",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+          },
+          {
+            "tier": 3,
+            "tierTitle": "Tier 3: Selected Emergency Contacts (Third Priority)",
+            "name": "Palak Bhojwani",
+            "phone": "+917389619044",
+            "relation": "sister",
+            "status": "Delivered",
+            "channel": "Broadcast SMS / WhatsApp Network",
+            "priority": 3,
+            "type": "contact",
+            "action": "tel:+917389619044",
+            "message": "🚨 EMERGENCY ALERT from Roshni Bhojwani! Live GPS tracking: /tracking.html?id=ALERT-133724 (https://maps.google.com/?q=21.234767538427267,81.3465650964927)"
+          }
+        ]
+      }
+    },
+    {
       "id": "ALERT-764922",
       "timestamp": "2026-10-23T09:12:44.922Z",
       "formattedTime": "02:42 pm",
@@ -3597,6 +4568,18 @@
   ],
   "evidence": [
     {
+      "id": "ev-1792747429563",
+      "title": "Dark SUV Stalking Proof",
+      "description": "Black SUV following near gate, license plate noted.",
+      "category": "Harassment / Stalking",
+      "location": "Sector 6 Market Road, Bhilai, CG",
+      "timestamp": "23/10/26, 2:53:49 pm",
+      "manifestHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": [],
+      "tamperEvident": true,
+      "bsaNotice": "Electronic record hashed under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) 2023."
+    },
+    {
       "id": "ev-1792746764623",
       "title": "Dark SUV Stalking Proof",
       "description": "Black SUV following near gate, license plate noted.",
@@ -3711,6 +4694,15 @@
     }
   ],
   "mentalHealthLogs": [
+    {
+      "id": "mh-1792747429498",
+      "date": "23 Oct",
+      "timestamp": "2026-10-23T09:23:49.498Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Walking past dark alley near college",
+      "aiFeedback": "घबराहट स्वाभाविक है, रोशनी। एक धीमी गहरी सांस लें। सखी हमेशा आपकी सुरक्षा में तैनात है।"
+    },
     {
       "id": "mh-1792746764540",
       "date": "23 Oct",
