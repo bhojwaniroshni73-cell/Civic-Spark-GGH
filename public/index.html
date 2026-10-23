@@ -20,7 +20,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 1: AUTHENTICATION & EMERGENCY ACCESS (Task 10)    -->
 <!-- ======================================================== -->
-<div id="login" class="screen on">
+<div id="login" class="screen on screen-compact">
   <div style="text-align: center; padding: 18px 0 10px;">
     <div style="width: 72px; height: 72px; background: var(--primary-gradient); border-radius: 22px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 34px; box-shadow: var(--shadow-lg);">
       <i class="fa-solid fa-shield-heart"></i>
@@ -99,7 +99,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 2: CALCULATOR (Mode 2 Disguise)                    -->
 <!-- ======================================================== -->
-<div id="calc" class="screen">
+<div id="calc" class="screen screen-compact">
   <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 4px; font-size: 13px; color: #888;">
     <span>Calculator</span>
     <span onclick="go('home')" style="cursor: pointer; color: #aaa; text-decoration: underline;">[Open SheGuard]</span>
@@ -117,7 +117,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 3: STEALTH CONSOLE (Mode 2 Silent Mode)            -->
 <!-- ======================================================== -->
-<div id="stealth" class="screen">
+<div id="stealth" class="screen screen-compact">
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
     <h2 style="margin: 0; color: var(--red); font-size: 20px;">
       <i class="fa-solid fa-user-secret"></i> Stealth Safety Console
@@ -158,96 +158,217 @@
 </div>
 
 <!-- ======================================================== -->
-<!-- SCREEN 4: HOME DASHBOARD (Clear, Sorted & Accessible)     -->
+<!-- SCREEN 4: HOME DASHBOARD (Sentry AI Blue Fusion Grid)     -->
 <!-- ======================================================== -->
 <div id="home" class="screen">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-    <div>
-      <h2 style="margin: 0; font-size: 22px;">नमस्ते, <span id="homeUserName">Roshni</span> 🌸</h2>
-      <span style="font-size: 13px; color: var(--green); font-weight: 600;">
-        <i class="fa-solid fa-shield-check"></i> SheGuard Protection Active
-      </span>
+  <!-- Sentry-Style Header Navbar -->
+  <div class="sentry-navbar">
+    <div class="sentry-logo-group">
+      <div class="sentry-logo-icon">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+      <div class="sentry-logo-text">
+        <h2>SheGuard AI <span style="font-size: 12px; font-weight: normal; color: var(--royal-600); background: #eff6ff; padding: 2px 8px; border-radius: 8px; margin-left: 4px;">Sentry Ops</span></h2>
+        <span>Real-time AI-Powered Threat Detection & Safety System</span>
+      </div>
     </div>
-    <div style="display: flex; gap: 6px; align-items: center;">
-      <button class="btn light small" onclick="openApiKeyModal()" id="apiKeyHeaderBtn" title="Gemini AI Configuration">
-        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--indigo);"></i> <span id="apiKeyPillStatus" style="font-size: 11px;">AI Engine</span>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <span class="badge green" style="display: flex; align-items: center; gap: 4px;">
+        <i class="fa-solid fa-circle-dot fa-fade"></i> Protection Active
+      </span>
+      <button class="btn light small" onclick="openApiKeyModal()" id="apiKeyHeaderBtn" title="Gemini AI Configuration" style="margin: 0;">
+        <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--royal-600);"></i> <span id="apiKeyPillStatus" style="font-size: 11.5px;">AI Engine</span>
       </button>
-      <button class="btn light small" onclick="go('calc')" title="Hide app as calculator">
+      <button class="btn light small" onclick="go('calc')" title="Hide app as calculator" style="margin: 0;">
         <i class="fa-solid fa-calculator"></i> Hide
       </button>
-      <button class="btn light small" onclick="openPrivacyModal()" title="Privacy & Data Control">
+      <button class="btn light small" onclick="openPrivacyModal()" title="Privacy & Data Control" style="margin: 0;">
         <i class="fa-solid fa-lock"></i>
       </button>
     </div>
   </div>
 
-  <!-- Big Emergency Buzzer Tile -->
-  <button class="siren-btn" onclick="go('buzzer')">
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <i class="fa-solid fa-bullhorn" style="font-size: 26px;"></i>
-      <span>EMERGENCY BUZZER</span>
+  <!-- HIGHEST PRIORITY HERO: CRITICAL ALERT & EMERGENCY BUZZER -->
+  <div class="critical-alert-card">
+    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+      <div>
+        <span class="badge red"><i class="fa-solid fa-triangle-exclamation fa-bounce"></i> ACTIVE THREAT / EMERGENCY DISPATCH</span>
+        <h3 style="margin: 8px 0 4px; font-size: 20px; color: var(--navy);">
+          EMERGENCY BUZZER PROTOCOL
+        </h3>
+        <p style="font-size: 13px; color: #475569; margin: 0; line-height: 1.45;">
+          Direct Cascading Dispatch: <strong>1. Women Helplines (181, 1091) & 112</strong> &rarr; <strong>2. Parents (Mom / Dad)</strong> &rarr; <strong>3. Selected Emergency Contacts</strong>
+        </p>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; font-weight: bold;">READINESS SCORE</div>
+        <div style="font-size: 28px; font-weight: 900; color: var(--royal-700);">98<span style="font-size: 16px; color: var(--muted);">/100</span></div>
+      </div>
     </div>
-    <span style="font-size: 13px; font-weight: normal; opacity: 0.95;">
-      आपातकालीन सायरन · पुलिस व परिजनों को लाइव लोकेशन
-    </span>
-  </button>
 
-  <!-- Mode 1: Help Now -->
-  <button class="btn red" onclick="go('emergency')">
-    <i class="fa-solid fa-truck-medical"></i>
-    <span>I need help now / मुझे अभी मदद चाहिए</span>
-  </button>
+    <!-- The Emergency Siren Button -->
+    <button class="siren-btn" onclick="go('buzzer'); toggleBuzzerAlarm();" style="margin: 12px 0 10px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+        <i class="fa-solid fa-bullhorn" style="font-size: 34px;"></i>
+        <div style="text-align: left;">
+          <span style="font-size: 20px; font-weight: 800; display: block; line-height: 1.2;">ACTIVATE EMERGENCY BUZZER</span>
+          <span style="font-size: 12px; font-weight: normal; opacity: 0.95;">अलार्म बजाएं और तुरंत पुलिस, हेल्पलाइन व माता-पिता को सूचित करें</span>
+        </div>
+      </div>
+    </button>
 
-  <!-- Feature 1: Sakhi AI Companion -->
-  <button class="btn indigo" onclick="go('companion')">
-    <i class="fa-solid fa-hand-holding-heart"></i>
-    <span>Sakhi, your AI companion / सखी से बात करें</span>
-  </button>
-
-  <!-- Feature 4: Emergency Contacts -->
-  <button class="btn light" onclick="go('contacts')">
-    <i class="fa-solid fa-users"></i>
-    <span>Emergency Contacts / आपातकालीन संपर्क</span>
-  </button>
-
-  <!-- Feature 9: Online Trolling & Harassment Help -->
-  <button class="btn light" onclick="go('trolling')">
-    <i class="fa-solid fa-shield-virus" style="color: #0284c7;"></i>
-    <span>Online Trolling & Cyber Harassment / साइबर सुरक्षा</span>
-  </button>
-
-  <!-- Mode 3: Evidence Vault -->
-  <button class="btn light" onclick="go('vault')">
-    <i class="fa-solid fa-folder-closed"></i>
-    <span>Tamper-Evident Evidence Vault / कानूनी सबूत</span>
-  </button>
-
-  <!-- Mode 3: Draft Complaint -->
-  <button class="btn light" onclick="go('complaint'); makeComplaint();">
-    <i class="fa-solid fa-file-signature"></i>
-    <span>Draft Police Complaint / FIR (BNS 2023)</span>
-  </button>
-
-  <!-- Nearby Help -->
-  <button class="btn light" onclick="go('services')">
-    <i class="fa-solid fa-building-shield"></i>
-    <span>Nearby Police & Helplines / नजदीकी सहायता केंद्र</span>
-  </button>
-
-  <!-- External Responder Console Link -->
-  <div style="text-align: center; margin: 10px 0;">
-    <a href="/responder.html" target="_blank" style="font-size: 12px; color: var(--indigo); text-decoration: underline;">
-      <i class="fa-solid fa-desktop"></i> Open Live Police / Help Centre Responder Console (Demo)
-    </a>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+      <a href="tel:112" class="btn red small" style="margin: 0; justify-content: center; text-decoration: none;">
+        <i class="fa-solid fa-phone"></i> Call 112
+      </a>
+      <a href="tel:181" class="btn small" style="margin: 0; justify-content: center; text-decoration: none; background: #e11d48; color: white;">
+        <i class="fa-solid fa-phone"></i> Helpline 181
+      </a>
+      <button class="btn light small" onclick="whatsappParent()" style="margin: 0; justify-content: center; border-color: #86efac; color: #166534; font-weight: bold;">
+        <i class="fa-brands fa-whatsapp text-green"></i> WhatsApp Mom
+      </button>
+      <a href="/responder.html" target="_blank" class="btn light small" style="margin: 0; justify-content: center; text-decoration: none; color: var(--royal-700);">
+        <i class="fa-solid fa-desktop"></i> Responder Console
+      </a>
+    </div>
   </div>
 
-  <p class="note">SheGuard AI does not replace emergency services. In acute danger, call 112 directly.</p>
+  <!-- SENTRY-STYLE MULTI-COLUMN DASHBOARD GRID -->
+  <div class="dashboard-grid">
+    <!-- Card 1: System Health & Safety Posture (Gauge Widget) -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <b style="font-size: 14.5px; color: var(--navy);"><i class="fa-solid fa-gauge-high text-indigo"></i> Safety Posture & Readiness</b>
+        <span class="badge blue">STABLE</span>
+      </div>
+
+      <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 14px;">
+        <!-- Gauge Graphic -->
+        <div style="position: relative; width: 85px; height: 85px; flex-shrink: 0;">
+          <svg viewBox="0 0 36 36" style="width: 85px; height: 85px; transform: rotate(-90deg);">
+            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e2e8f0" stroke-width="3.5" />
+            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="url(#blueGaugeGrad)" stroke-dasharray="98, 100" stroke-width="3.5" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="blueGaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1e40af" />
+                <stop offset="100%" stop-color="#3b82f6" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 18px; font-weight: 800; color: var(--royal-700);">98%</span>
+            <span style="font-size: 9px; color: var(--muted); text-transform: uppercase;">Secure</span>
+          </div>
+        </div>
+
+        <div style="flex: 1; font-size: 12.5px; line-height: 1.6; color: #334155;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding: 2px 0;">
+            <span>ERSS 112 Telemetry:</span>
+            <strong style="color: var(--green);">Connected</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding: 2px 0;">
+            <span>Mahila Thana Bhilai:</span>
+            <strong style="color: var(--royal-600);">1.2 km (Standby)</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 2px 0;">
+            <span>Parent Verified:</span>
+            <strong style="color: var(--green);">Mom (+91 98765 00001)</strong>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn light small" onclick="go('services')" style="width: 100%; justify-content: center;">
+        <i class="fa-solid fa-building-shield"></i> View Nearby Police & Helplines
+      </button>
+    </div>
+
+    <!-- Card 2: AI Companion Sakhi & Emotional Trends -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <b style="font-size: 14.5px; color: var(--navy);"><i class="fa-solid fa-hand-holding-heart text-indigo"></i> Sakhi AI Companion & Well-being</b>
+        <span class="badge blue">24x7 Real-Time</span>
+      </div>
+
+      <p style="font-size: 13px; color: var(--muted); margin: 0 0 12px; line-height: 1.45;">
+        आपकी भावनात्मक व सुरक्षा साथी — 4-7-8 शांत सांस, 5-4-3-2-1 ग्राउंडिंग व वास्तविक समय संबल।
+      </p>
+
+      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+        <div style="flex: 1; background: #eff6ff; border-radius: 12px; padding: 10px; text-align: center;">
+          <div style="font-size: 11px; color: var(--muted);">PEACE SCORE</div>
+          <div style="font-size: 20px; font-weight: bold; color: var(--royal-700);">7/10</div>
+        </div>
+        <div style="flex: 1; background: #eff6ff; border-radius: 12px; padding: 10px; text-align: center;">
+          <div style="font-size: 11px; color: var(--muted);">EMOTIONAL STATE</div>
+          <div style="font-size: 13px; font-weight: bold; color: var(--green); margin-top: 4px;">Safe & Calm</div>
+        </div>
+      </div>
+
+      <button class="btn indigo" onclick="go('companion')" style="margin: 0;">
+        <i class="fa-solid fa-comments"></i> Talk with Sakhi / सखी से बातचीत करें
+      </button>
+    </div>
+
+    <!-- Card 3: Mode 1 Emergency Multimodal Triage -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <b style="font-size: 14.5px; color: var(--navy);"><i class="fa-solid fa-truck-medical text-red"></i> Mode 1: Multimodal Emergency Triage</b>
+        <span class="badge red small">Gemini Vision</span>
+      </div>
+      <p style="font-size: 13px; color: var(--muted); margin: 0 0 14px; line-height: 1.45;">
+        घटना का ऑडियो बोलें या फोटो अपलोड करें। जेमिनी तुरंत घाव प्रबंधन, स्टॉकिंग से बचाव के कदम और 112 ब्रीफ तैयार करता है।
+      </p>
+      <button class="btn red" onclick="go('emergency')" style="margin: 0;">
+        <i class="fa-solid fa-brain"></i> I Need Help Now / आपातकालीन सहायता
+      </button>
+    </div>
+
+    <!-- Card 4: Justice & Evidence Center (Mode 3) -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <b style="font-size: 14.5px; color: var(--navy);"><i class="fa-solid fa-scale-balanced text-indigo"></i> Justice & Legal Protection Center</b>
+        <span class="badge blue">BSA 2023 Compliant</span>
+      </div>
+      <p style="font-size: 13px; color: var(--muted); margin: 0 0 12px; line-height: 1.45;">
+        छेड़छाड़ या पीछा करने पर डिजिटल सबूत सुरक्षित करें और भारतीय न्याय संहिता (BNS 2023) आधारित औपचारिक FIR तैयार करें।
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <button class="btn light small" onclick="go('vault')" style="margin: 0; justify-content: center;">
+          <i class="fa-solid fa-folder-closed text-indigo"></i> Evidence Vault
+        </button>
+        <button class="btn light small" onclick="go('complaint'); makeComplaint();" style="margin: 0; justify-content: center;">
+          <i class="fa-solid fa-file-signature text-indigo"></i> Draft FIR (BNS)
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 5: Cyber Safety & Trusted Circle -->
+    <div class="card grid-col-span-2">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <b style="font-size: 14.5px; color: var(--navy);"><i class="fa-solid fa-shield-virus text-indigo"></i> Cyber Harassment Defense & Trusted Circle</b>
+        <span class="badge blue">National 1930 & StopNCII</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+        <button class="btn light small" onclick="go('trolling')" style="margin: 0; justify-content: center;">
+          <i class="fa-solid fa-shield-virus" style="color: #0284c7;"></i> Online Trolling & NCII Flow
+        </button>
+        <button class="btn light small" onclick="go('contacts')" style="margin: 0; justify-content: center;">
+          <i class="fa-solid fa-users text-indigo"></i> Manage Contacts (Parents & Friends)
+        </button>
+        <button class="btn light small" onclick="go('stealth')" style="margin: 0; justify-content: center;">
+          <i class="fa-solid fa-user-secret text-indigo"></i> Stealth Console & Escape Plan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <p class="note" style="text-align: center; margin-top: 24px;">SheGuard AI is an emergency assistant designed for women's safety and justice. In acute danger, always call 112 directly.</p>
 </div>
 
 <!-- ======================================================== -->
 <!-- SCREEN 5: EMERGENCY BUZZER (Task 5)                       -->
 <!-- ======================================================== -->
-<div id="buzzer" class="screen">
+<div id="buzzer" class="screen screen-compact">
   <button class="back-btn" onclick="stopSiren(); go('home');">
     <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
   </button>
@@ -397,7 +518,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 6: SAKHI AI COMPANION (Task 1 & 2)                 -->
 <!-- ======================================================== -->
-<div id="companion" class="screen">
+<div id="companion" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
@@ -534,7 +655,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 7: EMERGENCY CONTACTS (Task 4)                     -->
 <!-- ======================================================== -->
-<div id="contacts" class="screen">
+<div id="contacts" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
@@ -575,7 +696,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 8: ONLINE TROLLING & HARASSMENT (Task 9 - NEW)     -->
 <!-- ======================================================== -->
-<div id="trolling" class="screen">
+<div id="trolling" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
@@ -620,7 +741,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 9: EMERGENCY MODE & VOICE TRIAGE (Task 3 & Mode 1) -->
 <!-- ======================================================== -->
-<div id="emergency" class="screen">
+<div id="emergency" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
@@ -705,7 +826,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 10: EVIDENCE VAULT (Task 7 Multi-File & BSA 2023)  -->
 <!-- ======================================================== -->
-<div id="vault" class="screen">
+<div id="vault" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
@@ -749,7 +870,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 11: DRAFTED COMPLAINT / FIR (Task 8 - BNS 2023)    -->
 <!-- ======================================================== -->
-<div id="complaint" class="screen">
+<div id="complaint" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
@@ -788,7 +909,7 @@
 <!-- ======================================================== -->
 <!-- SCREEN 12: NEARBY POLICE & HELPLINES DIRECTORY            -->
 <!-- ======================================================== -->
-<div id="services" class="screen">
+<div id="services" class="screen screen-compact">
   <button class="back-btn" onclick="go('home')">
     <i class="fa-solid fa-arrow-left"></i> Back to Home
   </button>
