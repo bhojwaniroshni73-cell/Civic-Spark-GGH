@@ -1,0 +1,54 @@
+/* Custom Styling for SheGuard AI */
+
+@keyframes pulse-siren {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 24px rgba(239, 68, 68, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.siren-active {
+  animation: pulse-siren 0.8s infinite;
+}
+
+/* Strobe flashing */
+.strobe-flashing {
+  animation: strobe-flash 0.15s infinite alternate;
+}
+
+@keyframes strobe-flash {
+  from { opacity: 0.7; background-color: rgba(220, 38, 38, 0.4); }
+  to { opacity: 0; background-color: rgba(0, 0, 0, 0); }
+}
+
+/* Tab active/inactive classes */
+.active-tab {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fff;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+.inactive-tab {
+  color: #94a3b8;
+  border: 1px solid transparent;
+}
+
+.inactive-tab:hover {
+  color: #e2e8f0;
+  background: rgba(30, 41, 59, 0.6);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

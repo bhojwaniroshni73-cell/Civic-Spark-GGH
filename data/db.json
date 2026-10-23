@@ -1,0 +1,291 @@
+{
+  "users": [
+    {
+      "id": "user-1",
+      "name": "Roshni Bhojwani",
+      "password": "password123",
+      "phone": "+91 98765 43210",
+      "stealthPin": "9999",
+      "college": "Shri Shankaracharya Institute of Professional Management and Technology",
+      "team": "Civic Spark",
+      "bloodGroup": "B+",
+      "trustedContacts": [
+        {
+          "name": "Mom",
+          "relation": "Mother",
+          "phone": "+91 98765 00001",
+          "notifySms": true
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "relation": "Friend",
+          "phone": "+91 98765 00002",
+          "notifySms": true
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "relation": "Friend",
+          "phone": "+91 98765 00003",
+          "notifySms": true
+        },
+        {
+          "name": "Campus Security Hub",
+          "relation": "Campus Guard",
+          "phone": "+91 94250 99881",
+          "notifySms": true
+        }
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "id": "PANIC-038340",
+      "timestamp": "2026-10-23T02:20:38.340Z",
+      "message": "I need help. My location: https://maps.google.com/?q=21.234615849414247,81.34625484930896",
+      "location": "https://maps.google.com/?q=21.234615849414247,81.34625484930896"
+    },
+    {
+      "id": "PANIC-038334",
+      "timestamp": "2026-10-23T02:20:38.334Z",
+      "message": "I need help. My location: https://maps.google.com/?q=21.234615849414247,81.34625484930896",
+      "location": "https://maps.google.com/?q=21.234615849414247,81.34625484930896"
+    },
+    {
+      "id": "PANIC-038285",
+      "timestamp": "2026-10-23T02:20:38.285Z",
+      "message": "I need help. My location: https://maps.google.com/?q=21.234615849414247,81.34625484930896",
+      "location": "https://maps.google.com/?q=21.234615849414247,81.34625484930896"
+    },
+    {
+      "id": "PANIC-671777",
+      "timestamp": "2026-10-23T02:14:31.777Z",
+      "message": "SHEGUARD EMERGENCY: HARASSMENT. Woman stalked/harassed by unknown individuals. Urgent police patrol interception needed.. Location: https://maps.google.com/?q=21.2188,81.3855",
+      "location": "Sector 6 Bhilai (21.2188° N, 81.3855° E)"
+    },
+    {
+      "id": "PANIC-659492",
+      "timestamp": "2026-10-23T02:14:19.492Z",
+      "message": "SHEGUARD EMERGENCY: HARASSMENT. Woman stalked/harassed by unknown individuals. Urgent police patrol interception needed.. Location: https://maps.google.com/?q=21.2188,81.3855",
+      "location": "Sector 6 Bhilai (21.2188° N, 81.3855° E)"
+    },
+    {
+      "id": "ALERT-572530",
+      "timestamp": "2026-10-23T01:56:12.530Z",
+      "type": "EMERGENCY_LOUD_BUZZER",
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210"
+      },
+      "location": {
+        "address": "Near SSIPMT College / Sector 6, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "status": "DISPATCHED_TO_SERVICES",
+      "notifiedServices": [
+        {
+          "name": "National Emergency 112 (ERSS)",
+          "status": "SENT",
+          "ack": "ACK-112-3032"
+        },
+        {
+          "name": "Women Helpline 1091 (NCW)",
+          "status": "SENT",
+          "ack": "ACK-1091-1457"
+        },
+        {
+          "name": "Women in Distress Helpline 181",
+          "status": "SENT",
+          "ack": "ACK-181-4288"
+        },
+        {
+          "name": "Nearest Police Station: Bhilai Mahila Thana (1.2 km)",
+          "status": "PATROL_CAR_DISPATCHED",
+          "eta": "4 mins"
+        }
+      ],
+      "notifiedContacts": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "status": "DELIVERED",
+          "message": "🚨 SHEGUARD EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College / Sector 6, Bhilai, Chhattisgarh (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "status": "DELIVERED",
+          "message": "🚨 SHEGUARD EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College / Sector 6, Bhilai, Chhattisgarh (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "status": "DELIVERED",
+          "message": "🚨 SHEGUARD EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College / Sector 6, Bhilai, Chhattisgarh (https://maps.google.com/?q=21.2188,81.3855)"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "status": "DELIVERED",
+          "message": "🚨 SHEGUARD EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College / Sector 6, Bhilai, Chhattisgarh (https://maps.google.com/?q=21.2188,81.3855)"
+        }
+      ]
+    },
+    {
+      "id": "ALERT-203407",
+      "timestamp": "2026-10-23T01:33:23.407Z",
+      "type": "LOUD_BUZZER_PANIC",
+      "user": {
+        "name": "Roshni Bhojwani",
+        "phone": "+91 98765 43210",
+        "bloodGroup": "B+"
+      },
+      "location": {
+        "address": "Near SSIPMT College Campus / Sector 6, Bhilai, Chhattisgarh",
+        "lat": 21.2188,
+        "lng": 81.3855
+      },
+      "status": "DISPATCHED_TO_SERVICES",
+      "notifiedServices": [
+        {
+          "name": "National Emergency 112",
+          "status": "SENT",
+          "ack": "ACK-112-IN-3634"
+        },
+        {
+          "name": "Women Helpline 1091",
+          "status": "SENT",
+          "ack": "ACK-1091-6575"
+        },
+        {
+          "name": "Women in Distress 181",
+          "status": "SENT",
+          "ack": "ACK-181-2373"
+        },
+        {
+          "name": "Nearest Police Station: Bhilai Mahila Thana (1.2 km)",
+          "status": "DISPATCHED_PATROL_CAR",
+          "unit": "PCR-Vanguard-04"
+        }
+      ],
+      "notifiedContacts": [
+        {
+          "name": "Mom",
+          "phone": "+91 98765 00001",
+          "smsStatus": "DELIVERED",
+          "message": " EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College Campus / Sector 6, Bhilai, Chhattisgarh. SOS coordinates: https://maps.google.com/?q=21.2188,81.3855"
+        },
+        {
+          "name": "Sakshi (Civic Spark)",
+          "phone": "+91 98765 00002",
+          "smsStatus": "DELIVERED",
+          "message": " EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College Campus / Sector 6, Bhilai, Chhattisgarh. SOS coordinates: https://maps.google.com/?q=21.2188,81.3855"
+        },
+        {
+          "name": "Archita (Civic Spark)",
+          "phone": "+91 98765 00003",
+          "smsStatus": "DELIVERED",
+          "message": " EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College Campus / Sector 6, Bhilai, Chhattisgarh. SOS coordinates: https://maps.google.com/?q=21.2188,81.3855"
+        },
+        {
+          "name": "Campus Security Hub",
+          "phone": "+91 94250 99881",
+          "smsStatus": "DELIVERED",
+          "message": " EMERGENCY ALERT from Roshni Bhojwani! Location: Near SSIPMT College Campus / Sector 6, Bhilai, Chhattisgarh. SOS coordinates: https://maps.google.com/?q=21.2188,81.3855"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-seed-1",
+      "timestamp": "2026-10-23T06:45:10.000Z",
+      "type": "Harassment Incident",
+      "description": "Black SUV following me near Sector 6 Market, repeated honking and slow stalking.",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "verified": true,
+      "location": "Sector 6 Market Road, Bhilai (21.2188° N, 81.3855° E)"
+    }
+  ],
+  "mentalHealthLogs": [
+    {
+      "id": "mh-1792719405630",
+      "date": "2026-10-23",
+      "timestamp": "2026-10-23T01:36:45.630Z",
+      "mood": "Anxious / On Edge",
+      "score": 4,
+      "note": "Felt like someone was following behind near library",
+      "aiFeedback": "I hear you, and your feelings are completely valid. Take a slow, deep breath in for 4 seconds... hold for 4... and breathe out for 6. You are protected and strong."
+    },
+    {
+      "id": "mh-seed-1",
+      "date": "2026-10-22",
+      "mood": "Anxious",
+      "score": 4,
+      "note": "Felt uneasy walking back from library late evening, used SheGuard companion to stay on call.",
+      "aiFeedback": "I am right here with you, Roshni. You did the right thing staying alert. Remember your 5-4-3-2-1 grounding exercise."
+    }
+  ],
+  "nearbyServices": [
+    {
+      "name": "Women Police Station (Mahila Thana)",
+      "type": "Police",
+      "distance": "1.2 km",
+      "phone": "0788-2221091",
+      "address": "Civil Lines, Durg-Bhilai",
+      "lat": 21.2195,
+      "lng": 81.3872,
+      "eta": "4 mins"
+    },
+    {
+      "name": "National Emergency Response Support System (ERSS)",
+      "type": "Emergency",
+      "distance": "Direct Dispatch",
+      "phone": "112",
+      "address": "State Emergency Hub",
+      "lat": 21.216,
+      "lng": 81.383,
+      "eta": "Immediate Broadcast"
+    },
+    {
+      "name": "Bhilai Sector 6 Police Station",
+      "type": "Police",
+      "distance": "1.8 km",
+      "phone": "0788-2322300",
+      "address": "Sector 6 Central Ave, Bhilai",
+      "lat": 21.215,
+      "lng": 81.379,
+      "eta": "6 mins"
+    },
+    {
+      "name": "Women Helpline (National Commission for Women)",
+      "type": "Helpline",
+      "distance": "Toll-Free 24x7",
+      "phone": "1091",
+      "address": "Centralized Women Helpline",
+      "lat": 21.217,
+      "lng": 81.381,
+      "eta": "Instant Connect"
+    },
+    {
+      "name": "Sakhi One Stop Centre (OSC)",
+      "type": "Shelter & Legal Aid",
+      "distance": "3.1 km",
+      "phone": "0788-2210181",
+      "address": "District Hospital Campus, Durg",
+      "lat": 21.198,
+      "lng": 81.282,
+      "eta": "10 mins"
+    },
+    {
+      "name": "JLNH & Research Centre (Bhilai Steel Plant Hospital)",
+      "type": "Hospital",
+      "distance": "2.4 km",
+      "phone": "0788-2895555",
+      "address": "Sector 9, Bhilai",
+      "lat": 21.205,
+      "lng": 81.392,
+      "eta": "7 mins"
+    }
+  ]
+}
